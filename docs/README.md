@@ -6,7 +6,7 @@ Heroku link
 
 ## Minimum Viable Product
 
-Instapups/Foodstagram/Instafood is a web application inspired by Instagram for people to post photos and check out friends and other people's photos. It is built with
+InstaPups is a web application inspired by Instagram for people to post photos of their puppies and check out friends and other people's photos. It is built with
 Ruby on Rails and React/Redux and will contain the following features:
 
 - [ ] Hosting on Heroku
