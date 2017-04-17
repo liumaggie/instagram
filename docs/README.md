@@ -11,10 +11,10 @@ Ruby on Rails and React/Redux and will contain the following features:
 
 - [ ] Hosting on Heroku
 - [ ] Creating a new account, login, demo login
-- [ ] User profile (image posts, followers, following)
-- [ ] Photo feed
+- [ ] User profile and image posts
 - [ ] Image likes
 - [ ] Image comments
+- [ ] Photo feed and follows
 - [ ] Infinite scroll
 - [ ] Production README [sample]()
 
