@@ -44,11 +44,11 @@ Ruby on Rails and React/Redux and will contain the following features:
 
 **Objective:** Comments can be created and destroyed with all comments shown on each image.
 
-### Phase 5: Followers/Following (1 day)
+### Phase 5: Followers/Following (1/2 day)
 
 **Objective:** Users can follow other users and show followers and following users' count on user profile.
 
-### Phase 6: Photo Feed (1 day)
+### Phase 6: Photo Feed and Infinite Scroll (1 day)
 
 **Objective:** Display following users' photos with infinite scroll on the home page.
 
