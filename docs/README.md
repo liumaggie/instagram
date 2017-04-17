@@ -34,7 +34,7 @@ Ruby on Rails and React/Redux and will contain the following features:
 
 ### Phase 2: Images Model, API, and components (2 days)
 
-**Objective:** Images can be created and destroyed through the API. Display images on the home page.
+**Objective:** Images can be created and destroyed through the API. Display images on the home page/user profile.
 
 ### Phase 3: Likes (1 day)
 
@@ -48,7 +48,7 @@ Ruby on Rails and React/Redux and will contain the following features:
 
 **Objective:** Users can follow other users and show followers and following users' count on user profile.
 
-### Phase 6: Photo Feed (1 day1)
+### Phase 6: Photo Feed (1 day)
 
 **Objective:** Display following users' photos with infinite scroll on the home page.
 
