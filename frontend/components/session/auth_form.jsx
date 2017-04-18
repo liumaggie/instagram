@@ -6,16 +6,21 @@ class AuthForm extends React.Component {
     super(props);
     this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.redirect = this.redirect.bind(this);
   }
 
   handleInput(property) {
     return (e) => this.setState({ [property]: e.currentTarget.value });
   }
 
+  redirect() {
+    this.props.router.push('/');
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
-    this.props.processForm(user).then(() => this.props.router.push('/'));
+    this.props.processForm(user).then(() => this.redirect());
   }
 
   render() {
