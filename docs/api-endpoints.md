@@ -10,7 +10,6 @@
 * `POST /api/users/`
   * add user by username
 * `PATCH /api/users/:id`
-* `EDIT /api/users/:id/edit`
 * `GET /api/users/:id/images`
   * index of all images for a user
 * `POST /api/users/:id/images`
@@ -27,7 +26,6 @@
 ### Images
 * `GET /api/images`
 * `GET /api/images/:id`
-* `EDIT /api/images/:id/edit`
 * `PATCH /api/images/:id`
 * `DELETE /api/images/:id`
 * `GET /api/images/:id/likes`
