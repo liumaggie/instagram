@@ -20,6 +20,7 @@ class Api::SessionsController < ApplicationController
     if @user
       log_out
       render "api/users/show"
+      # render {}
     else
       render( json: ['Please login or signup'], status: 404)
     end
