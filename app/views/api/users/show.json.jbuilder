@@ -1,1 +1,2 @@
-json.extract! @user, :id, :username, :prof_pic_path, :description 
+json.extract! @user, :id, :username
+json.partial! "userinfo", user: @user
