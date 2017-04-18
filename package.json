@@ -12,6 +12,10 @@
     "postinstall": "webpack",
     "webpack": "webpack --w"
   },
+  "engines": {
+    "node": "6.7.0",
+    "npm": "3.10.7"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/liumaggie/instagram.git"

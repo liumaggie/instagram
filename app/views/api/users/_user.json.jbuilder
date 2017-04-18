@@ -1,3 +1,5 @@
+json.extract! user, :id, :username
+
 if user.description.nil?
   json.description nil
 else

@@ -6,12 +6,12 @@ class Api::SessionsController < ApplicationController
       params[:user][:password]
     )
 
-    if @user.save
-      log_in(@user)
-      render "api/users/show"
-    else
+    if @user.nil?
       render( json: ["The username you entered doesn't belong to an account.
         Please check your username and try again."], status: 401)
+    else
+      log_in(@user)
+      render "api/users/show"
     end
   end
 
