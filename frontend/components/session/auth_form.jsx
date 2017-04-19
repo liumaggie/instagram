@@ -1,5 +1,6 @@
 import React from 'react';
 import { merge } from 'lodash';
+import { Link } from 'react-router';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -7,6 +8,11 @@ class AuthForm extends React.Component {
     this.state = { username: '', password: '' };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.redirect = this.redirect.bind(this);
+    this.checkIfLogIn = this.checkIfLogIn.bind(this);
+  }
+
+  componentDidMount() {
+   this.props.clearErrors();
   }
 
   handleInput(property) {
@@ -20,12 +26,18 @@ class AuthForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
-    this.props.processForm(user).then(() => this.redirect(),
-                                      () => this.props.clearErrors());
+    this.props.processForm(user).then(() => this.redirect(), () => this.setState({username: '', password: ''}));
+  }
+
+  checkIfLogIn() {
+    return this.props.formType === 'login';
   }
 
   render() {
-    let formType = this.props.formType === 'login' ? 'Log In' : 'Sign Up';
+    let formType = this.checkIfLogIn() ? 'Log In' : 'Sign Up';
+    let alternateText = this.checkIfLogIn() ? `Don't have an account?` : `Have an account?`;
+    let alternateLink = this.checkIfLogIn() ? 'Sign Up' : 'Log In';
+    let alternatePath = this.checkIfLogIn() ? '/sign-up' : '/log-in';
     return(
       <div>
 
@@ -51,6 +63,11 @@ class AuthForm extends React.Component {
             { this.props.errors.map((error) => error) }
           </span>
         </form>
+
+        <section>
+          <p>{alternateText}</p>
+          <Link to={alternatePath}>{alternateLink}</Link>
+        </section>
       </div>
     );
   }
