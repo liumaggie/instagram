@@ -12,7 +12,7 @@ class AuthForm extends React.Component {
   }
 
   componentDidMount() {
-   this.props.clearErrors();
+    this.props.clearErrors();
   }
 
   handleInput(property) {
@@ -59,14 +59,15 @@ class AuthForm extends React.Component {
 
           <input type='submit' value={formType} />
 
-          <span>
+          <ul>
             { this.props.errors.map((error) => error) }
-          </span>
+          </ul>
+
         </form>
 
         <section>
           <p>{alternateText}</p>
-          <Link to={alternatePath}>{alternateLink}</Link>
+          <Link to={alternatePath} onClick={ this.props.clearErrors }>{alternateLink}</Link>
         </section>
       </div>
     );
