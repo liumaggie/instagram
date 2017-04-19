@@ -55,7 +55,7 @@ class AuthForm extends React.Component {
     return(
       <div className='auth-full-page group'>
 
-          <div className='phone-img col col-1-4'>
+          <div className='phone-img'>
             <img src={ window.images.authPhoto } />
           </div>
 

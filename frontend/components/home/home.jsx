@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import NavBar from '../navbar/navbar'
 
 class Home extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Home extends React.Component {
   render() {
     if (this.props.currentUser) {
       return(
-        <button type='submit' onClick={ this.handleClick }>Log Out</button>
+        <NavBar logout={ this.props.logout } />
       );
     } else {
       return(<div></div>);
