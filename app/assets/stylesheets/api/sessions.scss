@@ -1,3 +1,69 @@
 // Place all the styles related to the Api::Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.auth-full-page {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  width: 100%;
+}
+
+.auth-container, .switch-auth {
+  border: 1px solid $lightest-gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: white;
+}
+
+.auth-container {
+  margin-bottom: 10px;
+}
+
+.username, .password {
+  margin: 3px;
+  border: 1px solid $lightest-gray;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-container {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input {
+  width: 500px;
+  height: auto;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+button, input[type='submit'] {
+  background-color: $blue;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  padding: 3px 40px;
+  transition: background-color 0.3s;
+}
+
+.errors {
+  color: $red;
+}
+
+.link {
+  color: $blue;
+}

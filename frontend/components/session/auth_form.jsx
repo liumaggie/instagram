@@ -12,8 +12,10 @@ class AuthForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
-  componentDidMount() {
-    this.props.clearErrors();
+  componentWillReceiveProps(newProps) {
+    if (this.props.formType !== newProps.formType ) {
+      this.props.clearErrors();
+    }
   }
 
   handleInput(property) {
@@ -43,50 +45,64 @@ class AuthForm extends React.Component {
   render() {
     let formType = this.checkIfLogIn() ? 'Log In' : 'Sign Up';
     let alternateText = this.checkIfLogIn() ? `Don't have an account?` : `Have an account?`;
-    let alternateLink = this.checkIfLogIn() ? 'Sign Up' : 'Log In';
+    let alternateLink = this.checkIfLogIn() ? ' Sign Up' : ' Log In';
     let alternatePath = this.checkIfLogIn() ? '/sign-up' : '/log-in';
-
+    let description = this.checkIfLogIn() ? '' : 'Sign up to see photos of puppies from your friends!';
     return(
-      <div className='auth-full-page'>
-        <div className='phone-img'>
-          <img src={'/assets/pixel_bg.jpg'} />
-        </div>
+      <div className='auth-full-page group'>
 
-        <div className='auth-form'>
-          <button onClick={ this.handleDemo }>Demo Login</button>
+          <div className='phone-img col col-1-4'>
+            <img src={'/assets/pixel_bg.jpg'} />
+          </div>
 
-          <form onSubmit={ this.handleSubmit }>
-            <label>Username
-              <input
-                type='text'
-                onChange={ this.handleInput('username') }
-                value={ this.state.username }
-                />
-            </label>
+          <section className='right-container'>
 
-            <label>Password
-              <input
-                type='password'
-                onChange={ this.handleInput('password') }
-                value={ this.state.password } />
-            </label>
+            <div className='auth-container col col-1-5'>
+              <h1>Instapups</h1>
+              <h3>{ description }</h3>
+              <button onClick={ this.handleDemo }>Demo Login</button>
 
-            <input type='submit' value={formType} />
+              <form className='auth-form' onSubmit={ this.handleSubmit }>
 
-            <ul>
-              { this.props.errors.map((error) => <li key={error}>{ error }</li>) }
-            </ul>
+                <div className='username'>
+                  <input
+                    type='text'
+                    placeholder='Username'
+                    onChange={ this.handleInput('username') }
+                    value={ this.state.username }
+                    />
 
-          </form>
-        </div>
+                </div>
+
+                <div className='password'>
+                  <input
+                    type='password'
+                    placeholder='Password'
+                    onChange={ this.handleInput('password') }
+                    value={ this.state.password } />
+                </div>
+
+                <div>
+                  <input type='submit' value={formType} />
+                </div>
+
+                <div className='errors'>
+                  <ul>
+                    { this.props.errors.map((error) => <li key={error}>{ error }</li>) }
+                  </ul>
+                </div>
+
+              </form>
+            </div>
 
 
-        <div className='switch-auth'>
-          <p>{alternateText}</p>
-          <Link
-            to={alternatePath}
-            onClick={ this.props.clearErrors }>{ alternateLink }</Link>
-        </div>
+            <div className='switch-auth col col-1-5'>
+              <p>{alternateText}
+                <Link to={alternatePath} className='link'>{ alternateLink }</Link>
+              </p>
+            </div>
+
+          </section>
       </div>
     );
   }
