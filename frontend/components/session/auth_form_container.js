@@ -1,5 +1,5 @@
 import React from 'react';
-import { login, signup } from '../../actions/session_actions';
+import { login, signup, clearErrors } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 import AuthForm from './auth_form';
 
@@ -15,6 +15,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   let formType = processForm === login ? 'login' : 'signup';
   return {
     processForm: (user) => dispatch(processForm(user)),
+    clearErrors: () => dispatch(clearErrors()),
     formType
   };
 };
