@@ -19,7 +19,7 @@ const Root = ({ store }) => {
       replace('/');
     }
   };
-  
+
   return(
     <Provider store={store}>
       <Router history={hashHistory}>

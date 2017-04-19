@@ -9,6 +9,7 @@ class AuthForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.redirect = this.redirect.bind(this);
     this.checkIfLogIn = this.checkIfLogIn.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +34,11 @@ class AuthForm extends React.Component {
     return this.props.formType === 'login';
   }
 
+  handleDemo() {
+    const demoUser = { username: 'testing', password: 'password' };
+    this.props.login(demoUser).then(() => this.redirect());
+  }
+
   render() {
     let formType = this.checkIfLogIn() ? 'Log In' : 'Sign Up';
     let alternateText = this.checkIfLogIn() ? `Don't have an account?` : `Have an account?`;
@@ -41,6 +47,7 @@ class AuthForm extends React.Component {
 
     return(
       <div>
+        <button onClick={ this.handleDemo }>Demo Login</button>
 
         <form onSubmit={ this.handleSubmit }>
           <label>Username
@@ -60,6 +67,9 @@ class AuthForm extends React.Component {
 
           <input type='submit' value={formType} />
 
+          <ul>
+            { this.props.errors.map((error, idx) => <li key={idx}>{ error }</li>) }
+          </ul>
 
         </form>
 
@@ -73,6 +83,3 @@ class AuthForm extends React.Component {
 }
 
 export default AuthForm;
-// <ul>
-//   { this.props.errors.map((error) => error) }
-// </ul>

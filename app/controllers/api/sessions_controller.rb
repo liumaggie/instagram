@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
     )
 
     if @user.nil?
-      render( json: ["The username you entered doesn't belong to an account. Please check your username and try again."], status: 401)
+      render( json: ["Invalid username and password combination"], status: 401)
     else
       log_in(@user)
       render "api/users/show"
