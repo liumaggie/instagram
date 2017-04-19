@@ -56,7 +56,7 @@ class AuthForm extends React.Component {
       <div className='auth-full-page group'>
 
           <div className='phone-img col col-1-4'>
-            <img src={'/assets/pixel_bg.jpg'} />
+            <img src={ window.images.authPhoto } />
           </div>
 
           <section className='right-container'>
