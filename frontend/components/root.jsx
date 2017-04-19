@@ -7,15 +7,15 @@ import HomeContainer from './home/home_container';
 
 const _redirectIfNotLoggedIn = (nextState, replace) => {
   if (!store.getState().session.currentUser) {
-    replace('/sign-up')
+    replace('/sign-up');
   }
-}
+};
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   if (store.getState().session.currentUser) {
-    replace('/')
+    replace('/');
   }
-}
+};
 
 const Root = ({ store }) => {
   return(
@@ -26,7 +26,7 @@ const Root = ({ store }) => {
           <Route path='/sign-up' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
       </Router>
     </Provider>
-  )
+  );
 };
 
 export default Root;
