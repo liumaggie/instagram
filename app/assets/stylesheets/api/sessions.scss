@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   font-size: 14px;
-  width: 100%;
+  color: $gray;
 }
 
 .auth-container, .switch-auth {
@@ -14,25 +14,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
   padding: 40px;
   background-color: white;
 }
 
 .auth-container {
   margin-bottom: 10px;
-}
-
-.username, .password {
-  margin: 3px;
-  border: 1px solid $lightest-gray;
-  border-radius: 5px;
-  padding: 5px;
+  justify-content: space-between;
 }
 
 .auth-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .right-container {
@@ -40,15 +36,35 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.input {
-  width: 500px;
-  height: auto;
+  width: 350px;
 }
 
 h1 {
   font-size: 36px;
+  color: black;
+}
+
+h3 {
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+}
+
+input {
+  box-sizing: border-box;
+  margin: 3px;
+  border: 1px solid $lightest-gray;
+  border-radius: 5px;
+  padding: 7px;
+  width: 100%;
+}
+
+input:focus {
+  border-color: $gray;
+}
+
+::-webkit-input-placeholder {
+  color: $gray;
 }
 
 button, input[type='submit'] {
@@ -56,12 +72,14 @@ button, input[type='submit'] {
   border-radius: 5px;
   color: white;
   font-weight: bold;
-  padding: 3px 40px;
-  transition: background-color 0.3s;
+  padding: 5px;
+  width: 100%;
+  text-align: center;
 }
 
 .errors {
   color: $red;
+  text-align: center;
 }
 
 .link {

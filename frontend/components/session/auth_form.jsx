@@ -57,34 +57,27 @@ class AuthForm extends React.Component {
 
           <section className='right-container'>
 
-            <div className='auth-container col col-1-5'>
+            <div className='auth-container'>
               <h1>Instapups</h1>
               <h3>{ description }</h3>
               <button onClick={ this.handleDemo }>Demo Login</button>
-
+              <p>OR</p>
               <form className='auth-form' onSubmit={ this.handleSubmit }>
 
-                <div className='username'>
-                  <input
-                    type='text'
-                    placeholder='Username'
-                    onChange={ this.handleInput('username') }
-                    value={ this.state.username }
-                    />
+                <input
+                  type='text'
+                  placeholder='Username'
+                  onChange={ this.handleInput('username') }
+                  value={ this.state.username }
+                  />
 
-                </div>
+                <input
+                  type='password'
+                  placeholder='Password'
+                  onChange={ this.handleInput('password') }
+                  value={ this.state.password } />
 
-                <div className='password'>
-                  <input
-                    type='password'
-                    placeholder='Password'
-                    onChange={ this.handleInput('password') }
-                    value={ this.state.password } />
-                </div>
-
-                <div>
-                  <input type='submit' value={formType} />
-                </div>
+                <input type='submit' value={formType} />
 
                 <div className='errors'>
                   <ul>
@@ -96,7 +89,7 @@ class AuthForm extends React.Component {
             </div>
 
 
-            <div className='switch-auth col col-1-5'>
+            <div className='switch-auth'>
               <p>{alternateText}
                 <Link to={alternatePath} className='link'>{ alternateLink }</Link>
               </p>
