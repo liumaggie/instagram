@@ -27,7 +27,8 @@ class AuthForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = merge({}, this.state);
-    this.props.processForm(user).then(() => this.redirect(), () => this.setState({username: '', password: ''}));
+    this.props.processForm(user).then(() => this.redirect(),
+                                      () => this.setState({username: '', password: ''}));
   }
 
   checkIfLogIn() {
@@ -46,37 +47,46 @@ class AuthForm extends React.Component {
     let alternatePath = this.checkIfLogIn() ? '/sign-up' : '/log-in';
 
     return(
-      <div>
-        <button onClick={ this.handleDemo }>Demo Login</button>
+      <div className='auth-full-page'>
+        <div className='phone-img'>
+          <img src={'/assets/pixel_bg.jpg'} />
+        </div>
 
-        <form onSubmit={ this.handleSubmit }>
-          <label>Username
-            <input
-              type='text'
-              onChange={ this.handleInput('username') }
-              value={ this.state.username }
-            />
-          </label>
+        <div className='auth-form'>
+          <button onClick={ this.handleDemo }>Demo Login</button>
 
-          <label>Password
-            <input
-              type='password'
-              onChange={ this.handleInput('password') }
-              value={ this.state.password } />
-          </label>
+          <form onSubmit={ this.handleSubmit }>
+            <label>Username
+              <input
+                type='text'
+                onChange={ this.handleInput('username') }
+                value={ this.state.username }
+                />
+            </label>
 
-          <input type='submit' value={formType} />
+            <label>Password
+              <input
+                type='password'
+                onChange={ this.handleInput('password') }
+                value={ this.state.password } />
+            </label>
 
-          <ul>
-            { this.props.errors.map((error, idx) => <li key={idx}>{ error }</li>) }
-          </ul>
+            <input type='submit' value={formType} />
 
-        </form>
+            <ul>
+              { this.props.errors.map((error) => <li key={error}>{ error }</li>) }
+            </ul>
 
-        <section>
+          </form>
+        </div>
+
+
+        <div className='switch-auth'>
           <p>{alternateText}</p>
-          <Link to={alternatePath} onClick={ this.props.clearErrors }>{alternateLink}</Link>
-        </section>
+          <Link
+            to={alternatePath}
+            onClick={ this.props.clearErrors }>{ alternateLink }</Link>
+        </div>
       </div>
     );
   }
