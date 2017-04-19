@@ -5,19 +5,21 @@ import App from './app';
 import AuthFormContainer from './session/auth_form_container';
 import HomeContainer from './home/home_container';
 
-const _redirectIfNotLoggedIn = (nextState, replace) => {
-  if (!store.getState().session.currentUser) {
-    replace('/sign-up');
-  }
-};
-
-const _redirectIfLoggedIn = (nextState, replace) => {
-  if (store.getState().session.currentUser) {
-    replace('/');
-  }
-};
 
 const Root = ({ store }) => {
+
+  const _redirectIfNotLoggedIn = (nextState, replace) => {
+    if (!store.getState().session.currentUser) {
+      replace('/sign-up');
+    }
+  };
+
+  const _redirectIfLoggedIn = (nextState, replace) => {
+    if (store.getState().session.currentUser) {
+      replace('/');
+    }
+  };
+  
   return(
     <Provider store={store}>
       <Router history={hashHistory}>

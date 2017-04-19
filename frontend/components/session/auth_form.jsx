@@ -38,6 +38,7 @@ class AuthForm extends React.Component {
     let alternateText = this.checkIfLogIn() ? `Don't have an account?` : `Have an account?`;
     let alternateLink = this.checkIfLogIn() ? 'Sign Up' : 'Log In';
     let alternatePath = this.checkIfLogIn() ? '/sign-up' : '/log-in';
+  
     return(
       <div>
 
