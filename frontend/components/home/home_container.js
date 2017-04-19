@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import Home from './home';
 
 const mapStateToProps = (state) => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  errors: state.session.errors
 });
 
 const mapDispatchToProps = (dispatch) => ({
