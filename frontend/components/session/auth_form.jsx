@@ -67,9 +67,9 @@ class AuthForm extends React.Component {
               <button onClick={ this.handleDemo }>Demo Login</button>
 
               <div className='or-container'>
-                <hr className='vertical'/>
+                <hr className='horiontal'/>
                 <p>OR</p>
-                <hr className='vertical'/>
+                <hr className='horizontal'/>
               </div>
               <form className='auth-form' onSubmit={ this.handleSubmit }>
 
