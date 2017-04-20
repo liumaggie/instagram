@@ -8,7 +8,7 @@ import HomeContainer from './home/home_container';
 
 const Root = ({ store }) => {
 
-  const _redirectIfNotLoggedIn = (nextState, replace) => {
+  const _ensureLoggedIn = (nextState, replace) => {
     if (!store.getState().session.currentUser) {
       replace('/sign-up');
     }
@@ -23,12 +23,16 @@ const Root = ({ store }) => {
   return(
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path='/' component={ App } onEnter={ _redirectIfNotLoggedIn } />
+        <Route path='/' component={ App }>
+          <IndexRoute component={ HomeContainer } onEnter={ _ensureLoggedIn }/>
           <Route path='/log-in' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
           <Route path='/sign-up' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
+        </Route>
       </Router>
     </Provider>
   );
 };
 
 export default Root;
+
+// <Route path='/users/:id' component={ UserProfileContainer } onEnter={ _ensureLoggedIn }/>

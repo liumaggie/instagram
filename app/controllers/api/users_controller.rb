@@ -23,6 +23,11 @@ class Api::UsersController < ApplicationController
     # changing prof pic path and description
   end
 
+  def show
+    @user = User.find(params[:id])
+    render :show
+  end
+
   private
   def user_params
     params.require(:user).permit(:username, :password, :prof_pic_path, :description)

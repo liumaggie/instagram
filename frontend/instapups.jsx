@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import { signup, login, logout, clearErrors } from './actions/session_actions';
+import { fetchAllImages, fetchImagesForUser, createImage, fetchSingleImage, updateImage, deleteImage } from './util/user_profile_api_util';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let preloadedState;
@@ -16,6 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     preloadedState = {};
   }
+
+  window.fetchAllImages = fetchAllImages;
+  window.fetchImagesForUser = fetchImagesForUser;
+  window.createImage = createImage;
+  window.fetchSingleImage = fetchSingleImage;
+  window.updateImage = updateImage;
+  window.deleteImage = deleteImage;
 
   const store = configureStore(preloadedState);
   const root = document.getElementById('root');

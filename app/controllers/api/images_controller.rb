@@ -1,13 +1,12 @@
 class Api::ImagesController < ApplicationController
 
     def index
-      @images = Image.all
-      # if params[:image][:user_id] == current_user.id
-      #   @images = current_user.images
-      # else
-      #   @images = Image.all
-        # change to current_user.followings images
-      render :index
+      if current_user
+        @images = current_user.images
+        render :index
+      else
+        render( json: ['Please login or signup'], status: 404)
+      end
     end
 
     def create
