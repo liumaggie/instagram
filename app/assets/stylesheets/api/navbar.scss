@@ -1,7 +1,34 @@
-nav {
+.main-nav {
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid $lightest-gray;
+}
+
+.centered-nav {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid $lightest-gray;
-  background-color: white;
+  align-items: center;
+  width: 70%;
   margin: 0 auto;
+}
+
+.logout-btn,
+.home-btn {
+  cursor: pointer;
+}
+
+.left-nav > ul,
+.right-nav > ul {
+  display: flex;
+  align-items: center;
+  color: $dark-gray;
+}
+
+hr.vertical {
+  width: 100px;
+  height: 100%;
+}
+
+.left-nav > ul > li {
+  margin-left: 20px;
 }

@@ -65,7 +65,12 @@ class AuthForm extends React.Component {
               <h1>Instapups</h1>
               <h3>{ description }</h3>
               <button onClick={ this.handleDemo }>Demo Login</button>
-              <p>OR</p>
+
+              <div className='or-container'>
+                <hr className='vertical'/>
+                <p>OR</p>
+                <hr className='vertical'/>
+              </div>
               <form className='auth-form' onSubmit={ this.handleSubmit }>
 
                 <input

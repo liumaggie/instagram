@@ -96,3 +96,14 @@ button, input[type=submit] {
 button:active, input[type=submit] {
   opacity: 5;
 }
+
+hr.vertical {
+  width: 200px;
+  height: 100%;
+  border-left: 1px solid $dark-gray;
+}
+
+div.or-container {
+  display: flex;
+  flex-direction: row;
+}
