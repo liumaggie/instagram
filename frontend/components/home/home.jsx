@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-import NavBar from '../navbar/navbar'
+import NavBar from '../navbar/navbar';
 
 class Home extends React.Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class Home extends React.Component {
       return(
         <div>
           <NavBar logout={ this.props.logout } />
+          <img src={ this.props.currentUser.profile_pic_url } />
         </div>
       );
     } else {

@@ -8,7 +8,7 @@ if !user.nil?
     json.extract! user, :description
   end
 
-  json.prof_pic_path asset_path(user.prof_image.url)
+  json.profile_pic_url asset_path(user.prof_image.url)
 
 else
   json.null!
