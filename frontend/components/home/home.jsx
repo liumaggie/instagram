@@ -11,7 +11,6 @@ class Home extends React.Component {
     if (this.props.currentUser) {
       return(
         <div>
-          <NavBar logout={ this.props.logout } />
         </div>
       );
     } else {

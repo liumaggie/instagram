@@ -5,6 +5,7 @@ import App from './app';
 import AuthFormContainer from './session/auth_form_container';
 import HomeContainer from './home/home_container';
 import UserImagesContainer from './user_profile/user_images_container';
+import UserProfile
 
 
 const Root = ({ store }) => {
