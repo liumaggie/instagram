@@ -7,13 +7,17 @@ import { signup, login, logout, clearErrors } from './actions/session_actions';
 document.addEventListener('DOMContentLoaded', () => {
   let preloadedState;
   if (window.currentUser) {
-    preloadedState = { session: { currentUser: window.currentUser } };
+    preloadedState = {
+      session: {
+        currentUser: window.currentUser,
+        errors: []
+      }
+    };
   } else {
     preloadedState = {};
   }
 
   const store = configureStore(preloadedState);
-  
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store}/>, root);
 });

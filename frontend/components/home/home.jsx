@@ -5,11 +5,6 @@ import NavBar from '../navbar/navbar'
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(e) {
-    this.props.logout().then(() => this.props.router.push('/sign-up'));
   }
 
   render() {

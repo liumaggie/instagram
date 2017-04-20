@@ -1,5 +1,5 @@
 import React from 'react';
-import { logout } from '../../actions/session_actions';
+import { logout, receiveCurrentUser } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 import Home from './home';
 
