@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   has_many :images
 
+  has_attached_file :prof_image, default_url: "default_prof_pic.png"
+  validates_attachment_content_type :prof_image, content_type: /\Aimage\/.*\z/
+
   attr_reader :password
 
   def self.find_by_credentials(username, password)

@@ -8,8 +8,8 @@
 
 User.destroy_all
 Image.destroy_all
-user1 = User.create(username: "testing", password: "password", prof_pic_path: "puppy.jpg")
-user2 = User.create(username: "testing2", password: "password", prof_pic_path: "puppy2.jpg")
+user1 = User.create(username: "testing", password: "password")
+user2 = User.create(username: "testing2", password: "password")
 
-Image.create(img_path: "puppy.jpg", user_id: user1.id)
-Image.create(img_path: "puppy2.jpg", user_id: user2.id)
+# Image.create(img_path: "puppy.jpg", user_id: user1.id)
+# Image.create(img_path: "puppy2.jpg", user_id: user2.id)
