@@ -1,5 +1,5 @@
 json.extract! image, :user_id
-json.img_path asset_path(image.img_path)
+json.img_path asset_path(image.image.url)
 
 if image.caption.nil?
   json.caption nil

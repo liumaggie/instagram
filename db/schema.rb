@@ -10,19 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420175901) do
+ActiveRecord::Schema.define(version: 20170420183523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "images", force: :cascade do |t|
-    t.string   "img_path",   null: false
-    t.integer  "user_id",    null: false
+    t.integer  "user_id",            null: false
     t.text     "caption"
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["img_path"], name: "index_images_on_img_path", unique: true, using: :btree
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["user_id"], name: "index_images_on_user_id", using: :btree
   end
 
@@ -37,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170420175901) do
     t.string   "prof_image_content_type"
     t.integer  "prof_image_file_size"
     t.datetime "prof_image_updated_at"
+    t.string   "profile_pic_url"
     t.index ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end

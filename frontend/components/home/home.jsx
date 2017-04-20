@@ -12,7 +12,6 @@ class Home extends React.Component {
       return(
         <div>
           <NavBar logout={ this.props.logout } />
-          <img src={ this.props.currentUser.profile_pic_url } />
         </div>
       );
     } else {
