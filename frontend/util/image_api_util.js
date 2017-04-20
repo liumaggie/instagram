@@ -7,10 +7,10 @@ export const fetchAllImages = () => {
   );
 };
 
-export const fetchImagesForUser = (user_id) => (
+export const fetchImagesForUser = (userId) => (
   $.ajax({
     method: 'GET',
-    url: `api/users/${user_id}/images`
+    url: `api/users/${userId}/images`
   })
 );
 

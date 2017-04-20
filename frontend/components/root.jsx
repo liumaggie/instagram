@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import AuthFormContainer from './session/auth_form_container';
 import HomeContainer from './home/home_container';
+import UserImagesContainer from './user_profile/user_images_container';
 
 
 const Root = ({ store }) => {
@@ -27,6 +28,7 @@ const Root = ({ store }) => {
           <IndexRoute component={ HomeContainer } onEnter={ _ensureLoggedIn }/>
           <Route path='/log-in' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
           <Route path='/sign-up' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
+          <Route path='/users/:id' component={ UserImagesContainer } onEnter={ _ensureLoggedIn }/>
         </Route>
       </Router>
     </Provider>
@@ -34,5 +36,3 @@ const Root = ({ store }) => {
 };
 
 export default Root;
-
-// <Route path='/users/:id' component={ UserProfileContainer } onEnter={ _ensureLoggedIn }/>

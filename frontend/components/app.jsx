@@ -3,6 +3,7 @@ import HomeContainer from './home/home_container'
 
 const App = ({ children }) => (
   <div>
+    <HomeContainer />
     { children }
   </div>
 );

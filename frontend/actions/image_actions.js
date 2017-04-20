@@ -1,4 +1,4 @@
-import * as UserProfileApiUtil from '../util/user_profile_api_util';
+import * as UserProfileApiUtil from '../util/image_api_util';
 
 export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
 export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
@@ -20,12 +20,12 @@ export const removeImage = (image) => ({
 });
 
 // need for image index container?
-export const fetchAllImages = data => dispatch => (
-  UserProfileApiUtil.fetchAllImages(data).then((images) => dispatch(receiveImages(images)))
+export const fetchAllImages = () => dispatch => (
+  UserProfileApiUtil.fetchAllImages().then((images) => dispatch(receiveImages(images)))
 );
 
-export const fetchImagesForUser = user_id => dispatch => (
-  UserProfileApiUtil.fetchImagesForUser(data).then((images) => dispatch(receiveImages(images)))
+export const fetchImagesForUser = userId => dispatch => (
+  UserProfileApiUtil.fetchImagesForUser(userId).then((images) => dispatch(receiveImages(images)))
 );
 
 export const fetchSingleImage = id => dispatch => (
