@@ -2,3 +2,20 @@ $sans-serif: proxima-nova, arial, helvetica, sans-serif;
 $serif: georgia, "times new roman", times, serif;
 $lobster: 'Lobster Two', cursive;
 $roboto: 'Roboto', sans-serif;
+
+@font-face {
+font-family: 'segoe-ui';
+font-style: normal;
+font-weight: normal;
+src: local('segoe-ui'), url('fonts/segoe-ui.woff') format('woff');
+}
+
+@font-face {
+font-family: 'Billabong';
+font-style: normal;
+font-weight: normal;
+src: local('Billabong'), url('fonts/Billabong.woff') format('woff');
+}
+
+$segoe-ui: 'segoe-ui';
+$billabong: 'Billabong';
