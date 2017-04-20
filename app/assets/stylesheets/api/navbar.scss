@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 65%;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -28,9 +28,12 @@ hr.vertical {
 }
 
 .left-nav > ul > li {
-  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+  padding: 20px 10px;
   cursor: pointer;
   font-size: 36px;
+  height: 40px;
 }
 
 h2 {
