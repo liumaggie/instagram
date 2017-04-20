@@ -28,22 +28,22 @@ class NavBar extends React.Component {
 
               <li><hr className='vertical'/></li>
 
-              <li><h1>Instapups</h1></li>
+              <li><h2>Instapups</h2></li>
             </ul>
           </nav>
 
           <nav className='right-nav'>
             <ul>
               <li>
-                <i className="fa fa-cloud-upload"></i>
+                <i className="btn fa fa-cloud-upload"></i>
               </li>
 
               <li>
-                <i className="fa fa-user-o"></i>
+                <i className="btn fa fa-user-o"></i>
               </li>
 
               <li className='logout-btn' onClick={ this.handleLogout }>
-                <i className="fa fa-sign-out"></i>
+                <i className="btn fa fa-sign-out"></i>
               </li>
 
             </ul>
