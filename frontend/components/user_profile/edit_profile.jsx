@@ -10,10 +10,17 @@ class EditProfile extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.isCurrentUser = this.isCurrentUser.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUser(this.props.currentUser.id);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if ((this.props.user.id !== parseInt(nextProps.params.id)) || (!nextProps.currentUser)) {
+      this.props.router.push('/');
+    }
   }
 
   handleInput(property) {
@@ -26,43 +33,58 @@ class EditProfile extends React.Component {
     this.props.updateUser(user);
   }
 
+  isCurrentUser() {
+    return this.props.currentUser.id === parseInt(this.props.params.id);
+  }
+
+
   render() {
     let currentUser = this.props.currentUser;
-    return(
-      <div className='edit-form'>
-        <img src={ currentUser.profile_pic_url } />
-        <h3>{ currentUser.username }</h3>
-        <form onSubmit={this.handleSubmit}>
 
-          <label>Username
-            <input
-              type='text'
-              value={this.state.username}
-              onChange={this.handleInput('username')}
-              />
-          </label>
+      return(
+        <div className='edit-form'>
+          <h1>Edit Profile</h1>
 
-          <label>Website
-            <input
-              type='text'
-              value={this.state.website}
-              onChange={this.handleInput('website')}
-              />
-          </label>
+          <form onSubmit={this.handleSubmit}>
 
-          <label>Bio
-            <input
-              type='text'
-              value={this.state.bio}
-              onChange={this.handleInput('bio')}
-              />
-          </label>
+            <div className='left-col'>
+              <label><img src={ currentUser.profile_pic_url } /></label>
+              <label htmlFor='username'>Username</label>
+              <label htmlFor='website'>Website</label>
+              <label htmlFor='bio'>Bio</label>
+            </div>
 
-          <input type='submit' value='Submit'/>
-        </form>
+            <div className='right-col'>
+              <h3 className='current-username'>{ currentUser.username }</h3>
+              <input
+                type='text'
+                id='username'
+                value={this.state.username}
+                onChange={this.handleInput('username')}
+                />
 
-      </div>
-    );
+              <input
+                id='website'
+                type='text'
+                value={this.state.website}
+                onChange={this.handleInput('website')}
+                />
+
+              <textarea
+                id='bio'
+                type='text'
+                value={this.state.bio}
+                onChange={this.handleInput('bio')}
+                />
+
+              <input id='user-edit-btn' type='submit' value='Submit'/>
+            </div>
+
+          </form>
+
+        </div>
+
+      );
   }
 }
 

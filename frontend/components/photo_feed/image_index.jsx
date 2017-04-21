@@ -6,6 +6,12 @@ class ImageIndex extends React.Component {
     this.props.fetchAllImages();
   }
 
+  componentWillReceiveProps(newProps) {
+    if (!newProps.currentUser) {
+      this.props.router.push('/log-in');
+    }
+  }
+
   render() {
     return(
       <main className='home-photo-feed'>

@@ -1,0 +1,79 @@
+.edit-form {
+  display: flex;
+  // flex-direction: column;
+  width: 50%;
+  border: 1px solid $border-gray;
+  background-color: white;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.edit-form h1 {
+  border-right: 1px solid $border-gray;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: $roboto;
+  width: 25%;
+}
+
+.edit-form img {
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+}
+
+.pic-username {
+  display: flex;
+}
+
+.edit-form form {
+  display: flex;
+  padding-left: 20px;
+}
+
+.left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.left-col label {
+  margin: 15px;
+}
+
+.right-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 10px;
+}
+
+.current-username {
+  margin-bottom: 15px;
+  font-size: 28px;
+  font-weight: normal;
+}
+
+#username, #website {
+  width: 60%;
+  border: 1px solid $border-gray;
+  border-radius: 3px;
+  margin: 7px 15px;
+  width: 100%;
+}
+
+textarea {
+  padding: 5px;
+  margin: 7px 0px;
+  margin-left: 15px;
+  width: 95%;
+  border: 1px solid $border-gray;
+  border-radius: 3px;
+}
+
+#user-edit-btn {
+  width: 100px;
+  font-size: 14px;
+  margin-left: 10px;
+}

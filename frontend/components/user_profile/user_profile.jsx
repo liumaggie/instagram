@@ -17,7 +17,7 @@ class UserProfile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.params.id != nextProps.params.id) {
+    if (this.props.params.id !== nextProps.params.id) {
       this.props.fetchImagesForUser(this.parseParamsId(nextProps));
     }
   }

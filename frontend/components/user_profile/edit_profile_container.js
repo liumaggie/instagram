@@ -5,7 +5,8 @@ import EditProfile from './edit_profile';
 
 const mapStateToProps = (state) => {
   return({
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    user: state.user
   });
 };
 
