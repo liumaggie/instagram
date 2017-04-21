@@ -8,14 +8,17 @@ class ImageIndex extends React.Component {
 
   render() {
     return(
-      <div>
-        <ul>
+      <main className='home-photo-feed'>
+        <article className='feed-image'>
           {
             this.props.images.map((image) =>
-            <ImageIndexItem key={image.id} image={image}/>)
+            <ImageIndexItem
+              key={image.img_path}
+              image={image}
+              currentUser={this.props.currentUser}/>)
             }
-          </ul>
-        </div>
+          </article>
+        </main>
     );
   }
 }
