@@ -36,6 +36,7 @@ export const createImage = image => dispatch => (
   UserProfileApiUtil.createImage(image).then((image) => dispatch(receiveImage(image)))
 );
 
+
 export const updateImage = image => dispatch => (
   UserProfileApiUtil.updateImage(image).then((image) => dispatch(receiveImage(image)))
 );

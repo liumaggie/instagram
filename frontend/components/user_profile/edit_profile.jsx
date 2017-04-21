@@ -1,4 +1,6 @@
 import React from 'react';
+import Modal from 'react-modal';
+import UploadPhotoModalContainer from '../modals/upload_photo_modal_container';
 
 class EditProfile extends React.Component {
   constructor(props) {
@@ -36,56 +38,78 @@ class EditProfile extends React.Component {
   isCurrentUser() {
     return this.props.currentUser.id === parseInt(this.props.params.id);
   }
-
+  //
+  // openModal() {
+  //   this.props.openUploadPhoto();
+  // }
+  //
+  // afterOpenModal() {
+  //   // references are now sync'd and can be accessed.
+  //   this.subtitle.style.color = '#f00';
+  // }
+  //
+  // closeModal() {
+  //   this.props.closeModal();
+  // }
 
   render() {
     let currentUser = this.props.currentUser;
+    return(
+      <div className='edit-form'>
+        <h1>Edit Profile</h1>
 
-      return(
-        <div className='edit-form'>
-          <h1>Edit Profile</h1>
+        <form onSubmit={this.handleSubmit}>
 
-          <form onSubmit={this.handleSubmit}>
+          <div className='left-col'>
+            <label>
+              <img src={ currentUser.profile_pic_url } />
+            </label>
+            <label htmlFor='username'>Username</label>
+            <label htmlFor='website'>Website</label>
+            <label htmlFor='bio'>Bio</label>
+          </div>
 
-            <div className='left-col'>
-              <label><img src={ currentUser.profile_pic_url } /></label>
-              <label htmlFor='username'>Username</label>
-              <label htmlFor='website'>Website</label>
-              <label htmlFor='bio'>Bio</label>
-            </div>
+          <div className='right-col'>
+            <h3 className='current-username'>{ currentUser.username }</h3>
+            <input
+              type='text'
+              id='username'
+              value={this.state.username}
+              onChange={this.handleInput('username')}
+              />
 
-            <div className='right-col'>
-              <h3 className='current-username'>{ currentUser.username }</h3>
-              <input
-                type='text'
-                id='username'
-                value={this.state.username}
-                onChange={this.handleInput('username')}
-                />
+            <input
+              id='website'
+              type='text'
+              value={this.state.website}
+              onChange={this.handleInput('website')}
+              />
 
-              <input
-                id='website'
-                type='text'
-                value={this.state.website}
-                onChange={this.handleInput('website')}
-                />
+            <textarea
+              id='bio'
+              type='text'
+              value={this.state.bio}
+              onChange={this.handleInput('bio')}
+              />
 
-              <textarea
-                id='bio'
-                type='text'
-                value={this.state.bio}
-                onChange={this.handleInput('bio')}
-                />
+            <input id='user-edit-btn' type='submit' value='Submit'/>
+          </div>
 
-              <input id='user-edit-btn' type='submit' value='Submit'/>
-            </div>
+        </form>
 
-          </form>
-
-        </div>
-
+      </div>
       );
   }
 }
 
 export default EditProfile;
+
+// <Modal
+//   isOpen={this.props.currentModal}
+//   onAfterOpen={this.afterOpenModal}
+//   onRequestClose={this.closeModal}
+//   contentLabel="Modal"
+//   >
+//   <UploadPhotoModalContainer />
+// </Modal>
+// </div>

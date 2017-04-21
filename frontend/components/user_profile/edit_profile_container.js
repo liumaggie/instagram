@@ -1,19 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../../actions/user_actions';
+import { openUploadPhoto, closeModal } from '../../actions/modal_actions';
 import EditProfile from './edit_profile';
 
 const mapStateToProps = (state) => {
   return({
     currentUser: state.session.currentUser,
-    user: state.user
+    user: state.user,
+    currentModal: state.currentModal
   });
 };
 
 const mapDispatchToProps = (dispatch) => {
   return({
     fetchUser: (id) => dispatch(fetchUser(id)),
-    updateUser: (user) => dispatch(updateUser(user))
+    updateUser: (user) => dispatch(updateUser(user)),
+    openUploadPhoto: () => dispatch(openUploadPhoto()),
+    closeModal: () => dispatch(closeModal())
   });
 };
 
