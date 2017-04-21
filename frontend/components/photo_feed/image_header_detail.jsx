@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ImageHeaderDetail = ({ owner, time }) => {
-  debugger
   return(
     <div className='image-header'>
       <ul>

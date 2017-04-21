@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421151408) do
+ActiveRecord::Schema.define(version: 20170421203315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20170421151408) do
     t.string   "prof_image_content_type"
     t.integer  "prof_image_file_size"
     t.datetime "prof_image_updated_at"
-    t.string   "profile_pic_url"
     t.text     "bio"
     t.string   "website"
     t.index ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree

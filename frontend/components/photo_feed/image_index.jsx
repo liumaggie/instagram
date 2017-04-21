@@ -21,8 +21,7 @@ class ImageIndex extends React.Component {
             <ImageIndexItem
               key={image.img_path}
               image={image}
-              currentUser={this.props.currentUser}
-              fetchUser={this.props.fetchUser}/>)
+              currentUser={this.props.currentUser}/>)
             }
           </article>
         </main>

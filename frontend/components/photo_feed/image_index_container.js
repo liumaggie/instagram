@@ -14,8 +14,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    fetchAllImages: () => dispatch(fetchAllImages()),
-    fetchUser: (id) => dispatch(fetchUser(id))
+    fetchAllImages: () => dispatch(fetchAllImages())
   });
 };
 
