@@ -14,11 +14,11 @@ module Instagram
 
     config.paperclip_defaults = {
       :storage => :s3,
-      :s3_region => ENV['AWS_REGION'],
-      :bucket => ENV['AWS_BUCKET'],
       :s3_credentials => {
-        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+        :bucket => ENV["s3_bucket"],
+        :access_key_id => ENV["s3_access_key_id"],
+        :secret_access_key => ENV["s3_secret_access_key"],
+        :s3_region => ENV["s3_region"]
       }
     }
   end
