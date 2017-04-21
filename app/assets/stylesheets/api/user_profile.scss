@@ -6,8 +6,6 @@
 }
 
 .edit-user-btn {
-  // width: 100px;
-  // height: 30px;
   background-color: $light-gray;
   border: 1px solid $border-gray;
   color: black;
@@ -32,6 +30,7 @@ div .user-profile-detail {
   font-family: $sans-serif;
   font-size: 36px;
   font-weight: normal;
+  margin-right: 18px;
 }
 
 .description {
