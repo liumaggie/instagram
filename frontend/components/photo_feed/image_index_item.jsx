@@ -1,23 +1,30 @@
 import React from 'react';
 import ImageHeaderDetail from './image_header_detail';
 
-const ImageIndexItem = ({ image, currentUser }) => {
-  return(
-    <div>
-      <ul className='image-item'>
+class ImageIndexItem extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-        <li><ImageHeaderDetail currentUser={currentUser} time={image.time}/></li>
-        <li><img src={ image.img_path } /></li>
+  render() {
+    return(
+      <div>
+        <ul className='image-item'>
 
-        <ul>
-          <li>Likes</li>
-          <li>{ image.caption }</li>
-          <li>Comments</li>
+          <li><ImageHeaderDetail owner={ this.props.image.owner } time={this.props.image.time}/></li>
+          <li><img src={ this.props.image.img_path } /></li>
 
+          <ul>
+            <li>Likes</li>
+            <li>{ this.props.image.caption }</li>
+            <li>Comments</li>
+
+          </ul>
         </ul>
-      </ul>
-    </div>
-  );
-};
+      </div>
+    );
+  }
+}
+
 
 export default ImageIndexItem;

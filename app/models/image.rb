@@ -1,8 +1,12 @@
 class Image < ApplicationRecord
 
-  validates :image, :user, presence: true
+  validates :image, :owner, presence: true
 
-  belongs_to :user
+  belongs_to :owner,
+    class_name: :User,
+    primary_key: :id,
+    foreign_key: :user_id
+
 
   has_attached_file :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/

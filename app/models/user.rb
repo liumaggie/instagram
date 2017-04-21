@@ -5,7 +5,11 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
   after_initialize :ensure_session_token
 
-  has_many :images
+  has_many :images,
+    class_name: :Image,
+    primary_key: :id,
+    foreign_key: :user_id
+
 
   has_attached_file :prof_image, default_url: "default_prof_pic.png"
   validates_attachment_content_type :prof_image, content_type: /\Aimage\/.*\z/
