@@ -27,9 +27,9 @@ class NavBar extends React.Component {
         <header className='main-nav'>
 
           <div className='centered-nav'>
-            <nav className='left-nav'>
+            <nav className='left-nav' onClick={ this.redirectToHomePage }>
               <ul>
-                <li className='home-btn' onClick={ this.redirectToHomePage }>
+                <li className='home-btn'>
                   <i className="fa fa-instagram"></i>
                 </li>
 

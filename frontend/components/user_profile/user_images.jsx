@@ -9,7 +9,7 @@ const UserImages = ({ images }) => {
           images.map(
             (image) =>
             <UserImageItem
-              key={image.id}
+              key={image.img_path}
               image={image} />
           )
         }
