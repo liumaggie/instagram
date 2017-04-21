@@ -25,7 +25,7 @@ class UserProfile extends React.Component {
   render() {
     return(
       <div className='user-profile'>
-        <UserProfileDetail user={ this.props.user }/>
+        <UserProfileDetail user={ this.props.user } currentUser={ this.props.currentUser }/>
         <UserImages images={ this.props.images }/>
       </div>
     );

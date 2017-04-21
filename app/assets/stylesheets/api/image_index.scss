@@ -1,0 +1,41 @@
+.home-photo-feed {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 720px;
+  margin: 0 auto;
+}
+
+.feed-image {
+  font-size: 14px;
+  margin: 60px;
+}
+
+.image-item {
+  border: 1px solid $lightest-gray;
+  margin-bottom: 70px;
+}
+
+.image-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+.image-header ul {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.image-header ul, span {
+  padding: 18px;
+}
+
+.image-header img {
+  height: 30px;
+  width: 30px;
+  border-radius: 20px;
+  margin-right: 10px;
+}

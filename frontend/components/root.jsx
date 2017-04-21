@@ -3,10 +3,9 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import AuthFormContainer from './session/auth_form_container';
-import HomeContainer from './home/home_container';
-import UserImagesContainer from './user_profile/user_images_container';
 import UserProfileContainer from './user_profile/user_profile_container'
 import ImageIndexContainer from './photo_feed/image_index_container';
+import EditProfileContainer from './user_profile/edit_profile_container';
 
 const Root = ({ store }) => {
 
@@ -29,7 +28,9 @@ const Root = ({ store }) => {
           <IndexRoute component={ ImageIndexContainer } onEnter={ _ensureLoggedIn }/>
           <Route path='/log-in' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
           <Route path='/sign-up' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
-          <Route path='/users/:id' component={ UserProfileContainer } onEnter={ _ensureLoggedIn }/>
+          <Route path='/users/:id' component={ UserProfileContainer } onEnter={ _ensureLoggedIn }>
+            <Route path='/edit' component={ EditProfileContainer } onEnter={ _ensureLoggedIn } />
+          </Route>
         </Route>
       </Router>
     </Provider>
