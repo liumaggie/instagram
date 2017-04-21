@@ -2,7 +2,7 @@ class Api::ImagesController < ApplicationController
 
     def index
       if current_user
-        @images = current_user.images
+        @images = User.find(params[:user_id]).images
         render :index
       else
         render( json: ['Please login or signup'], status: 404)

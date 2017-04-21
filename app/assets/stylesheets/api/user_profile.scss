@@ -1,0 +1,71 @@
+.user-profile-detail img {
+  width: 150px;
+  height: 150px;
+  border-radius: 150px;
+  margin-right: 80px;
+}
+
+.edit-user-btn {
+  // width: 100px;
+  // height: 30px;
+  background-color: $light-gray;
+  border: 1px solid $border-gray;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 30px;
+}
+
+div .user-profile-detail {
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+  padding: 50px;
+  margin: 10px;
+}
+
+.username-line {
+  display: flex;
+}
+
+.username-line h2 {
+  font-family: $sans-serif;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+.description {
+  padding: 20px 10px 10px 0px;
+  font-weight: bold;
+}
+
+.user-profile {
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+}
+
+.post-follows {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px 10px 0px;
+}
+
+.user-images ul {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.user-images img {
+  float: left;
+  width: 290px;
+  height: 290px;
+  margin: 20px;
+}
+
+.user-images img:hover {
+  opacity: 0.80;
+  cursor: pointer;
+}

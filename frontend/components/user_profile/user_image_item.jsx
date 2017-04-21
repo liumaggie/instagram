@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserImageItem = ({ image, deleteImage, updateImage }) => {
+const UserImageItem = ({ image }) => {
   return(
     <li>
       <img src={ image.img_path } />

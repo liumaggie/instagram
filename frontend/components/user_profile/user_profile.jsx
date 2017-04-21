@@ -3,22 +3,34 @@ import UserProfileDetail from './user_profile_detail';
 import UserImages from './user_images';
 
 class UserProfile extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  parseParamsId(props) {
+    return parseInt(props.params.id);
+  }
+
   componentDidMount() {
-    this.props.fetchImagesForUser(this.props.currentUser.id);
+    this.props.fetchUser(this.parseParamsId(this.props));
+    this.props.fetchImagesForUser(this.parseParamsId(this.props));
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.params.userId != nextProps.params.userId) {
-      this.props.fetchImagesForUser(nextProps.params.userId);
+    if (this.props.params.id != nextProps.params.id) {
+      this.props.fetchImagesForUser(this.parseParamsId(nextProps));
     }
+  }
+
+  render() {
+    return(
+      <div className='user-profile'>
+        <UserProfileDetail user={ this.props.user }/>
+        <UserImages images={ this.props.images }/>
+      </div>
+    );
   }
 }
 
-const UserProfile = () => (
-  <div>
-    <UserProfileDetail user={ this.props.currentUser }/>
-    <UserImages />
-  </div>
-);
 
 export default UserProfile;
