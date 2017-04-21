@@ -28,9 +28,8 @@ const Root = ({ store }) => {
           <IndexRoute component={ ImageIndexContainer } onEnter={ _ensureLoggedIn }/>
           <Route path='/log-in' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
           <Route path='/sign-up' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
-          <Route path='/users/:id' component={ UserProfileContainer } onEnter={ _ensureLoggedIn }>
-            <Route path='/edit' component={ EditProfileContainer } onEnter={ _ensureLoggedIn } />
-          </Route>
+          <Route path='/users/:id' component={ UserProfileContainer } onEnter={ _ensureLoggedIn } />
+          <Route path='/users/:id/edit' component={ EditProfileContainer } onEnter={ _ensureLoggedIn } />
         </Route>
       </Router>
     </Provider>

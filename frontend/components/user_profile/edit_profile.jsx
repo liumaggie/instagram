@@ -5,8 +5,8 @@ class EditProfile extends React.Component {
     super(props);
     this.state = {
       username: this.props.currentUser.username,
-      website: this.props.currentUser.website,
-      bio: this.props.currentUser.bio
+      website: this.props.currentUser.website || '',
+      bio: this.props.currentUser.bio || ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,39 +22,46 @@ class EditProfile extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = Object.assign({}, this.state);
+    let user = Object.assign({}, this.state, { id: this.props.currentUser.id });
     this.props.updateUser(user);
   }
 
   render() {
+    let currentUser = this.props.currentUser;
     return(
-      <form onSubmit={this.handleSubmit}>
+      <div className='edit-form'>
+        <img src={ currentUser.profile_pic_url } />
+        <h3>{ currentUser.username }</h3>
+        <form onSubmit={this.handleSubmit}>
 
-        <label>Username
-          <input
-            type='text'
-            value={this.state.username}
-            onChange={this.handleInput('username')}
-            />
-        </label>
+          <label>Username
+            <input
+              type='text'
+              value={this.state.username}
+              onChange={this.handleInput('username')}
+              />
+          </label>
 
-        <label>Website
-          <input
-            type='text'
-            value={this.state.website}
-            onChange={this.handleInput('username')}
-            />
-        </label>
+          <label>Website
+            <input
+              type='text'
+              value={this.state.website}
+              onChange={this.handleInput('website')}
+              />
+          </label>
 
-        <label>Bio
-          <input
-            type='text'
-            value={this.state.bio}
-            onChange={this.handleInput('username')}
-            />
-        </label>
+          <label>Bio
+            <input
+              type='text'
+              value={this.state.bio}
+              onChange={this.handleInput('bio')}
+              />
+          </label>
 
-      </form>
+          <input type='submit' value='Submit'/>
+        </form>
+
+      </div>
     );
   }
 }
