@@ -14,3 +14,7 @@ export const fetchUser = id => dispatch => (
 export const updateUser = user => dispatch => (
   UserApiUtil.updateUser(user).then((user) => dispatch(receiveUser(user)))
 );
+
+export const updateUserWithForm = (formData, id) => dispatch => (
+  UserApiUtil.updateUserWithForm(formData, id).then((user) => dispatch(receiveUser(user)))
+);

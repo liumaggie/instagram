@@ -1,0 +1,33 @@
+.profile-photo-modal {
+  background: $white;
+  width: 45%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profile-photo-modal ul li {
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-photo-modal ul li:first-child {
+  color: $gray;
+}
+
+.profile-photo-modal ul li:not(:first-child):hover {
+  background-color: $light-gray;
+}
+
+.profile-photo-modal ul li:active {
+  border: 1px solid $blue;
+}
+
+.modal-backdrop {
+  opacity: 0.5 !important;
+}
+
+strong {
+  font-weight: bold;
+}

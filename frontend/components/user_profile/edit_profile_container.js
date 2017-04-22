@@ -15,9 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return({
     fetchUser: (id) => dispatch(fetchUser(id)),
-    updateUser: (user) => dispatch(updateUser(user)),
-    openUploadPhoto: () => dispatch(openUploadPhoto()),
-    closeModal: () => dispatch(closeModal())
+    updateUser: (user) => dispatch(updateUser(user))
   });
 };
 

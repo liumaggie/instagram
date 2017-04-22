@@ -18,11 +18,11 @@ class EditProfile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.props.currentUser.id);
+    this.props.fetchUser(this.props.params.id);
   }
 
   componentWillReceiveProps(nextProps) {
-    if ((this.props.user.id !== parseInt(nextProps.params.id)) || (!nextProps.currentUser)) {
+    if ((this.props.currentUser.id !== parseInt(nextProps.params.id)) || (!nextProps.currentUser)) {
       this.props.router.push('/');
     }
   }
@@ -43,7 +43,6 @@ class EditProfile extends React.Component {
 
   render() {
     let currentUser = this.props.currentUser;
-
     return(
       <div className='edit-form'>
         <h1>Edit Profile</h1>
@@ -51,7 +50,7 @@ class EditProfile extends React.Component {
         <form onSubmit={this.handleSubmit}>
 
           <div className='left-col'>
-            <label>
+            <label className='profile-pic-modal'>
               <ProfilePhotoModalContainer />
             </label>
             <label htmlFor='username'>Username</label>
