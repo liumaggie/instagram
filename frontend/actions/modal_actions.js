@@ -3,7 +3,7 @@ export const CLOSE_MODAL = 'CLOSE_MODAL';
 
 export const openUploadPhoto = () => ({
   type: OPEN_UPLOAD_PHOTO,
-  currentModal: 'upload_photo'
+  currentModal: 'OPEN_UPLOAD_PHOTO'
 });
 
 export const closeModal = () => ({

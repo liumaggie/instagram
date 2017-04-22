@@ -1,6 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
-import UploadPhotoModalContainer from '../modals/upload_photo_modal_container';
+import ProfilePhotoModalContainer from '../modals/profile_photo_modal_container';
+import ReactDOM from 'react-dom';
+
 
 class EditProfile extends React.Component {
   constructor(props) {
@@ -38,22 +40,10 @@ class EditProfile extends React.Component {
   isCurrentUser() {
     return this.props.currentUser.id === parseInt(this.props.params.id);
   }
-  //
-  // openModal() {
-  //   this.props.openUploadPhoto();
-  // }
-  //
-  // afterOpenModal() {
-  //   // references are now sync'd and can be accessed.
-  //   this.subtitle.style.color = '#f00';
-  // }
-  //
-  // closeModal() {
-  //   this.props.closeModal();
-  // }
 
   render() {
     let currentUser = this.props.currentUser;
+
     return(
       <div className='edit-form'>
         <h1>Edit Profile</h1>
@@ -62,7 +52,7 @@ class EditProfile extends React.Component {
 
           <div className='left-col'>
             <label>
-              <img src={ currentUser.profile_pic_url } />
+              <ProfilePhotoModalContainer />
             </label>
             <label htmlFor='username'>Username</label>
             <label htmlFor='website'>Website</label>
@@ -103,13 +93,3 @@ class EditProfile extends React.Component {
 }
 
 export default EditProfile;
-
-// <Modal
-//   isOpen={this.props.currentModal}
-//   onAfterOpen={this.afterOpenModal}
-//   onRequestClose={this.closeModal}
-//   contentLabel="Modal"
-//   >
-//   <UploadPhotoModalContainer />
-// </Modal>
-// </div>
