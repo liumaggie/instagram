@@ -1,6 +1,5 @@
 .edit-form {
   display: flex;
-  // flex-direction: column;
   width: 50%;
   border: 1px solid $border-gray;
   background-color: white;
@@ -78,11 +77,10 @@ textarea {
   margin-left: 10px;
 }
 
-.profile-pic-modal {
-  cursor: pointer;
+.current-user-open-modal img:hover {
+  opacity: 0.8;
 }
 
-
-.left-col label:first-child:hover {
-  opacity: 0.8;
+.current-user-open-modal img {
+  cursor: pointer;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import ProfilePhotoModalContainer from '../modals/profile_photo_modal_container';
 
 class UserProfileDetail extends React.Component {
   constructor(props) {
@@ -15,10 +16,11 @@ class UserProfileDetail extends React.Component {
   render() {
     let user = this.props.user;
     let currentUser = this.props.currentUser;
-    let hidden = currentUser === user ? '' : 'hidden';
+    let hidden = (currentUser.id === user.id ? '' : 'hidden');
+
     return(
       <div className='user-profile-detail'>
-        <img src={ user.profile_pic_url } />
+        <ProfilePhotoModalContainer />
         <div className='user-details'>
           <div className='username-line'>
             <h2>{ user.username }</h2>

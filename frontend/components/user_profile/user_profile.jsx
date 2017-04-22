@@ -5,6 +5,9 @@ import UserImages from './user_images';
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
+
+    // this.state = { loading: true };
+    this.fetchUserAndImages = this.fetchUserAndImages.bind(this);
   }
 
   parseParamsId(props) {
@@ -12,23 +15,28 @@ class UserProfile extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUser(this.parseParamsId(this.props));
-    this.props.fetchImagesForUser(this.parseParamsId(this.props));
+    this.fetchUserAndImages(this.props);
+  }
+
+  fetchUserAndImages(props) {
+    this.props.fetchUser(this.parseParamsId(props))
+      .then(() => this.props.fetchImagesForUser(this.parseParamsId(props)))
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.params.id !== nextProps.params.id) {
+      this.props.fetchUser(this.parseParamsId(nextProps))
       this.props.fetchImagesForUser(this.parseParamsId(nextProps));
     }
   }
 
   render() {
-    return(
-      <div className='user-profile'>
-        <UserProfileDetail user={ this.props.user } currentUser={ this.props.currentUser }/>
-        <UserImages images={ this.props.images }/>
-      </div>
-    );
+      return(
+        <div className='user-profile'>
+          <UserProfileDetail user={ this.props.user } currentUser={ this.props.currentUser }/>
+          <UserImages images={ this.props.images }/>
+        </div>
+      );
   }
 }
 

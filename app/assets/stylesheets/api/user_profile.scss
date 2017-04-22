@@ -14,6 +14,10 @@
   padding: 5px 30px;
 }
 
+.hidden {
+  display: none;
+}
+
 div .user-profile-detail {
   display: flex;
   justify-content: flex-start;
@@ -62,9 +66,4 @@ div .user-profile-detail {
   width: 290px;
   height: 290px;
   margin: 20px;
-}
-
-.user-images img:hover {
-  opacity: 0.80;
-  cursor: pointer;
 }

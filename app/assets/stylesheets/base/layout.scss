@@ -3,3 +3,7 @@ body {
   font-family: $roboto;
   background-color: $light-gray;
 }
+
+button:hover, input[type='submit']:hover {
+  background-color: $lightest-gray;
+}
