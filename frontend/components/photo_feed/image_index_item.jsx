@@ -1,13 +1,19 @@
 import React from 'react';
 import ImageHeaderDetail from './image_header_detail';
 
-const ImageIndexItem = ({ image }) => {
+const ImageIndexItem = ({ image, hidden }) => {
+  let className;
+  if (hidden) {
+    className = 'hidden';
+  } else {
+    className = '';
+  }
   return(
     <div>
-      <ul className='image-item'>
+      <ul id='image-item-modal' className='image-item'>
 
         <li><ImageHeaderDetail owner={ image.owner } time={image.time}/></li>
-        <li><img src={ image.img_path } /></li>
+        <li><img className={className} src={ image.img_path } /></li>
 
         <ul>
           <li>Likes</li>

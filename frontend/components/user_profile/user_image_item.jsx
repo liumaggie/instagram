@@ -1,11 +1,12 @@
 import React from 'react';
+import UserImageModal from '../modals/user_image_modal';
 
 const UserImageItem = ({ image }) => {
   return(
     <li>
-      <img src={ image.img_path } />
+      <UserImageModal image={image}/>
     </li>
-  )
+  );
 };
 
 export default UserImageItem;

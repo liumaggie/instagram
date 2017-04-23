@@ -34,7 +34,7 @@ class ProfilePhotoModal extends React.Component {
     if (parseInt(this.props.params.id) !== this.props.currentUser.id) {
       this.setState({ isCurrentUser: false });
     } else {
-      this.setState({ isCurrentUser: true })
+      this.setState({ isCurrentUser: true });
     }
   }
 
@@ -55,7 +55,6 @@ class ProfilePhotoModal extends React.Component {
       fileReader.readAsDataURL(file);
     }
   }
-
 
   handleSubmit(e) {
     e.preventDefault();

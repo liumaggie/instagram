@@ -1,0 +1,25 @@
+.left-image {
+  width: 70%;
+}
+
+.entire-image-modal {
+  display: flex;
+}
+
+.user-image-modal {
+  background: $white;
+  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.right-details {
+  width: 30%;
+  padding: 15px;
+}
+
+#image-item-modal {
+  border: 0px;
+}
