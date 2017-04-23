@@ -19,7 +19,6 @@ export const removeImage = (image) => ({
   image
 });
 
-// need for image index container?
 export const fetchAllImages = () => dispatch => (
   UserProfileApiUtil.fetchAllImages().then((images) => dispatch(receiveImages(images)))
 );
@@ -32,8 +31,8 @@ export const fetchSingleImage = id => dispatch => (
   UserProfileApiUtil.fetchSingleImage(id).then((image) => dispatch(receiveImage(image)))
 );
 
-export const createImage = image => dispatch => (
-  UserProfileApiUtil.createImage(image).then((image) => dispatch(receiveImage(image)))
+export const createImage = (formData, id) => dispatch => (
+  UserProfileApiUtil.createImage(formData, id).then((image) => dispatch(receiveImage(image)))
 );
 
 

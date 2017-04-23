@@ -14,13 +14,16 @@ export const fetchImagesForUser = (userId) => (
   })
 );
 
-export const createImage = (image) => (
-  $.ajax({
+export const createImage = (formData, id) => {
+  return ($.ajax({
     method: 'POST',
-    url: `api/users/${image.user_id}/images`,
-    data: { image }
-  })
-);
+    url: `api/users/${id}/images`,
+    dataType: 'json',
+    contentType: false,
+    processData: false,
+    data: formData
+  }));
+};
 
 export const fetchSingleImage = (id) => (
   $.ajax({

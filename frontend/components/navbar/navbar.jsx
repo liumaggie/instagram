@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import UploadPhotoModalContainer from '../modals/upload_photo_modal_container';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -42,7 +43,7 @@ class NavBar extends React.Component {
             <nav className='right-nav'>
               <ul>
                 <li>
-                  <i className="btn fa fa-cloud-upload"></i>
+                  <UploadPhotoModalContainer />
                 </li>
 
                 <li>
