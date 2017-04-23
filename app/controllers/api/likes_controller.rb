@@ -1,14 +1,28 @@
 class Api::LikesController < ApplicationController
 
-  def index
-    @likes = Image.find(params[:image_id]).likes
-    render :index
-  end
+  # def index
+  #   @likes = Like.include(:image)
+  #   render "api/images/index"
+  # end
 
   def create
+    @like = Like.new(like_params)
+    if @like.save
+      @image = Image.find(params[:image_id])
+      render "api/images/show"
+    else
+      render json: @like.errors.full_messages, status: 422
+    end
   end
 
   def destroy
+    @like = Like.find(params[:id])
+    @image = Image.find(Like.find(params[:id]).image_id)
+    if @like.destroy!
+      render "api/images/show"
+    else
+      render json: ["Un-like failed"], status: 404
+    end
   end
 
   private

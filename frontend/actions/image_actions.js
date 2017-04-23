@@ -1,4 +1,5 @@
-import * as UserProfileImageApiUtil from '../util/image_api_util';
+import * as ImageApiUtil from '../util/image_api_util';
+import * as LikeApiUtil from '../util/like_api_util';
 
 export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
 export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
@@ -20,33 +21,45 @@ export const removeImage = (image) => ({
 });
 
 export const fetchAllImages = () => dispatch => (
-  UserProfileImageApiUtil.fetchAllImages()
+  ImageApiUtil.fetchAllImages()
                     .then((images) => dispatch(receiveImages(images)))
 );
 
 export const fetchImagesForUser = userId => dispatch => (
-  UserProfileImageApiUtil.fetchImagesForUser(userId)
+  ImageApiUtil.fetchImagesForUser(userId)
                     .then((images) => dispatch(receiveImages(images)))
 );
 
 export const fetchSingleImage = id => dispatch => (
-  UserProfileImageApiUtil.fetchSingleImage(id)
+  ImageApiUtil.fetchSingleImage(id)
                     .then((image) => dispatch(receiveImage(image)))
 );
 
 export const createImage = (formData, id) => dispatch => (
-  UserProfileImageApiUtil.createImage(formData, id)
+  ImageApiUtil.createImage(formData, id)
                     .then((image) => dispatch(receiveImage(image)))
 );
 
 export const updateImage = image => dispatch => (
-  UserProfileImageApiUtil.updateImage(image)
+  ImageApiUtil.updateImage(image)
                     .then((newImage) => dispatch(receiveImage(newImage)))
 );
 
 export const deleteImage = id => dispatch => {
   return(
-    UserProfileImageApiUtil.deleteImage(id)
+    ImageApiUtil.deleteImage(id)
     .then((image) => dispatch(removeImage(image)))
   );
 };
+
+export const addLikeToImage = (like) => dispatch => (
+  LikeApiUtil.createLike(like).then((image) => dispatch(receiveImage(image)))
+);
+
+export const deleteLikeFromImage = (id) => dispatch => (
+  LikeApiUtil.deleteLike(id).then((image) => dispatch(receiveImage(image)))
+);
+
+export const fetchLikesForImage = (imageId) => dispatch => (
+  LikeApiUtil.fetchLikesForImage(imageId).then((image) => dispatch(receiveImage(image)))
+);

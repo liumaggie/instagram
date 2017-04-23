@@ -1,3 +1,4 @@
+# debugger
 json.id image.id
 json.img_path asset_path(image.image.url)
 json.time image.time_since_image_created
@@ -17,3 +18,11 @@ end
 json.owner do
   json.partial! 'api/users/user', user: image.owner
 end
+
+json.likes image.likes
+
+# image.likes.each do |like|
+#   json.set! like.id do
+#     json.like like
+#   end
+# end
