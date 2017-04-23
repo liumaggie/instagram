@@ -7,6 +7,14 @@ class Image < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id
 
+  has_many :likes,
+    class_name: :Like,
+    primary_key: :id,
+    foreign_key: :image_id
+
+  has_many :likers,
+    through: :likes,
+    source: :liker
 
   has_attached_file :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/

@@ -7,7 +7,10 @@ Rails.application.routes.draw do
       resources :images, only: [:index, :create]
     end
     resource :session, only: [:create, :destroy]
-    resources :images, only: [:index, :show, :update, :destroy]
+    resources :images, only: [:index, :show, :update, :destroy] do
+      resources :likes, only: [:index, :create]
+    end
+    resources :likes, only: [:destroy]
   end
 
 end

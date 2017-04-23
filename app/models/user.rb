@@ -10,6 +10,14 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id
 
+  has_many :likes,
+    class_name: :Like,
+    primary_key: :id,
+    foreign_key: :liker_id
+
+  has_many :images_liked,
+    through: :likes,
+    source: :image
 
   has_attached_file :prof_image, default_url: "default_prof_pic.png"
   validates_attachment_content_type :prof_image, content_type: /\Aimage\/.*\z/

@@ -8,11 +8,17 @@
 
 User.destroy_all
 Image.destroy_all
+Like.destroy_all
+
 user1 = User.create(username: "testing", password: "password", bio: "Hello world!")
 user2 = User.create(username: "testing2", password: "password", prof_image: File.open("app/assets/images/puppy2.jpg", bio: "Hello world!"))
 
-Image.create(image: File.open("app/assets/images/puppy.jpg"), user_id: user1.id)
-Image.create(image: File.open("app/assets/images/puppy2.jpg"), user_id: user2.id)
-Image.create(image: File.open("app/assets/images/puppy3.jpg"), user_id: user1.id)
-Image.create(image: File.open("app/assets/images/puppy4.jpg"), user_id: user1.id)
-Image.create(image: File.open("app/assets/images/chihuahua.jpg"), user_id: user1.id)
+image1 = Image.create(image: File.open("app/assets/images/puppy.jpg"), user_id: user1.id)
+image2 = Image.create(image: File.open("app/assets/images/puppy2.jpg"), user_id: user2.id)
+image3 = Image.create(image: File.open("app/assets/images/puppy3.jpg"), user_id: user1.id)
+image4 = Image.create(image: File.open("app/assets/images/puppy4.jpg"), user_id: user1.id)
+image5 = Image.create(image: File.open("app/assets/images/chihuahua.jpg"), user_id: user1.id)
+
+Like.create(liker_id: user1.id, image_id: image1.id)
+Like.create(liker_id: user1.id, image_id: image2.id)
+Like.create(liker_id: user2.id, image_id: image1.id)
