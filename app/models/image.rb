@@ -22,7 +22,7 @@ class Image < ApplicationRecord
       return "#{seconds.round}s"
     elsif minutes < 60
       return "#{minutes.round}m"
-    elsif hours < 60
+    elsif hours < 24
       return "#{hours.round}h"
     elsif weeks < 7
       return "#{weeks.round}w"
