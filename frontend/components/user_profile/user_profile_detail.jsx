@@ -16,7 +16,12 @@ class UserProfileDetail extends React.Component {
   render() {
     let user = this.props.user;
     let currentUser = this.props.currentUser;
-    let hidden = (currentUser.id === user.id ? '' : 'hidden');
+    let hidden;
+    if (!currentUser || currentUser.id !== user.id) {
+      hidden = 'hidden';
+    } else {
+      hidden = '';
+    }
 
     return(
       <div className='user-profile-detail'>
