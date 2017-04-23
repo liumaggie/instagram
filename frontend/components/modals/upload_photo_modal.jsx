@@ -62,10 +62,10 @@ class UploadPhotoModal extends React.Component {
 
   render() {
     return (
-      <div className='upload-photo-modal'>
+      <div>
         <i onClick={this.openModal} className="btn fa fa-cloud-upload"></i>
         <Modal
-          className="upload-photo-modal"
+          className="upload-photo-modal modal"
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           style={customStyles}
@@ -73,10 +73,11 @@ class UploadPhotoModal extends React.Component {
           >
 
           <ul>
-            <li><strong>Upload Profile Picture</strong></li>
+            <li><strong>Upload Image</strong></li>
             <li>
               <form onSubmit={this.handleSubmit}>
-                <input type="file" onChange={this.updateFile} />
+                <input className='file' type="file" onChange={this.updateFile} />
+
                 <label>Caption
                   <input type="text" onChange={this.handleInput("caption")} />
                 </label>

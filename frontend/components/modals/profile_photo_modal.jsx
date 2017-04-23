@@ -72,7 +72,7 @@ class ProfilePhotoModal extends React.Component {
         <div className='current-user-open-modal'>
           <img onClick={this.openModal} src={ this.props.user.profile_pic_url } />
           <Modal
-            className="profile-photo-modal"
+            className="profile-photo-modal modal"
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}
             style={customStyles}

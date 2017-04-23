@@ -1,4 +1,4 @@
-.profile-photo-modal {
+.modal {
   background: $white;
   width: 45%;
   position: absolute;
@@ -12,11 +12,11 @@
   text-align: center;
 }
 
-.profile-photo-modal ul li:first-child {
+.modal ul li:first-child {
   color: $gray;
 }
 
-.profile-photo-modal ul li:not(:first-child):hover {
+.modal ul li:not(:first-child):hover {
   background-color: $light-gray;
 }
 
@@ -26,4 +26,22 @@
 
 strong {
   font-weight: bold;
+}
+
+.upload-photo-modal ul li {
+  padding: 20px;
+}
+
+.upload-photo-modal form {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-photo-modal li:first-child,
+.upload-photo-modal li:last-child {
+  text-align: center;
+}
+
+.file {
+  margin: 0 auto;
 }
