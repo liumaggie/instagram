@@ -6,7 +6,6 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.state = { loading: true };
     this.fetchUserAndImages = this.fetchUserAndImages.bind(this);
   }
 

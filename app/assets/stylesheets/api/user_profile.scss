@@ -66,4 +66,9 @@ div .user-profile-detail {
   width: 290px;
   height: 290px;
   margin: 20px;
+  cursor: pointer;
+}
+
+.user-images img:hover {
+  opacity: 0.7;
 }
