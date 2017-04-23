@@ -16,6 +16,7 @@ class Image < ApplicationRecord
     seconds = time/1.second
     minutes = time / 1.minute
     hours = time / 1.hour
+    days = time / 1.day
     weeks = time / 1.week
     years = time / 1.year
     if seconds < 60
@@ -24,7 +25,9 @@ class Image < ApplicationRecord
       return "#{minutes.round}m"
     elsif hours < 24
       return "#{hours.round}h"
-    elsif weeks < 7
+    elsif days < 7
+      return "#{days.round}d"
+    elsif weeks < 52
       return "#{weeks.round}w"
     else
       return "#{years.round}y"
