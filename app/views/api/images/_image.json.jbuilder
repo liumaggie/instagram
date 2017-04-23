@@ -1,4 +1,4 @@
-
+json.id image.id
 json.img_path asset_path(image.image.url)
 json.time image.time_since_image_created
 

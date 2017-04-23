@@ -1,10 +1,10 @@
 import React from 'react';
-import UserImageModal from '../modals/user_image_modal';
+import UserImageModalContainer from '../modals/user_image_modal_container';
 
 const UserImageItem = ({ image }) => {
   return(
     <li>
-      <UserImageModal image={image}/>
+      <UserImageModalContainer image={image}/>
     </li>
   );
 };

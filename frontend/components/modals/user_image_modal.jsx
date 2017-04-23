@@ -18,6 +18,7 @@ class UserImageModal extends React.Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.deleteImage = this.deleteImage.bind(this);
   }
 
   openModal() {
@@ -26,6 +27,12 @@ class UserImageModal extends React.Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
+  }
+
+  deleteImage() {
+    this.props.deleteImage(this.props.image.id)
+              .then(() => this.closeModal())
+              .then(() => window.location.reload());
   }
 
   render() {
@@ -50,6 +57,8 @@ class UserImageModal extends React.Component {
 
             <div className='right-details'>
               <ImageIndexItem image={image} hidden={true}/>
+              <span className='delete-img-btn' onClick={this.deleteImage}><i className='fa fa-times'></i> Delete Photo</span>
+
             </div>
           </div>
 
@@ -61,13 +70,3 @@ class UserImageModal extends React.Component {
 }
 
 export default UserImageModal;
-
-// <ImageHeaderDetail owner={image.owner} time={image.time} />
-// <ul>
-//   <li>Likes</li>
-//   <li>
-//     <strong>{ image.owner.username} </strong>
-//     <p>{ image.caption }</p>
-//   </li>
-//   <li>Comments</li>
-// </ul>

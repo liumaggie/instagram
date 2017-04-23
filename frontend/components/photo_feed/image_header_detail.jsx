@@ -8,7 +8,10 @@ const ImageHeaderDetail = ({ owner, time }) => {
         <li>{ owner.username }</li>
       </ul>
 
-      <span>{time}</span>
+      <div>
+        <span>{time}</span>
+      </div>
+
     </div>
 
   )

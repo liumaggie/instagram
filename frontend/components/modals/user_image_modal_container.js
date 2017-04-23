@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserImageModal from './user_image_modal';
-import { fetchSingleImage } from '../../actions/image_actions';
+import { fetchSingleImage, deleteImage } from '../../actions/image_actions';
 
 const mapStateToProps = (state) => {
   return({
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    fetchSingleImage: (id) => dispatch(fetchSingleImage(id))
+    fetchSingleImage: (id) => dispatch(fetchSingleImage(id)),
+    deleteImage: (id) => dispatch(deleteImage(id))
   });
 };
 
