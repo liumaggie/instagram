@@ -16,6 +16,14 @@ if !user.nil?
 
   json.profile_pic_url asset_path(user.prof_image.url)
 
+  json.followers user.followers.each do |follower|
+    json.extract! follower, :id, :username
+  end
+
+  json.followings user.followees.each do |following|
+    json.extract! following, :id, :username
+  end
+
 else
   json.null!
 end
