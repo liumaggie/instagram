@@ -19,12 +19,12 @@ class UserProfile extends React.Component {
 
   fetchUserAndImages(props) {
     this.props.fetchUser(this.parseParamsId(props))
-      .then(() => this.props.fetchImagesForUser(this.parseParamsId(props)))
+      .then(() => this.props.fetchImagesForUser(this.parseParamsId(props)));
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.params.id !== nextProps.params.id) {
-      this.props.fetchUser(this.parseParamsId(nextProps))
+      this.props.fetchUser(this.parseParamsId(nextProps));
       this.props.fetchImagesForUser(this.parseParamsId(nextProps));
     }
   }
