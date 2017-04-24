@@ -1,20 +1,31 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
-const ImageHeaderDetail = ({ owner, time }) => {
-  return(
-    <div className='image-header'>
-      <ul>
-        <li><img src={ owner.profile_pic_url } /></li>
-        <li>{ owner.username }</li>
-      </ul>
+class ImageHeaderDetail extends React.Component {
+  constructor(props) {
+    super(props);
+    this.redirectToUserProfile = this.redirectToUserProfile.bind(this);
+  }
 
-      <div>
-        <span>{time}</span>
+  redirectToUserProfile() {
+    this.props.router.push(`/users/${this.props.owner.id}`);
+  }
+
+  render() {
+    return(
+      <div className='image-header'>
+        <ul onClick={this.redirectToUserProfile}>
+          <li><img src={ this.props.owner.profile_pic_url } /></li>
+          <li>{this.props.owner.username}</li>
+        </ul>
+
+        <div>
+          <span>{this.props.time}</span>
+        </div>
+
       </div>
-
-    </div>
-
-  )
+    );
+  }
 }
 
-export default ImageHeaderDetail;
+export default withRouter(ImageHeaderDetail);

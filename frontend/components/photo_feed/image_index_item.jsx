@@ -4,12 +4,14 @@ import LikeContainer from '../likes/like_container';
 import CommentsContainer from '../comments/comments_container';
 import NewCommentContainer from '../comments/new_comment_container';
 import { merge } from 'lodash';
+import { withRouter } from 'react-router';
 
 class ImageIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
     this.imageLikesText = this.imageLikesText.bind(this);
+    this.redirectToUserProfile = this.redirectToUserProfile.bind(this);
   }
 
   imageLikesText() {
@@ -23,6 +25,10 @@ class ImageIndexItem extends React.Component {
       imageLikesText = `${imageLikes} likes`;
     }
     return imageLikesText;
+  }
+
+  redirectToUserProfile() {
+    this.props.router.push(`/users/${this.props.image.owner.id}`);
   }
 
   render() {
@@ -42,7 +48,7 @@ class ImageIndexItem extends React.Component {
         <ul className='image-details'>
           <li><strong>{this.imageLikesText()}</strong></li>
           <li className='caption'>
-            <strong>{ image.owner.username} </strong>{ image.caption }
+            <strong onClick={this.redirectToUserProfile} className='username'>{ image.owner.username} </strong>{ image.caption }
           </li>
 
           <li><CommentsContainer comments={ image.comments }/></li>
@@ -61,4 +67,4 @@ class ImageIndexItem extends React.Component {
   }
 }
 
-export default ImageIndexItem;
+export default withRouter(ImageIndexItem);

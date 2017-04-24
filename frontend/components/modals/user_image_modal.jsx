@@ -36,8 +36,8 @@ class UserImageModal extends React.Component {
   }
 
   render() {
-    let user = this.props.currentUser;
-    let image = this.props.image;
+    const user = this.props.currentUser;
+    const image = this.props.image;
     return(
       <div>
         <img onClick={this.openModal} src={ image.img_path } />
@@ -50,7 +50,7 @@ class UserImageModal extends React.Component {
           contentLabel="User Image Modal"
           >
 
-          <div className='entire-image-modal'>
+          <div className='entire-image-modal group'>
             <div className='left-image'>
               <img src={ image.img_path } />
             </div>
