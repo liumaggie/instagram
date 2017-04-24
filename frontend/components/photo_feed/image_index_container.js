@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchAllImages, updateImage } from '../../actions/image_actions';
+import { fetchAllImages } from '../../actions/image_actions';
 import ImageIndex from './image_index';
 import { asArray } from '../../reducers/selectors';
 
@@ -13,8 +13,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    fetchAllImages: () => dispatch(fetchAllImages()),
-    updateImage: (image) => dispatch(updateImage(image))
+    fetchAllImages: () => dispatch(fetchAllImages())
   });
 };
 

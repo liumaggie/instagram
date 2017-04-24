@@ -1,5 +1,6 @@
 import * as ImageApiUtil from '../util/image_api_util';
 import * as LikeApiUtil from '../util/like_api_util';
+import * as CommentApiUtil from '../util/comment_api_util';
 
 export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
 export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
@@ -62,4 +63,12 @@ export const deleteLikeFromImage = (id) => dispatch => (
 
 export const fetchLikesForImage = (imageId) => dispatch => (
   LikeApiUtil.fetchLikesForImage(imageId).then((image) => dispatch(receiveImage(image)))
+);
+
+export const addCommentToImage = (comment) => dispatch => (
+  CommentApiUtil.createComment(comment).then((image) => dispatch(receiveImage(image)))
+);
+
+export const deleteCommentFromImage = (id) => dispatch => (
+  CommentApiUtil.deleteComment(id).then((image) => dispatch(receiveImage(image)))
 );

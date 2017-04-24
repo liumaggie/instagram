@@ -21,9 +21,7 @@ class ImageIndex extends React.Component {
             <ImageIndexItem
               key={image.img_path}
               image={image}
-              currentUser={this.props.currentUser}
               hidden={false}
-              updateImage={this.props.updateImage}
             />)
             }
           </article>

@@ -19,3 +19,11 @@ json.owner do
 end
 
 json.likes image.likes
+
+json.comments image.comments do |comment|
+  json.id comment.id
+  json.body comment.body
+  json.author do
+    json.partial! 'api/users/user', user: comment.author
+  end
+end

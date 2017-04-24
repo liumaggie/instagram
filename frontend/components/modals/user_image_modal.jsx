@@ -56,9 +56,13 @@ class UserImageModal extends React.Component {
             </div>
 
             <div className='right-details'>
-              <ImageIndexItem image={image} hidden={true}/>
+              <ImageIndexItem
+                image={image}
+                hidden={true}
+                />
 
-              <span className='delete-img-btn' onClick={this.deleteImage}><i className='fa fa-trash-o'></i> Delete Photo</span>
+              <span className='delete-img-btn' onClick={this.deleteImage}>
+                <i className='fa fa-trash-o'></i> Delete Photo</span>
 
             </div>
           </div>

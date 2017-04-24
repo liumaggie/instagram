@@ -9,9 +9,11 @@
 User.destroy_all
 Image.destroy_all
 Like.destroy_all
+Comment.destroy_all
 
 user1 = User.create(username: "testing", password: "password", bio: "Hello world!")
 user2 = User.create(username: "testing2", password: "password", prof_image: File.open("app/assets/images/puppy2.jpg", bio: "Hello world!"))
+user3 = User.create(username: "puppy", password: "password", bio: "Hi everyone!")
 
 image1 = Image.create(image: File.open("app/assets/images/puppy.jpg"), user_id: user1.id)
 image2 = Image.create(image: File.open("app/assets/images/puppy2.jpg"), user_id: user2.id)
@@ -22,3 +24,9 @@ image5 = Image.create(image: File.open("app/assets/images/chihuahua.jpg"), user_
 Like.create(liker_id: user1.id, image_id: image1.id)
 Like.create(liker_id: user1.id, image_id: image2.id)
 Like.create(liker_id: user2.id, image_id: image1.id)
+
+Comment.create(body: "The puppy is soo cute!", author_id: user1.id, image_id: image1.id)
+Comment.create(body: "Awwww", author_id: user2.id, image_id: image1.id)
+Comment.create(body: "She's adorable!", author_id: user3.id, image_id: image1.id)
+Comment.create(body: "Let's hangout some time!", author_id: user2.id, image_id: image2.id)
+Comment.create(body: "The puppy is soo cute!", author_id: user1.id, image_id: image3.id)

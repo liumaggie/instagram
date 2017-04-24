@@ -1,10 +1,14 @@
 import React from 'react';
 import ImageHeaderDetail from './image_header_detail';
 import LikeContainer from '../likes/like_container';
+import CommentsContainer from '../comments/comments_container';
+import NewCommentContainer from '../comments/new_comment_container';
+import { merge } from 'lodash';
 
 class ImageIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
     this.imageLikesText = this.imageLikesText.bind(this);
   }
 
@@ -52,10 +56,12 @@ class ImageIndexItem extends React.Component {
               <strong>{ image.owner.username} </strong>{ image.caption }
             </li>
 
+            <li><CommentsContainer comments={ image.comments }/></li>
+
             <ul className='add-like-comment'>
               <li className='heart'><LikeContainer image={image}/></li>
               <li>
-                <input type='text' placeholder='Add a comment...' />
+                <NewCommentContainer image={this.props.image}/>
               </li>
             </ul>
 
