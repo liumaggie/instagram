@@ -8,10 +8,14 @@ class Comments extends React.Component {
 
   render() {
     return(
-      <ul>
+      <ul className='comments'>
         {
           this.props.comments.map((comment) =>
-            <CommentItem key={comment.id} comment={ comment } />)
+            <CommentItem
+              key={comment.id}
+              comment={ comment }
+              currentUser={this.props.currentUser}
+              deleteCommentFromImage={this.props.deleteCommentFromImage} />)
         }
       </ul>
     );

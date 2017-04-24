@@ -15,7 +15,10 @@ user1 = User.create(username: "testing", password: "password", bio: "Hello world
 user2 = User.create(username: "testing2", password: "password", prof_image: File.open("app/assets/images/puppy2.jpg", bio: "Hello world!"))
 user3 = User.create(username: "puppy", password: "password", bio: "Hi everyone!")
 
-image1 = Image.create(image: File.open("app/assets/images/puppy.jpg"), user_id: user1.id)
+image1 = Image.create(
+                image: File.open("app/assets/images/puppy.jpg"),
+                user_id: user1.id
+                caption: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 image2 = Image.create(image: File.open("app/assets/images/puppy2.jpg"), user_id: user2.id)
 image3 = Image.create(image: File.open("app/assets/images/puppy3.jpg"), user_id: user1.id)
 image4 = Image.create(image: File.open("app/assets/images/puppy4.jpg"), user_id: user1.id)

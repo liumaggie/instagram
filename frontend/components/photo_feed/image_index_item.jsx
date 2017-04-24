@@ -26,48 +26,36 @@ class ImageIndexItem extends React.Component {
   }
 
   render() {
-    let className;
-    let idName;
-    if (this.props.hidden) {
-      className = 'hidden';
-      idName = 'hidden';
-    } else {
-      className = '';
-      idName = '';
-    }
-
     let image = this.props.image;
-    let hidden = this.props.hidden;
+    let hidden = this.props.hidden ? 'hidden' : '';
     return(
-      <div>
-        <ul id={idName} className='image-item'>
+      <ul id={hidden} className='image-item'>
 
-          <li>
-            <ImageHeaderDetail owner={ image.owner } time={image.time}/>
+        <li>
+          <ImageHeaderDetail owner={ image.owner } time={image.time}/>
+        </li>
+
+        <li>
+          <img className={hidden} src={ image.img_path } />
+        </li>
+
+        <ul className='image-details'>
+          <li><strong>{this.imageLikesText()}</strong></li>
+          <li className='caption'>
+            <strong>{ image.owner.username} </strong>{ image.caption }
           </li>
 
-          <li>
-            <img className={className} src={ image.img_path } />
-          </li>
+          <li><CommentsContainer comments={ image.comments }/></li>
 
-          <ul className='image-details'>
-            <li><strong>{this.imageLikesText()}</strong></li>
-            <li className='caption'>
-              <strong>{ image.owner.username} </strong>{ image.caption }
+          <ul className='add-like-comment'>
+            <li className='heart'><LikeContainer image={image}/></li>
+            <li>
+              <NewCommentContainer image={this.props.image}/>
             </li>
-
-            <li><CommentsContainer comments={ image.comments }/></li>
-
-            <ul className='add-like-comment'>
-              <li className='heart'><LikeContainer image={image}/></li>
-              <li>
-                <NewCommentContainer image={this.props.image}/>
-              </li>
-            </ul>
-
           </ul>
+
         </ul>
-      </div>
+      </ul>
     );
 
   }

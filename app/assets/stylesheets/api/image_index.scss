@@ -12,8 +12,8 @@
 }
 
 .image-item {
-  border: 1px solid $lightest-gray;
   margin-bottom: 70px;
+  border: 1px solid $lightest-gray;
 }
 
 .image-header {
@@ -43,10 +43,12 @@
 
 .image-details {
   padding: 0px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.image-details li {
-  padding-top: 10px;
+.image-details li:not(:first-child) {
+  margin-top: 10px;
 }
 
 .image-details > li:first-child {
@@ -67,12 +69,26 @@
   cursor: pointer;
   font-size: 22px;
   color: $gray;
+  margin-top: 5px;
 }
 
 .fa-heart {
   color: $like-red;
 }
 
-.caption {
-  padding-bottom: 10px;
+.comments li:last-child {
+  margin-bottom: 20px;
+}
+
+.comment-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-times {
+  cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
 }
