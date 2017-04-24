@@ -17,7 +17,7 @@ class Api::LikesController < ApplicationController
 
   def destroy
     @like = Like.find(params[:id])
-    @image = Image.find(Like.find(params[:id]).image_id)
+    @image = Image.find(@like.image_id)
     if @like.destroy!
       render "api/images/show"
     else
