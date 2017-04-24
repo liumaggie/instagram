@@ -24,6 +24,23 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :author_id
 
+  has_many :follows_as_follower,
+    class_name: :Follow,
+    primary_key: :id,
+    foreign_key: :follower_id
+
+  has_many :follows_as_followee,
+    class_name: :Follow,
+    primary_key: :id,
+    foreign_key: :followee_id
+
+  has_many :followees,
+    through: :follows_as_follower,
+    source: :followee
+
+  has_many :followers,
+    through: :follows_as_followee,
+    source: :follower
 
   has_attached_file :prof_image, default_url: "default_prof_pic.png"
   validates_attachment_content_type :prof_image, content_type: /\Aimage\/.*\z/
