@@ -18,10 +18,12 @@ if !user.nil?
 
   json.followers user.followers.each do |follower|
     json.extract! follower, :id, :username
+    json.follow_id Follow.find_by({ follower_id: follower.id }).id
   end
 
   json.followings user.followees.each do |following|
     json.extract! following, :id, :username
+    json.follow_id Follow.find_by({ followee_id: following.id}).id
   end
 
 else

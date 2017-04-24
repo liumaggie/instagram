@@ -3,7 +3,7 @@ class Api::FollowsController < ApplicationController
   def create
     @follow = Follow.new(follow_params)
     if @follow.save
-      @user = current_user
+      @user = User.find(@follow.followee_id)
       render "api/users/show"
     else
       render json: ["Invalid follow"], status: 422
@@ -12,8 +12,8 @@ class Api::FollowsController < ApplicationController
 
   def destroy
     @follow = Follow.find(params[:id])
-    @user = current_user
     if @follow.destroy!
+      @user = User.find(@follow.followee_id)
       render "api/users/show"
     else
       render json: ["Invalid un-follow"], status: 404

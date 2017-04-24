@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import ProfilePhotoModalContainer from '../modals/profile_photo_modal_container';
+import FollowContainer from '../follows/follow_container';
 
 class UserProfileDetail extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class UserProfileDetail extends React.Component {
 
     this.linkToEditPage = this.linkToEditPage.bind(this);
     this.calculateTotal = this.calculateTotal.bind(this);
+    this.editOrFollowButton = this.editOrFollowButton.bind(this);
   }
 
   linkToEditPage() {
@@ -22,16 +24,21 @@ class UserProfileDetail extends React.Component {
     }
   }
 
+  editOrFollowButton() {
+    const user = this.props.user;
+    const currentUser = this.props.currentUser;
+    if (!currentUser || currentUser.id !== user.id) {
+      return <FollowContainer />;
+    } else {
+      return (
+        <button
+          className={`edit-user-btn`}
+          onClick={ this.linkToEditPage }>Edit Profile</button>);
+    }
+  }
 
   render() {
-    let user = this.props.user;
-    let currentUser = this.props.currentUser;
-    let hidden;
-    if (!currentUser || currentUser.id !== user.id) {
-      hidden = 'hidden';
-    } else {
-      hidden = '';
-    }
+    const user = this.props.user;
 
     return(
       <div className='user-profile-detail'>
@@ -39,9 +46,7 @@ class UserProfileDetail extends React.Component {
         <div className='user-details'>
           <div className='username-line'>
             <h2>{ user.username }</h2>
-            <button
-              className={`edit-user-btn ${hidden}`}
-              onClick={ this.linkToEditPage }>Edit Profile</button>
+            <p>{ this.editOrFollowButton() }</p>
           </div>
 
           <div className='post-follows'>
