@@ -77,7 +77,7 @@ class UploadPhotoModal extends React.Component {
             <li>
               <form onSubmit={this.handleSubmit}>
                 <input className='file' type="file" onChange={this.updateFile} />
-
+                <img src={this.state.imageUrl} />
                 <label>Caption
                   <input type="text" onChange={this.handleInput("caption")} />
                 </label>
@@ -93,7 +93,7 @@ class UploadPhotoModal extends React.Component {
           </ul>
         </Modal>
       </div>
-    )
+    );
   }
 }
 

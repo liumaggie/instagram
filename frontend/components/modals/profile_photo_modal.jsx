@@ -83,6 +83,7 @@ class ProfilePhotoModal extends React.Component {
               <li>
                 <form onSubmit={this.handleSubmit}>
                   <input type="file" onChange={this.updateFile} />
+                  <img src={this.state.imageUrl} />
                   <input type="submit" />
                 </form>
               </li>
