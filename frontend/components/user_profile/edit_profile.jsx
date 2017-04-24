@@ -10,7 +10,8 @@ class EditProfile extends React.Component {
     this.state = {
       username: this.props.currentUser.username,
       website: this.props.currentUser.website || '',
-      bio: this.props.currentUser.bio || ''
+      bio: this.props.currentUser.bio || '',
+      successfulSaveText: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +35,7 @@ class EditProfile extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = Object.assign({}, this.state, { id: this.props.currentUser.id });
-    this.props.updateCurrentUser(user);
+    this.props.updateCurrentUser(user).then(() => this.setState({ successfulSaveText: 'Profile saved!' }));
   }
 
   isCurrentUser() {
@@ -82,10 +83,10 @@ class EditProfile extends React.Component {
               />
 
             <input id='user-edit-btn' type='submit' value='Submit'/>
+            <p className='successful-save'>{this.state.successfulSaveText}</p>
           </div>
 
         </form>
-
       </div>
       );
   }
