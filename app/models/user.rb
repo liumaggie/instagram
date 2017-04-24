@@ -19,6 +19,12 @@ class User < ApplicationRecord
     through: :likes,
     source: :image
 
+  has_many :authored_comments,
+    class_name: :Comment,
+    primary_key: :id,
+    foreign_key: :author_id
+
+
   has_attached_file :prof_image, default_url: "default_prof_pic.png"
   validates_attachment_content_type :prof_image, content_type: /\Aimage\/.*\z/
 

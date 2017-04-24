@@ -16,6 +16,12 @@ class Image < ApplicationRecord
     through: :likes,
     source: :liker
 
+  has_many :comments,
+    class_name: :Comment,
+    primary_key: :id,
+    foreign_key: :author_id
+  
+
   has_attached_file :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
