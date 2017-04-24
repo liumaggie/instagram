@@ -1,3 +1,11 @@
+.user-profile {
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+}
+
 .user-profile-detail img {
   width: 150px;
   height: 150px;
@@ -18,7 +26,7 @@
   display: none;
 }
 
-div .user-profile-detail {
+.user-profile-detail {
   display: flex;
   justify-content: flex-start;
   width: 60%;
@@ -37,23 +45,18 @@ div .user-profile-detail {
   margin-right: 18px;
 }
 
-.description {
+.bio {
   padding: 20px 10px 10px 0px;
   font-weight: bold;
 }
 
-.user-profile {
-  margin: 0px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 75%;
-}
-
 .post-follows {
   display: flex;
-  justify-content: space-between;
   padding: 20px 10px 10px 0px;
+}
+
+.post-follows > p {
+  margin-right: 30px;
 }
 
 .user-images ul {

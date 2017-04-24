@@ -6,6 +6,7 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { loading: true };
     this.fetchUserAndImages = this.fetchUserAndImages.bind(this);
   }
 
@@ -19,7 +20,8 @@ class UserProfile extends React.Component {
 
   fetchUserAndImages(props) {
     this.props.fetchUser(this.parseParamsId(props))
-      .then(() => this.props.fetchImagesForUser(this.parseParamsId(props)));
+      .then(() => this.props.fetchImagesForUser(this.parseParamsId(props)))
+      .then(() => this.setState({ loading: false }));
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,14 +32,22 @@ class UserProfile extends React.Component {
   }
 
   render() {
+    if (this.state.loading) {
+      return(<div className="loader">Loading...</div>);
+    } else {
       return(
         <div className='user-profile'>
-          <UserProfileDetail user={ this.props.user } currentUser={ this.props.currentUser }/>
+          <UserProfileDetail
+            imagePosts={this.props.images.length}
+            user={ this.props.user }
+            currentUser={ this.props.currentUser }/>
           <UserImages images={ this.props.images }/>
         </div>
       );
+    }
   }
 }
+
 
 
 export default UserProfile;

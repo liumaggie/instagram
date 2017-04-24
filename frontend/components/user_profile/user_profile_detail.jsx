@@ -7,11 +7,21 @@ class UserProfileDetail extends React.Component {
     super(props);
 
     this.linkToEditPage = this.linkToEditPage.bind(this);
+    this.calculateTotal = this.calculateTotal.bind(this);
   }
 
   linkToEditPage() {
     this.props.router.push(`/users/${this.props.user.id}/edit`);
   }
+
+  calculateTotal(count, name) {
+    if (count <= 1) {
+      return `${count} ${name}`;
+    } else {
+      return `${count} ${name}s`;
+    }
+  }
+
 
   render() {
     let user = this.props.user;
@@ -35,11 +45,11 @@ class UserProfileDetail extends React.Component {
           </div>
 
           <div className='post-follows'>
-            <p>Post</p>
-            <p>Follower</p>
-            <p>Following</p>
+            <p>{ this.calculateTotal(this.props.imagePosts, 'post') }</p>
+            <p>{ this.calculateTotal(this.props.user.followers.length, 'follower') }</p>
+            <p>{ `${this.props.user.followings.length} following` }</p>
           </div>
-          <p className='description'>{ user.description }</p>
+          <p className='bio'>{ user.bio }</p>
         </div>
       </div>
     );
