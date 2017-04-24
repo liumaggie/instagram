@@ -1,4 +1,5 @@
 import * as SessionApiUtil from '../util/session_api_util';
+import * as UserApiUtil from '../util/user_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
@@ -30,4 +31,8 @@ export const login = user => dispatch => (
 
 export const logout = () => dispatch => (
   SessionApiUtil.logout().then(() => dispatch(receiveCurrentUser(null)))
+);
+
+export const updateCurrentUser = (user) => dispatch => (
+  UserApiUtil.updateUser(user).then((user) => dispatch(receiveCurrentUser(user)))
 );

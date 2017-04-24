@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../../actions/user_actions';
+import { updateCurrentUser } from '../../actions/session_actions';
 import { openUploadPhoto, closeModal } from '../../actions/modal_actions';
 import EditProfile from './edit_profile';
 
@@ -15,7 +16,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return({
     fetchUser: (id) => dispatch(fetchUser(id)),
-    updateUser: (user) => dispatch(updateUser(user))
+    updateUser: (user) => dispatch(updateUser(user)),
+    updateCurrentUser: (user) => dispatch(updateCurrentUser(user))
   });
 };
 

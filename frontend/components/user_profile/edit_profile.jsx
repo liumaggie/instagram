@@ -34,7 +34,7 @@ class EditProfile extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = Object.assign({}, this.state, { id: this.props.currentUser.id });
-    this.props.updateUser(user);
+    this.props.updateCurrentUser(user);
   }
 
   isCurrentUser() {
