@@ -42,14 +42,21 @@
 }
 
 .image-details {
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
+}
+
+.image-details li {
+  padding-top: 10px;
+}
+
+.image-details > li:first-child {
+  padding-top: 20px;
 }
 
 .add-like-comment {
   display: flex;
   align-items: center;
   border-top: 1px solid $lightest-gray;
-  padding-top: 10px;
 }
 
 .add-like-comment > li > input {
@@ -64,4 +71,8 @@
 
 .fa-heart {
   color: $like-red;
+}
+
+.caption {
+  padding-bottom: 10px;
 }

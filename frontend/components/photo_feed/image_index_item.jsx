@@ -5,6 +5,20 @@ import LikeContainer from '../likes/like_container';
 class ImageIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.imageLikesText = this.imageLikesText.bind(this);
+  }
+
+  imageLikesText() {
+    let imageLikes = this.props.image.likes.length;
+    let imageLikesText;
+    if (imageLikes === 0) {
+      imageLikesText = 'Be the first to like this.';
+    } else if (imageLikes === 1) {
+      imageLikesText = `${imageLikes} like`;
+    } else {
+      imageLikesText = `${imageLikes} likes`;
+    }
+    return imageLikesText;
   }
 
   render() {
@@ -20,18 +34,22 @@ class ImageIndexItem extends React.Component {
 
     let image = this.props.image;
     let hidden = this.props.hidden;
-    
     return(
       <div>
         <ul id={idName} className='image-item'>
 
-          <li><ImageHeaderDetail owner={ image.owner } time={image.time}/></li>
-          <li><img className={className} src={ image.img_path } /></li>
+          <li>
+            <ImageHeaderDetail owner={ image.owner } time={image.time}/>
+          </li>
+
+          <li>
+            <img className={className} src={ image.img_path } />
+          </li>
+
           <ul className='image-details'>
-            <li>{ image.likes.length } Likes</li>
-            <li>
-              <strong>{ image.owner.username} </strong>
-              <p>{ image.caption }</p>
+            <li><strong>{this.imageLikesText()}</strong></li>
+            <li className='caption'>
+              <strong>{ image.owner.username} </strong>{ image.caption }
             </li>
 
             <ul className='add-like-comment'>
@@ -47,6 +65,6 @@ class ImageIndexItem extends React.Component {
     );
 
   }
-};
+}
 
 export default ImageIndexItem;

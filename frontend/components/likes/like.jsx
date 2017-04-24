@@ -7,7 +7,6 @@ class Like extends React.Component {
     this.state = { liker_id: null, image_id: this.props.image.id, addLike: false };
     this.addLike = this.addLike.bind(this);
     this.deleteLike = this.deleteLike.bind(this);
-    this.handleLike = this.handleLike.bind(this);
   }
 
   imageLikesIncludeUser(image, user) {
@@ -25,14 +24,6 @@ class Like extends React.Component {
       this.setState({ addLike: false });
     } else {
       this.setState({ addLike: true });
-    }
-  }
-
-  handleLike() {
-    if (this.state.addLike) {
-      this.addLike();
-    } else {
-      this.deleteLike();
     }
   }
 
