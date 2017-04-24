@@ -52,9 +52,15 @@ class Like extends React.Component {
   }
 
   render() {
-    return(
-      <i onClick={this.handleLike} className="fa fa-heart-o"></i>
-    );
+    if (this.state.addLike) {
+      return(
+        <i onClick={this.addLike} className="fa fa-heart-o"></i>
+      );
+    } else {
+      return(
+        <i onClick={this.deleteLike} className="fa fa-heart"></i>
+      );
+    }
   }
 }
 

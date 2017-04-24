@@ -40,3 +40,28 @@
   border-radius: 20px;
   margin-right: 10px;
 }
+
+.image-details {
+  padding: 20px;
+}
+
+.add-like-comment {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid $lightest-gray;
+  padding-top: 10px;
+}
+
+.add-like-comment > li > input {
+  border: 0px;
+}
+
+.heart {
+  cursor: pointer;
+  font-size: 22px;
+  color: $gray;
+}
+
+.fa-heart {
+  color: $like-red;
+}
