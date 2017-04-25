@@ -29,3 +29,7 @@ export const createFollow = (follow) => dispatch => (
 export const deleteFollow = (id) => dispatch => (
   FollowApiUtil.deleteFollow(id).then((user) => dispatch(receiveUser(user)))
 );
+
+export const fetchFollowsForUser = (userId) => dispatch => (
+  FollowApiUtil.fetchFollowsForUser(userId).then((user) => dispatch(receiveUser(user)))
+);

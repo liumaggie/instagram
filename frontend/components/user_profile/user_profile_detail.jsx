@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import ProfilePhotoModalContainer from '../modals/profile_photo_modal_container';
 import FollowContainer from '../follows/follow_container';
+import FollowsModalContainer from '../modals/follows_list/follows_modal_container';
 
 class UserProfileDetail extends React.Component {
   constructor(props) {
@@ -49,11 +50,15 @@ class UserProfileDetail extends React.Component {
             <p>{ this.editOrFollowButton() }</p>
           </div>
 
-          <div className='post-follows'>
-            <p>{ this.calculateTotal(this.props.imagePosts, 'post') }</p>
-            <p>{ this.calculateTotal(this.props.user.followers.length, 'follower') }</p>
-            <p>{ `${this.props.user.followings.length} following` }</p>
-          </div>
+          <ul className='post-follows'>
+            <li>{ this.calculateTotal(this.props.imagePosts, 'post') }</li>
+            <li><FollowsModalContainer
+                totalFollowers={
+                  this.calculateTotal(user.followers.length, 'follower')
+                }/></li>
+              <li><FollowsModalContainer
+              totalFollowing={ `${user.followings.length} following`} /></li>
+          </ul>
           <p className='bio'>{ user.bio }</p>
         </div>
       </div>

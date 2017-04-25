@@ -1,9 +1,9 @@
 class Api::FollowsController < ApplicationController
 
-  # def index
-  #   user = User.find(params[:user_id])
-  #   @follows = Follow.where(follower_id: user.id)
-  # end
+  def index
+    user = User.find(params[:user_id])
+    @follows = Follow.where(follower_id: user.id)
+  end
 
   def create
     @follow = Follow.new(follow_params)
@@ -23,6 +23,11 @@ class Api::FollowsController < ApplicationController
     else
       render json: ["Invalid un-follow"], status: 404
     end
+  end
+
+  def show
+    @follow = Follow.find(params[:id])
+    render "api/follows/show"
   end
 
   private
