@@ -5,6 +5,7 @@ import * as CommentApiUtil from '../util/comment_api_util';
 export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
 export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
 export const REMOVE_IMAGE = 'REMOVE_IMAGE';
+export const REMOVE_ALL_IMAGES = 'REMOVE_ALL_IMAGES';
 
 export const receiveImages = (images) => ({
   type: RECEIVE_IMAGES,
@@ -19,6 +20,10 @@ export const receiveImage = (image) => ({
 export const removeImage = (image) => ({
   type: REMOVE_IMAGE,
   image
+});
+
+export const removeAllImages = () => ({
+  type: REMOVE_ALL_IMAGES
 });
 
 export const fetchAllImages = () => dispatch => (

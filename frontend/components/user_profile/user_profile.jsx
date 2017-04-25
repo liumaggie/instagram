@@ -18,6 +18,10 @@ class UserProfile extends React.Component {
     this.fetchUserAndImages(this.props);
   }
 
+  componentWillUnmount() {
+    this.props.removeAllImages();
+  }
+
   fetchUserAndImages(props) {
     this.props.fetchUser(this.parseParamsId(props))
       .then(() => this.props.fetchImagesForUser(this.parseParamsId(props)))
@@ -33,7 +37,7 @@ class UserProfile extends React.Component {
 
   render() {
     if (this.state.loading) {
-      return(<div className="loader">Loading...</div>);
+      return(<div className="loader"></div>);
     } else {
       return(
         <div className='user-profile'>
