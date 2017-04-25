@@ -42,7 +42,13 @@ class UserImageModal extends React.Component {
     let hidden = currentUser.id === user.id ? '' : 'hidden';
     return(
       <div>
-        <img onClick={this.openModal} src={ image.img_path } />
+        <div className='show-hover'>
+          <img onClick={this.openModal} src={ image.img_path } />
+          <div className='image-hover'>
+            <span><i className="fa fa-heart" aria-hidden="true"></i>{ image.likes.length }</span>
+            <span><i className="fa fa-comment-o" aria-hidden="true"></i>{ image.comments.length }</span>
+          </div>
+        </div>
 
         <Modal
           className="user-image-modal"
@@ -54,7 +60,7 @@ class UserImageModal extends React.Component {
 
           <div className='entire-image-modal group'>
             <div className='left-image'>
-              <img src={ image.img_path } />
+              <img id='img'src={ image.img_path } />
             </div>
 
             <div className='right-details'>

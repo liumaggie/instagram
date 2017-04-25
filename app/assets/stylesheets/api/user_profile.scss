@@ -72,6 +72,10 @@
   cursor: pointer;
 }
 
+.image-hover {
+  display: none;
+}
+
 .user-images img:hover {
   opacity: 0.7;
 }
