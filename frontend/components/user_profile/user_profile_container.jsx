@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchImagesForUser, fetchAllImages, removeAllImages } from '../../actions/image_actions';
+import { fetchImagesForUser, removeAllImages } from '../../actions/image_actions';
 import { fetchUser } from '../../actions/user_actions';
 import { asArray } from '../../reducers/selectors';
 import { connect } from 'react-redux';
@@ -17,7 +17,6 @@ const mapDispatchToProps = (dispatch) => {
   return({
     fetchImagesForUser: (userId) => dispatch(fetchImagesForUser(userId)),
     fetchUser: (id) => dispatch(fetchUser(id)),
-    fetchAllImages: () => dispatch(fetchAllImages()),
     removeAllImages: () => dispatch(removeAllImages())
   });
 };

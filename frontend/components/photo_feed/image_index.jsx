@@ -2,13 +2,16 @@ import React from 'react';
 import ImageIndexItem from './image_index_item';
 
 class ImageIndex extends React.Component {
-  componentWillMount() {
-    this.props.fetchAllImages();
+  constructor(props) {
+    super(props);
+
+    this.state = { loading: true }
   }
-  //
-  // componentDidMount() {
-  //   this.props.fetchAllImages();
-  // }
+
+  componentWillMount() {
+    this.props.fetchAllImages()
+              .then(() => this.setState({ loading: false }));
+  }
 
   componentWillReceiveProps(newProps) {
     if (!newProps.currentUser) {
@@ -17,20 +20,24 @@ class ImageIndex extends React.Component {
   }
 
   render() {
-    return(
-      <main className='home-photo-feed'>
-        <article className='feed-image'>
-          {
-            this.props.images.map((image) =>
-            <ImageIndexItem
-              key={image.img_path}
-              image={image}
-              hidden={false}
-            />)
-            }
-          </article>
-        </main>
-    );
+    if (this.state.loading) {
+      return <div className='loader'></div>;
+    } else {
+      return(
+        <main className='home-photo-feed'>
+          <article className='feed-image'>
+            {
+              this.props.images.map((image) =>
+              <ImageIndexItem
+                key={image.img_path}
+                image={image}
+                hidden={false}
+                />)
+              }
+            </article>
+          </main>
+        );
+    }
   }
 }
 
