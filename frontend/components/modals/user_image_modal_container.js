@@ -5,7 +5,8 @@ import { fetchSingleImage, deleteImage, addCommentToImage } from '../../actions/
 
 const mapStateToProps = (state) => {
   return({
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    user: state.user
   });
 };
 

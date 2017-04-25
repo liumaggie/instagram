@@ -36,8 +36,10 @@ class UserImageModal extends React.Component {
   }
 
   render() {
-    const user = this.props.currentUser;
+    const currentUser = this.props.currentUser;
     const image = this.props.image;
+    const user = this.props.user;
+    let hidden = currentUser.id === user.id ? '' : 'hidden';
     return(
       <div>
         <img onClick={this.openModal} src={ image.img_path } />
@@ -61,7 +63,7 @@ class UserImageModal extends React.Component {
                 hidden={true}
                 />
 
-              <span className='delete-img-btn' onClick={this.deleteImage}>
+              <span className={`delete-img-btn ${hidden}`} onClick={this.deleteImage}>
                 <i className='fa fa-trash-o'></i> Delete Photo</span>
 
             </div>
