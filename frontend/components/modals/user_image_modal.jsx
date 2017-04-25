@@ -39,7 +39,12 @@ class UserImageModal extends React.Component {
     const currentUser = this.props.currentUser;
     const image = this.props.image;
     const user = this.props.user;
-    let hidden = currentUser.id === user.id ? '' : 'hidden';
+    let hidden;
+    if (!currentUser || currentUser.id === user.id) {
+      hidden = '';
+    } else {
+      hidden = 'hidden';
+    }
     return(
       <div>
         <div className='show-hover'>
