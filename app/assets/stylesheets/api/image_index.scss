@@ -21,7 +21,6 @@
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  border-bottom: 1px solid $lightest-gray;
 }
 
 .image-header ul {
@@ -31,11 +30,11 @@
   cursor: pointer;
 }
 
-.image-header ul, span {
+.image-header {
   padding: 18px;
 }
 
-.image-header img {
+.profile-pic {
   height: 30px;
   width: 30px;
   border-radius: 20px;
@@ -46,6 +45,7 @@
   padding: 0px 20px 20px 20px;
   display: flex;
   flex-direction: column;
+  border-top: 1px solid $lightest-gray;
 }
 
 .image-details li:not(:first-child) {

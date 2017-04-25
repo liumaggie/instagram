@@ -1,11 +1,12 @@
 import React from 'react';
-import ImageIndexItem from './image_index_item';
+// import ImageIndexItem from './image_index_item';
+import ImageItemDetail from '../shared/image_item_detail';
 
 class ImageIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { loading: true }
+    this.state = { loading: true };
   }
 
   componentWillMount() {
@@ -28,10 +29,10 @@ class ImageIndex extends React.Component {
           <article className='feed-image'>
             {
               this.props.images.map((image) =>
-              <ImageIndexItem
+              <ImageItemDetail
                 key={image.img_path}
                 image={image}
-                hidden={false}
+                imageFor='index'
                 />)
               }
             </article>

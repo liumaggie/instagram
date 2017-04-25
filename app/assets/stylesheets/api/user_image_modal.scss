@@ -2,14 +2,18 @@
   width: 70%;
 }
 
+.left-image > img {
+  height: 100%;
+  width: 100%;
+}
+
 .entire-image-modal {
   display: flex;
-  width: 100%;
 }
 
 .user-image-modal {
   background: $white;
-  width: 70%;
+  width: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -18,17 +22,48 @@
 
 .right-details {
   width: 30%;
-  padding: 15px;
-}
-
-.right-details span {
-  padding: 0px;
+  padding: 20px;
 }
 
 .delete-img-btn {
   cursor: pointer;
+  color: $blue;
 }
 
-#hidden {
-  border: 0px;
+.delete-img-btn:hover {
+  color: $black;
+}
+
+.image-modal-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sub-header {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid $lightest-gray;
+  padding: 20px 0px;
+}
+
+.username-pic-modal,
+.username-pic-modal > ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.caption-comments-scroll {
+  height: 300px;
+  overflow: auto;
+}
+
+.caption-comments-scroll > li {
+  margin-bottom: 8px;
+}
+
+.comments > li {
+  margin-bottom: 8px;
 }

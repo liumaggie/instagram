@@ -15,7 +15,7 @@ class ImageHeaderDetail extends React.Component {
     return(
       <div className='image-header'>
         <ul onClick={this.redirectToUserProfile}>
-          <li><img src={ this.props.owner.profile_pic_url } /></li>
+          <li><img className='profile-pic' src={ this.props.owner.profile_pic_url } /></li>
           <li>{this.props.owner.username}</li>
         </ul>
 

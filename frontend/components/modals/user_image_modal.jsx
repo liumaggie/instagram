@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import ImageIndexItem from '../photo_feed/image_index_item';
 import ImageHeaderDetail from '../photo_feed/image_header_detail';
+import ImageItemDetail from '../shared/image_item_detail';
 
 const customStyles = {
   overlay: {
@@ -47,12 +48,8 @@ class UserImageModal extends React.Component {
     }
     return(
       <div>
-        <div className='show-hover'>
+        <div>
           <img onClick={this.openModal} src={ image.img_path } />
-          <div className='image-hover'>
-            <span><i className="fa fa-heart" aria-hidden="true"></i>{ image.likes.length }</span>
-            <span><i className="fa fa-comment-o" aria-hidden="true"></i>{ image.comments.length }</span>
-          </div>
         </div>
 
         <Modal
@@ -63,20 +60,25 @@ class UserImageModal extends React.Component {
           contentLabel="User Image Modal"
           >
 
-          <div className='entire-image-modal group'>
+          <div className='entire-image-modal'>
             <div className='left-image'>
-              <img id='img'src={ image.img_path } />
+              <img src={ image.img_path } />
             </div>
 
             <div className='right-details'>
-              <ImageIndexItem
-                image={image}
-                hidden={true}
-                />
+              <section className='username-pic-modal'>
+                <ul>
+                  <li><img className='profile-pic' src={ image.owner.profile_pic_url } /></li>
+                  <li><strong>{ image.owner.username }</strong></li>
+                </ul>
 
-              <span className={`delete-img-btn ${hidden}`} onClick={this.deleteImage}>
-                <i className='fa fa-trash-o'></i> Delete Photo</span>
+                <i className={`fa fa-trash-o delete-img-btn ${hidden}`}
+                  onClick={this.deleteImage}></i>
+              </section>
 
+              <ImageItemDetail
+                image={ image }
+                imageFor='modal'/>
             </div>
           </div>
 
@@ -88,3 +90,8 @@ class UserImageModal extends React.Component {
 }
 
 export default UserImageModal;
+
+// <div className='image-hover'>
+//   <span><i className="fa fa-heart" aria-hidden="true"></i>{ image.likes.length }</span>
+//   <span><i className="fa fa-comment-o" aria-hidden="true"></i>{ image.comments.length }</span>
+// </div>
