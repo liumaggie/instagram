@@ -42,7 +42,7 @@ class AuthForm extends React.Component {
   }
 
   handleDemo() {
-    const demoUser = { username: 'testing', password: 'password' };
+    const demoUser = { username: 'ilovepuppies', password: 'password' };
     this.props.login(demoUser).then(() => this.redirect());
   }
 

@@ -13,7 +13,7 @@ class Follow extends React.Component {
     let followId;
     this.props.user.followers.forEach(
       (follower) => {
-        if (follower.id === currentUser.id) {
+        if (follower.id === this.props.currentUser.id) {
           followId = follower.follow_id;
         }
     });
