@@ -56,7 +56,7 @@ h3 {
   margin: 10px;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], textarea {
   box-sizing: border-box;
   margin: 3px;
   border: 1px solid $lightest-gray;
@@ -73,16 +73,19 @@ input:focus {
   color: $gray;
 }
 
-.auth-container > button,
-.auth-form > input[type=submit] {
+button, input[type=submit] {
   background-color: $blue;
   border-radius: 5px;
   color: white;
   font-weight: bold;
   padding: 5px;
   box-sizing: border-box;
-  width: 100%;
   text-align: center;
+}
+
+.auth-container > button,
+.auth-form > input[type="submit"] {
+  width: 100%;
   margin: 10px;
 }
 
@@ -95,8 +98,13 @@ input:focus {
   color: $blue;
 }
 
-button:active, input[type=submit] {
-  opacity: 5;
+button:hover, input[type=submit]:hover {
+  background-color: $lightest-gray;
+  color: $blue;
+}
+
+button:active, input[type=submit]:active {
+  opacity: 0.5;
 }
 
 hr.horizontal {

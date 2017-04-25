@@ -13,13 +13,18 @@
   margin-right: 80px;
 }
 
-.edit-user-btn {
+.edit-user-btn, .unfollow-btn {
   background-color: $light-gray;
   border: 1px solid $border-gray;
   color: black;
   font-weight: bold;
   font-size: 14px;
   padding: 5px 30px;
+}
+
+.follow-btn {
+  padding: 5px 30px;
+  font-size: 14px;
 }
 
 .hidden {
@@ -36,6 +41,7 @@
 
 .username-line {
   display: flex;
+  align-items: center;
 }
 
 .username-line h2 {

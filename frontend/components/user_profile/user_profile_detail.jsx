@@ -32,7 +32,7 @@ class UserProfileDetail extends React.Component {
     } else {
       return (
         <button
-          className={`edit-user-btn`}
+          className='edit-user-btn'
           onClick={ this.linkToEditPage }>Edit Profile</button>);
     }
   }

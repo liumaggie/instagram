@@ -43,11 +43,11 @@ class Follow extends React.Component {
   render() {
     if (this.state.following) {
       return(
-        <button onClick={this.removeFollow}>Unfollow</button>
+        <button className='unfollow-btn' onClick={this.removeFollow}>Following</button>
       );
     } else {
       return(
-        <button onClick={this.createFollow}>Follow</button>
+        <button className='follow-btn' onClick={this.createFollow}>Follow</button>
       );
     }
   }

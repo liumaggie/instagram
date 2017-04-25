@@ -69,8 +69,8 @@ class EditProfile extends React.Component {
               />
 
             <input
-              id='website'
               type='text'
+              id='website'
               value={this.state.website}
               onChange={this.handleInput('website')}
               />
@@ -82,7 +82,7 @@ class EditProfile extends React.Component {
               onChange={this.handleInput('bio')}
               />
 
-            <input id='user-edit-btn' type='submit' value='Submit'/>
+            <input className='edit-submit-btn' type='submit' value='Submit'/>
             <p className='successful-save'>{this.state.successfulSaveText}</p>
           </div>
 

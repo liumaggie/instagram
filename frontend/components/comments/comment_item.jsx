@@ -19,7 +19,7 @@ class CommentItem extends React.Component {
   render() {
     let comment = this.props.comment;
     let currentUser = this.props.currentUser;
-    let hidden = comment.author.id === currentUser.id ? '' : 'hidden';
+    let hidden = (!currentUser || comment.author.id === currentUser.id) ? '' : 'hidden';
     return(
       <li className='comment-item'>
         <article>

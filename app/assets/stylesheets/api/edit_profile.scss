@@ -22,10 +22,6 @@
   border-radius: 30px;
 }
 
-.pic-username {
-  display: flex;
-}
-
 .edit-form form {
   display: flex;
   padding-left: 20px;
@@ -54,27 +50,9 @@
   font-weight: normal;
 }
 
-#username, #website {
-  width: 60%;
-  border: 1px solid $border-gray;
-  border-radius: 3px;
-  margin: 7px 15px;
-  width: 100%;
-}
-
-textarea {
-  padding: 5px;
-  margin: 7px 0px;
-  margin-left: 15px;
-  width: 95%;
-  border: 1px solid $border-gray;
-  border-radius: 3px;
-}
-
-#user-edit-btn {
+.edit-submit-btn {
   width: 100px;
-  font-size: 14px;
-  margin-left: 10px;
+  margin: 10px 10px 10px 3px;
 }
 
 .current-user-open-modal img:hover {
@@ -87,4 +65,5 @@ textarea {
 
 .successful-save {
   color: $green;
+  margin-left: 3px;
 }
