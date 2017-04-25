@@ -1,5 +1,10 @@
 class Api::FollowsController < ApplicationController
 
+  # def index
+  #   user = User.find(params[:user_id])
+  #   @follows = Follow.where(follower_id: user.id)
+  # end
+
   def create
     @follow = Follow.new(follow_params)
     if @follow.save

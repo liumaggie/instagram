@@ -24,7 +24,10 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(
+      follows_as_follower: :followee,
+      follows_as_followee: :follower
+    ).find(params[:id])
     render :show
   end
 

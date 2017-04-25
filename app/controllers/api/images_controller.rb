@@ -2,9 +2,9 @@ class Api::ImagesController < ApplicationController
 
     def index
       if params[:user_id]
-        @images = User.find(params[:user_id]).images
+        @images = User.find(params[:user_id]).images.includes(:owner, comments: :author, likes: :liker)
       else
-        @images = Image.all
+        @images = Image.includes(:owner, comments: :author, likes: :liker).all
       end
       render :index
     end
@@ -19,7 +19,7 @@ class Api::ImagesController < ApplicationController
     end
 
     def show
-      @image = Image.find(params[:id])
+      @image = Image.includes(comments: :author, likes: :liker).find(params[:id])
       render :show
     end
 

@@ -1,7 +1,10 @@
 <script type="text/javascript">
   <% if logged_in? %>
   	window.currentUser =
-      <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
+      <%= render("api/users/user.json.jbuilder",
+                user: User.includes(follows_as_follower: :followee,
+                                    follows_as_followee: :follower)
+                          .find(current_user.id)).html_safe %>
   <% end %>
 
   window.images = {

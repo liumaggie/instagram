@@ -97,7 +97,6 @@ class AuthForm extends React.Component {
               </form>
             </div>
 
-
             <div className='switch-auth'>
               <p>{alternateText}
                 <Link to={alternatePath} className='link'>{ alternateLink }</Link>

@@ -21,8 +21,6 @@ class Image < ApplicationRecord
     primary_key: :id,
     foreign_key: :image_id
 
-
-
   has_attached_file :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
@@ -48,4 +46,5 @@ class Image < ApplicationRecord
       return "#{years.round}y"
     end
   end
+
 end

@@ -73,7 +73,8 @@ input:focus {
   color: $gray;
 }
 
-button, input[type=submit] {
+.auth-container > button,
+.auth-form > input[type=submit] {
   background-color: $blue;
   border-radius: 5px;
   color: white;

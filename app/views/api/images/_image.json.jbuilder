@@ -1,21 +1,11 @@
-json.id image.id
+json.extract! image, :id, :caption, :location
 json.img_path asset_path(image.image.url)
 json.time image.time_since_image_created
 
-if image.caption.nil?
-  json.caption nil
-else
-  json.extract! image, :caption
-end
-
-if image.location.nil?
-  json.location nil
-else
-  json.extract! image, :location
-end
-
 json.owner do
-  json.partial! 'api/users/user', user: image.owner
+  json.extract! image.owner, :id, :username
+  json.profile_pic_url asset_path(image.owner.prof_image.url)
+  # json.partial! 'api/users/user', user: image.owner
 end
 
 json.likes image.likes
@@ -24,6 +14,7 @@ json.comments image.comments do |comment|
   json.id comment.id
   json.body comment.body
   json.author do
-    json.partial! 'api/users/user', user: comment.author
+    json.extract! comment.author, :id, :username
+    # json.partial! 'api/users/user', user: comment.author
   end
 end
