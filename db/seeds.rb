@@ -93,7 +93,7 @@ Like.create(liker_id: user5.id, image_id: image16.id)
 Like.create(liker_id: user4.id, image_id: image16.id)
 Like.create(liker_id: user2.id, image_id: image18.id)
 Like.create(liker_id: user3.id, image_id: image19.id)
-Like.create(liker_id: user6.id, image_ids: image12.id)
+Like.create(liker_id: user6.id, image_id: image12.id)
 Like.create(liker_id: user7.id, image_id: image12.id)
 Like.create(liker_id: user8.id, image_id: image12.id)
 
