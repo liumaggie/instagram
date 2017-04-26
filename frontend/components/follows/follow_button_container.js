@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import FollowButton from './follow_button';
 
 const mapStateToProps = (state, nextProps) => {
+  let followee_id = nextProps.follow ? nextProps.follow.id : state.user.id;
   return({
     currentUser: state.session.currentUser,
     user: state.user,
-    forModal: nextProps.forModal
+    followee_id
   });
 };
 

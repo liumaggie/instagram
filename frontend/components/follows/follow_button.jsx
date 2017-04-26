@@ -15,14 +15,8 @@ class FollowButton extends React.Component {
   // see if this person's id is the same as one
   // of the current user's following id
   checkIfCurrentUserFollows() {
-    let followeeId;
-    if (this.props.forModal) {
-      followeeId = this.props.follow.id;
-    } else {
-      followeeId = this.props.user.id;
-    }
     this.props.currentUser.followings.forEach((following) => {
-      if (followeeId === following.id) {
+      if (this.props.followee_id === following.id) {
         // need this id to unfollow
         this.followId = following.follow_id;
         this.setState({ following: true });
@@ -50,24 +44,25 @@ class FollowButton extends React.Component {
   }
 
   createFollow() {
-    let followee_id = this.props.forModal ? this.props.follow.id : this.props.user.id
     this.props.makeFollow({
       follower_id: this.props.currentUser.id,
-      followee_id
+      followee_id: this.props.followee_id
     }, true).then(() => this.setState({ following: true }));
   }
 
   render() {
+    // hide button if current user since current user can't follow/unfollow him/herself
+    let hidden = this.props.followee_id === this.props.currentUser.id ? 'hidden' : '';
     if (this.state.loading) {
       return <div></div>;
     } else {
       if (this.state.following) {
         return(
-          <button className='unfollow-btn' onClick={this.removeFollow}>Following</button>
+          <button className={`unfollow-btn ${hidden}`} onClick={this.removeFollow}>Following</button>
         );
       } else {
         return(
-          <button className='follow-btn' onClick={this.createFollow}>Follow</button>
+          <button className={`follow-btn ${hidden}`} onClick={this.createFollow}>Follow</button>
         );
       }
     }
