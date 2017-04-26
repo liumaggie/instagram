@@ -48,15 +48,14 @@ class FollowsModal extends React.Component {
           style={customStyles}
           contentLabel="Profile Photo Modal"
         >
-          <div>
+          <div className='follows'>
             <h3>{ headerText }</h3>
-            <ul>
+            <ul className='follows-list'>
               {
                 followsArray.map((follow) =>
                   <FollowItem
                     key={follow.id}
                     follow={follow}
-                    fetchFollowsForUser={this.props.fetchFollowsForUser}
                     fetchUser={this.props.fetchUser}
                   />)
               }

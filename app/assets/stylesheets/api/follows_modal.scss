@@ -1,0 +1,29 @@
+.follows {
+  display: block;
+}
+
+.follows > h3 {
+  text-align: left;
+  border-bottom: 1px solid $lightest-gray;
+
+}
+
+.single-follow > li > img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.single-follow {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $lightest-gray;
+  padding: 20px;
+  align-items: center;
+}
+
+.single-follow > li:first-child {
+  display: flex;
+  align-items: center;
+}
