@@ -61,9 +61,7 @@ class UserImageModal extends React.Component {
           >
 
           <div className='entire-image-modal'>
-            <div className='left-image'>
-              <img src={ image.img_path } />
-            </div>
+            <img className='left-image' src={ image.img_path } />
 
             <div className='right-details'>
               <section className='username-pic-modal'>
