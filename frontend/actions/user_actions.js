@@ -23,8 +23,8 @@ export const updateUserWithForm = (formData, id) => dispatch => (
 );
 
 // creates follow on user profile end
-export const createFollow = (follow) => dispatch => (
-  FollowApiUtil.createFollow(follow).then((user) => dispatch(receiveUser(user)))
+export const createFollow = (follow, currentUser) => dispatch => (
+  FollowApiUtil.createFollow(follow, currentUser).then((user) => dispatch(receiveUser(user)))
 );
 // delete follow on user profile end
 export const deleteFollow = (id) => dispatch => (

@@ -45,3 +45,7 @@ export const createFollowForCurrentUser = (follow, currentUser) => dispatch => (
 export const deleteFollowForCurrentUser = (id, currentUser) => dispatch => (
   FollowApiUtil.deleteFollow(id, currentUser).then((user) => dispatch(receiveCurrentUser(user)))
 );
+
+export const fetchCurrentUser = (id) => dispatch => (
+  UserApiUtil.fetchUser(id).then((user) => dispatch(receiveCurrentUser(user)))
+)

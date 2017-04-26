@@ -17,7 +17,6 @@ class Api::FollowsController < ApplicationController
       else
         @user = User.find(@follow.followee_id)
       end
-      # @user = User.find(@follow.follower_id)
       render "api/users/show"
     else
       render json: ["Invalid follow"], status: 422
@@ -38,10 +37,6 @@ class Api::FollowsController < ApplicationController
     end
   end
 
-  # def show
-  #   @follow = Follow.find(params[:id])
-  #   render "api/follows/show"
-  # end
 
   private
   def follow_params

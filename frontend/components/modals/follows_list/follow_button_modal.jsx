@@ -1,17 +1,19 @@
 import React from 'react';
 
-// loop through current user's followings and see if this person's id is the same as one of the current user's following id
 
 class FollowButtonModal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { following: false };
+    this.state = { following: false, loading: true };
     this.checkIfCurrentUserFollows = this.checkIfCurrentUserFollows.bind(this);
     this.createFollow = this.createFollow.bind(this);
     this.removeFollow = this.removeFollow.bind(this);
   }
 
+  // loop through current user's followings and
+  // see if this person's id is the same as one
+  // of the current user's following id
   checkIfCurrentUserFollows() {
     this.props.currentUser.followings.forEach((following) => {
       if (this.props.follow.id === following.id) {
@@ -20,8 +22,9 @@ class FollowButtonModal extends React.Component {
     });
   }
 
-  componentDidMount() {
-    this.checkIfCurrentUserFollows();
+  componentWillMount() {
+    this.props.fetchCurrentUser(this.props.currentUser.id)
+              .then(() => this.checkIfCurrentUserFollows());
   }
 
   removeFollow() {
@@ -45,7 +48,7 @@ class FollowButtonModal extends React.Component {
       return(
         <button className='follow-btn' onClick={this.createFollow}>Follow</button>
       );
-    };
+    }
   }
 }
 
