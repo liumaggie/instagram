@@ -2,30 +2,36 @@
   overflow-y: hidden;
 }
 
-.left-image {
-  height: 100%;
-  width: auto;
-}
-
 .entire-image-modal {
   display: flex;
+  width: auto;
   height: 100%;
 }
 
 .user-image-modal {
   background: $white;
-  width: 60%;
-  height: 60%;
+  width: 70%;
+  height: 70%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+.left-image {
+  height: auto;
+  width: 100%;
+}
+
+.left-image > img {
+  width: 100%;
+  height: 100%;
+}
+
 // need to set this height same as neighbor
 .right-details {
-  width: 30%;
-  height: 100%;
+  width: 50%;
+  height: auto;
   padding: 20px;
 }
 
@@ -42,7 +48,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 85%;
+  height: 90%;
 }
 
 .sub-header {
@@ -74,4 +80,9 @@
 
 .comments > li {
   margin-bottom: 8px;
+}
+
+@media (min-width: 1000px) {
+  height: 100%;
+  max-width: 1000px;
 }
