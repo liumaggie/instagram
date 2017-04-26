@@ -52,11 +52,11 @@ class UserProfileDetail extends React.Component {
 
           <ul className='post-follows'>
             <li>{ this.calculateTotal(this.props.imagePosts, 'post') }</li>
-            <li><FollowsModalContainer
+            <li className='total-follows'><FollowsModalContainer
                 totalFollowers={
                   this.calculateTotal(user.followers.length, 'follower')
                 }/></li>
-              <li><FollowsModalContainer
+              <li className='total-follows'><FollowsModalContainer
               totalFollowing={ `${user.followings.length} following`} /></li>
           </ul>
           <p className='bio'>{ user.bio }</p>

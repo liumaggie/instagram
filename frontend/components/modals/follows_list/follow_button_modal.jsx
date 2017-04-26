@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class FollowButtonModal extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +23,8 @@ class FollowButtonModal extends React.Component {
 
   componentWillMount() {
     this.props.fetchCurrentUser(this.props.currentUser.id)
-              .then(() => this.checkIfCurrentUserFollows());
+              .then(() => this.checkIfCurrentUserFollows())
+              .then(() => this.setState({ loading: false }));
   }
 
   removeFollow() {
@@ -40,14 +40,18 @@ class FollowButtonModal extends React.Component {
   }
 
   render() {
-    if (this.state.following) {
-      return(
-        <button className='unfollow-btn' onClick={this.removeFollow}>Following</button>
-      );
+    if (this.state.loading) {
+      return <div></div>;
     } else {
-      return(
-        <button className='follow-btn' onClick={this.createFollow}>Follow</button>
-      );
+      if (this.state.following) {
+        return(
+          <button className='unfollow-btn' onClick={this.removeFollow}>Following</button>
+        );
+      } else {
+        return(
+          <button className='follow-btn' onClick={this.createFollow}>Follow</button>
+        );
+      }
     }
   }
 }

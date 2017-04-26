@@ -4,8 +4,8 @@
 
 .follows > h3 {
   text-align: left;
-  border-bottom: 1px solid $lightest-gray;
-
+  border-bottom: 1px solid $gray;
+  padding: 15px 10px;
 }
 
 .single-follow > li > img {
@@ -26,4 +26,13 @@
 .single-follow > li:first-child {
   display: flex;
   align-items: center;
+}
+
+.total-follows {
+  cursor: pointer;
+}
+
+.total-follows:hover {
+  opacity: 0.5;
+  color: $blue;
 }
