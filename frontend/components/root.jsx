@@ -6,6 +6,7 @@ import AuthFormContainer from './session/auth_form_container';
 import UserProfileContainer from './user_profile/user_profile_container'
 import ImageIndexContainer from './photo_feed/image_index_container';
 import EditProfileContainer from './user_profile/edit_profile_container';
+import ImageIndexInfiniteContainer from './photo_feed/image_index_infinite_container';
 
 const Root = ({ store }) => {
 
@@ -25,7 +26,7 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path='/' component={ App }>
-          <IndexRoute component={ ImageIndexContainer } onEnter={ _ensureLoggedIn }/>
+          <IndexRoute component={ ImageIndexInfiniteContainer } onEnter={ _ensureLoggedIn }/>
           <Route path='/log-in' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
           <Route path='/sign-up' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
           <Route path='/users/:id' component={ UserProfileContainer } onEnter={ _ensureLoggedIn } />

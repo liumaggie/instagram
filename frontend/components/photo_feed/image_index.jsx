@@ -1,5 +1,4 @@
 import React from 'react';
-// import ImageIndexItem from './image_index_item';
 import ImageItemDetail from '../shared/image_item_detail';
 
 class ImageIndex extends React.Component {
@@ -16,7 +15,7 @@ class ImageIndex extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (!newProps.currentUser) {
-      this.props.router.push('/log-in');
+      this.props.router.push('/sign-up');
     }
   }
 

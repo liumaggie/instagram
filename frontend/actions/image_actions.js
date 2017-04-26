@@ -3,12 +3,18 @@ import * as LikeApiUtil from '../util/like_api_util';
 import * as CommentApiUtil from '../util/comment_api_util';
 
 export const RECEIVE_IMAGES = 'RECEIVE_IMAGES';
+export const RECEIVE_IMAGES_FOR_FEED = 'RECEIVE_IMAGES_FOR_FEED';
 export const RECEIVE_IMAGE = 'RECEIVE_IMAGE';
 export const REMOVE_IMAGE = 'REMOVE_IMAGE';
 export const REMOVE_ALL_IMAGES = 'REMOVE_ALL_IMAGES';
 
 export const receiveImages = (images) => ({
   type: RECEIVE_IMAGES,
+  images
+});
+
+export const receiveImagesForFeed = (images) => ({
+  type: RECEIVE_IMAGES_FOR_FEED,
   images
 });
 
@@ -29,6 +35,11 @@ export const removeAllImages = () => ({
 export const fetchAllImages = () => dispatch => (
   ImageApiUtil.fetchAllImages()
                     .then((images) => dispatch(receiveImages(images)))
+);
+
+export const fetchAllImagesFromUserForFeed = (userId) => dispatch => (
+  ImageApiUtil.fetchImagesForUser(userId)
+                    .then((images) => dispatch(receiveImagesForFeed(images)))
 );
 
 export const fetchImagesForUser = userId => dispatch => (
