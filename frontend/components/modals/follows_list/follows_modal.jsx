@@ -57,6 +57,7 @@ class FollowsModal extends React.Component {
                     key={follow.id}
                     follow={follow}
                     fetchFollowsForUser={this.props.fetchFollowsForUser}
+                    fetchUser={this.props.fetchUser}
                   />)
               }
             </ul>

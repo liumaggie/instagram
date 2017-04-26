@@ -22,14 +22,21 @@ export const updateUserWithForm = (formData, id) => dispatch => (
   UserApiUtil.updateUserWithForm(formData, id).then((user) => dispatch(receiveUser(user)))
 );
 
+// creates follow on user profile end
 export const createFollow = (follow) => dispatch => (
   FollowApiUtil.createFollow(follow).then((user) => dispatch(receiveUser(user)))
 );
-
+// delete follow on user profile end
 export const deleteFollow = (id) => dispatch => (
   FollowApiUtil.deleteFollow(id).then((user) => dispatch(receiveUser(user)))
 );
 
-export const fetchFollowsForUser = (userId) => dispatch => (
-  FollowApiUtil.fetchFollowsForUser(userId).then((user) => dispatch(receiveUser(user)))
-);
+
+//
+// export const fetchFollowersForUser = (userId, followers) => dispatch => (
+//   FollowApiUtil.fetchFollowsForUser(userId, followers).then((user) => dispatch(receiveUser(user)))
+// );
+//
+// export const fetchFollowingsForUser = (userId, followings) => dispatch => (
+//   FollowApiUtil.fetchFollowsForUser(userId, followings).then((user) => dispatch(receiveUser(user)))
+// );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FollowsModal from './follows_modal';
-import { createFollow, deleteFollow, fetchFollowsForUser } from '../../../actions/user_actions';
+import { createFollow, deleteFollow, fetchFollowersForUser, fetchFollowingsForUser, fetchUser } from '../../../actions/user_actions';
 
 export const mapStateToProps = (state) => {
   return {
@@ -14,7 +14,9 @@ export const mapDispatchToProps = (dispatch) => {
   return {
     createFollow: (follow) => dispatch(createFollow(follow)),
     deleteFollow: (id) => dispatch(deleteFollow(id)),
-    fetchFollowsForUser: (userId) => dispatch(fetchFollowsForUser(userId))
+    fetchFollowersForUser: (userId, followers) => dispatch(fetchFollowersForUser(userId, followers)),
+    fetchFollowingsForUser: (userId, followings) => dispatch(fetchFollowingsForUser(userId, followings)),
+    fetchUser: (id) => dispatch(fetchUser(id))
   };
 };
 

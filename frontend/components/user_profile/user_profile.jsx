@@ -14,7 +14,7 @@ class UserProfile extends React.Component {
     return parseInt(props.params.id);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.fetchUserAndImages(this.props);
   }
 
