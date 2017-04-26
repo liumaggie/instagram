@@ -1,6 +1,5 @@
 import React from 'react';
-import FollowContainer from '../../follows/follow_container';
-import FollowButtonModalContainer from './follow_button_modal_container';
+import FollowButtonContainer from '../../follows/follow_button_container';
 
 class FollowItem extends React.Component {
 
@@ -9,7 +8,7 @@ class FollowItem extends React.Component {
     return(
       <ul className='single-follow'>
         <li><img src={ follow.profile_pic_url } /> { follow.username }</li>
-        <FollowButtonModalContainer follow={follow} />
+        <FollowButtonContainer follow={follow} forModal={true}/>
       </ul>
     );
   }

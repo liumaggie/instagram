@@ -1,10 +1,11 @@
 import React from 'react';
 
-class FollowButtonModal extends React.Component {
+class FollowButton extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = { following: false, loading: true };
+    this.followId = null;
     this.checkIfCurrentUserFollows = this.checkIfCurrentUserFollows.bind(this);
     this.createFollow = this.createFollow.bind(this);
     this.removeFollow = this.removeFollow.bind(this);
@@ -14,28 +15,45 @@ class FollowButtonModal extends React.Component {
   // see if this person's id is the same as one
   // of the current user's following id
   checkIfCurrentUserFollows() {
+    let followeeId;
+    if (this.props.forModal) {
+      followeeId = this.props.follow.id;
+    } else {
+      followeeId = this.props.user.id;
+    }
     this.props.currentUser.followings.forEach((following) => {
-      if (this.props.follow.id === following.id) {
+      if (followeeId === following.id) {
+        // need this id to unfollow
+        this.followId = following.follow_id;
         this.setState({ following: true });
       }
     });
   }
 
   componentWillMount() {
-    this.props.fetchCurrentUser(this.props.currentUser.id)
+    let user;
+    if (this.props.forModal) {
+      user = this.props.currentUser;
+    } else {
+      user = this.props.user;
+    }
+    this.props.fetchTheUser(user.id)
               .then(() => this.checkIfCurrentUserFollows())
               .then(() => this.setState({ loading: false }));
   }
 
   removeFollow() {
-    this.props.deleteFollowForCurrentUser(this.props.follow.follow_id, true)
+    // pass in an extra argument to backend so we are receiving the
+    // respective user (either current user or the user's profile we are on)
+    this.props.removeFollow(this.followId, true)
               .then(() => this.setState({ following: false }));
   }
 
   createFollow() {
-    this.props.createFollowForCurrentUser({
+    let followee_id = this.props.forModal ? this.props.follow.id : this.props.user.id
+    this.props.makeFollow({
       follower_id: this.props.currentUser.id,
-      followee_id: this.props.follow.id
+      followee_id
     }, true).then(() => this.setState({ following: true }));
   }
 
@@ -56,4 +74,4 @@ class FollowButtonModal extends React.Component {
   }
 }
 
-export default FollowButtonModal;
+export default FollowButton;

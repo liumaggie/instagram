@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import ProfilePhotoModalContainer from '../modals/profile_photo_modal_container';
-import FollowContainer from '../follows/follow_container';
 import FollowsModalContainer from '../modals/follows_list/follows_modal_container';
+import FollowButtonContainer from '../follows/follow_button_container';
 
 class UserProfileDetail extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class UserProfileDetail extends React.Component {
     const user = this.props.user;
     const currentUser = this.props.currentUser;
     if (!currentUser || currentUser.id !== user.id) {
-      return <FollowContainer />;
+      return <FollowButtonContainer />;
     } else {
       return (
         <button
