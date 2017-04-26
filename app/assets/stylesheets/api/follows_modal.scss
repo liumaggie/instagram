@@ -1,11 +1,23 @@
+.follows-modal {
+  width: 30%;
+  height: 80%;
+}
+
 .follows {
   display: block;
+  width: auto;
+  height: 80%;
 }
 
 .follows > h3 {
   text-align: left;
   border-bottom: 1px solid $gray;
   padding: 15px 10px;
+}
+
+.follows-list {
+  height: 100%;
+  overflow: auto;
 }
 
 .single-follow > li > img {
@@ -21,11 +33,19 @@
   border-bottom: 1px solid $lightest-gray;
   padding: 20px;
   align-items: center;
+
 }
 
 .single-follow > li:first-child {
   display: flex;
   align-items: center;
+  font-size: 14px;
+}
+
+.user img:hover,
+.user strong:hover {
+  color: $blue;
+  cursor: pointer;
 }
 
 .total-follows {

@@ -20,6 +20,12 @@ class FollowsModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user.id !== this.props.user.id) {
+      this.closeModal();
+    }
+  }
+
   openModal() {
     this.setState({ modalIsOpen: true });
   }
@@ -57,6 +63,7 @@ class FollowsModal extends React.Component {
                     key={follow.id}
                     follow={follow}
                     fetchUser={this.props.fetchUser}
+                    modalIsOpen={this.state.modalIsOpen}
                   />)
               }
             </ul>

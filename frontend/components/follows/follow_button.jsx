@@ -52,7 +52,7 @@ class FollowButton extends React.Component {
 
   render() {
     // hide button if current user since current user can't follow/unfollow him/herself
-    let hidden = this.props.followee_id === this.props.currentUser.id ? 'hidden' : '';
+    let hidden = (!this.props.currentUser || this.props.followee_id === this.props.currentUser.id) ? 'hidden' : '';
     if (this.state.loading) {
       return <div></div>;
     } else {
