@@ -65,17 +65,18 @@ class FollowButton extends React.Component {
   }
 
   render() {
-    // let hidden = this.props.currentUser.id === this.follow.id ? 'hidden' : '';
+    let user = this.props.forModal ? this.props.follow.id : this.props.user.id;
+    let hidden = (!this.props.currentUser || (this.props.currentUser.id === user) ? 'hidden' : '');
     if (this.state.loading) {
       return (<div></div>);
     } else {
       if (this.state.following) {
         return(
-          <button className={`unfollow-btn `} onClick={this.removeFollow}>Following</button>
+          <button className={`unfollow-btn ${hidden}`} onClick={this.removeFollow}>Following</button>
         );
       } else {
         return(
-          <button className={`follow-btn`} onClick={this.createFollow}>Follow</button>
+          <button className={`follow-btn ${hidden}`} onClick={this.createFollow}>Follow</button>
         );
       }
     }
