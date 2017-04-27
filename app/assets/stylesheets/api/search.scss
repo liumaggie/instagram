@@ -1,5 +1,6 @@
 .search {
   position: relative;
+  width: 20%;
 }
 
 .user-dropdown {
@@ -28,4 +29,18 @@
 
 .user-dropdown {
   background-color: $white;
+  width: 100%;
+  box-shadow: 0 0 1em $lightest-gray;
+  border: 1px solid $lightest-gray;
+  margin-top: 10px;
+}
+
+.search-item {
+  border-bottom: 1px solid $lightest-gray;
+
+}
+
+.user-dropdown > li:hover {
+  background-color: $light-gray;
+  cursor: pointer;
 }

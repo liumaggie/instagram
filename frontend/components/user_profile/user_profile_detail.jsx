@@ -47,7 +47,7 @@ class UserProfileDetail extends React.Component {
         <div className='user-details'>
           <div className='username-line'>
             <h2>{ user.username }</h2>
-            <p>{ this.editOrFollowButton() }</p>
+            <span>{ this.editOrFollowButton() }</span>
           </div>
 
           <ul className='post-follows'>

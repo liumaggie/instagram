@@ -13,26 +13,23 @@ class Search extends React.Component {
   handleClick(e) {
     if (this.state.showResults) {
       this.setState({ showResults: false });
-    } else {
-      this.setState({ showResults: true });
     }
   }
 
   componentDidMount() {
     window.addEventListener("click", this.handleClick);
-    window.addEventListener("touchstart", this.handleClick);
   }
 
   componentWillUnmount() {
     window.removeEventListener("click", this.handleClick);
-    window.addEventListener("touchend", this.handleClick);
   }
 
   handleUsers() {
     if (this.state.body === '') {
       this.props.removeUsers();
     } else {
-      this.props.fetchUsers(this.state.body);
+      this.props.fetchUsers(this.state.body)
+                .then(() => this.setState({ showResults: true }));
     }
   }
 
@@ -44,15 +41,17 @@ class Search extends React.Component {
   render() {
     let show = '';
     if (this.state.showResults) {
-      show = (<ul className='user-dropdown'>
-        { this.props.users.map((user) =>
+      show = (
+        <ul id='dropdown' className='user-dropdown'>
+          { this.props.users.map((user) =>
           <SearchItem key={user.id} user={user}/>)}
-      </ul>);
+        </ul>
+      );
     }
 
     return(
       <nav className='search'>
-        <div className='search-bar'>
+        <div id='search-bar' className='search-bar'>
           <input
             type='text'
             placeholder='Search'
