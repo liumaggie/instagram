@@ -4,7 +4,8 @@ import SearchItem from './search_item';
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { body: '', showResults: false };
+    this.state = { body: '', showResults: false, user: this.props.user };
+
     this.handleInput = this.handleInput.bind(this);
     this.handleUsers = this.handleUsers.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -22,6 +23,12 @@ class Search extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener("click", this.handleClick);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.user !== nextProps.user) {
+      this.setState({ body: '' });
+    }
   }
 
   handleUsers() {

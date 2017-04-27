@@ -6,7 +6,8 @@ import Search from './search';
 
 const mapStateToProps = (state) => {
   return {
-    users: asArray(state.users)
+    users: asArray(state.users),
+    user: state.user
   };
 };
 
