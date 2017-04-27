@@ -45,10 +45,11 @@ export const createFollow = (follow) => dispatch => (
                .then((user) => dispatch(receiveUser(user)))
 );
 // delete follow on user profile end
-export const deleteFollow = (id) => dispatch => (
-  FollowApiUtil.deleteFollow(id)
-               .then((user) => dispatch(receiveUser(user)))
-);
+export const deleteFollow = (id) => dispatch => {
+  return(FollowApiUtil.deleteFollow(id)
+                  .then((user) => dispatch(receiveUser(user)))
+)};
+
 
 export const fetchUsers = (string) => dispatch => (
   UserApiUtil.fetchUsers(string)

@@ -5,11 +5,10 @@ import { connect } from 'react-redux';
 import FollowButton from './follow_button';
 
 const mapStateToProps = (state, nextProps) => {
-  let followee_id = nextProps.follow ? nextProps.follow.id : state.user.id;
   return({
     currentUser: state.session.currentUser,
     user: state.user,
-    followee_id
+    forModal: nextProps.forModal
   });
 };
 
@@ -20,7 +19,9 @@ const mapDispatchToProps = (dispatch, nextProps) => {
   return({
     makeFollow: (follow, currentUser) => dispatch(makeFollow(follow, currentUser)),
     removeFollow: (id, currentUser) => dispatch(removeFollow(id, currentUser)),
-    fetchTheUser: (id) => dispatch(fetchTheUser(id))
+    fetchTheUser: (id) => dispatch(fetchTheUser(id)),
+    fetchCurrentUser: (id) => dispatch(fetchCurrentUser(id)),
+    fetchUser: (id) => dispatch(fetchUser(id))
   });
 };
 
