@@ -49,7 +49,7 @@ class Search extends React.Component {
     let show = '';
     if (this.state.showResults) {
       show = (
-        <ul id='dropdown' className='user-dropdown'>
+        <ul className='user-dropdown'>
           { this.props.users.map((user) =>
           <SearchItem key={user.id} user={user}/>)}
         </ul>
@@ -58,7 +58,7 @@ class Search extends React.Component {
 
     return(
       <nav className='search'>
-        <div id='search-bar' className='search-bar'>
+        <div className='search-bar'>
           <input
             type='text'
             placeholder='Search'

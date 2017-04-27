@@ -37,7 +37,11 @@
 
 .search-item {
   border-bottom: 1px solid $lightest-gray;
-
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .user-dropdown > li:hover {

@@ -15,7 +15,7 @@ class SearchItem extends React.Component {
   render() {
     return(
       <li onClick={this.redirectToUserProfile}
-          className='search-item image-header'>
+          className='search-item'>
             <img className='profile-pic'
                 src={ this.props.user.profile_pic_url } />
             <span>{ this.props.user.username }</span>
