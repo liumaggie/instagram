@@ -11,7 +11,7 @@ class NavBar extends React.Component {
   }
 
   handleLogout() {
-    this.props.logout().then(() => this.props.router.push('/log-in'));
+    this.props.logout().then(() => this.props.router.push('/sign-up'));
   }
 
   redirectToHomePage() {

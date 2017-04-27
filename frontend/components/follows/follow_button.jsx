@@ -31,9 +31,11 @@ class FollowButton extends React.Component {
     } else {
       user = this.props.user;
     }
-    this.props.fetchTheUser(user.id)
-              .then(() => this.checkIfCurrentUserFollows())
-              .then(() => this.setState({ loading: false }));
+    if (this.props.currentUser) {
+      this.props.fetchTheUser(user.id)
+      .then(() => this.checkIfCurrentUserFollows())
+      .then(() => this.setState({ loading: false }));
+    }
   }
 
   removeFollow() {

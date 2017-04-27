@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchAllImages } from '../../actions/image_actions';
+import { fetchAllImages, fetchAllImagesFromUserForFeed, removeAllImages } from '../../actions/image_actions';
 import ImageIndex from './image_index';
 import { asArray } from '../../reducers/selectors';
 
@@ -13,7 +13,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    fetchAllImages: () => dispatch(fetchAllImages())
+    fetchAllImages: () => dispatch(fetchAllImages()),
+    fetchAllImagesFromUserForFeed: (userId) => dispatch(fetchAllImagesFromUserForFeed(userId)),
+    removeAllImages: () => dispatch(removeAllImages())
   });
 };
 
