@@ -98,11 +98,6 @@ button, input[type=submit] {
   color: $blue;
 }
 
-button:hover, input[type=submit]:hover {
-  background-color: $lightest-gray;
-  color: $blue;
-}
-
 button:active, input[type=submit]:active {
   opacity: 0.5;
 }

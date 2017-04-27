@@ -13,9 +13,15 @@ class Api::FollowsController < ApplicationController
     @follow = Follow.new(follow_params)
     if @follow.save
       if params[:currentUser]
-        @user = User.find(@follow.follower_id)
+        @user = User.includes(
+          follows_as_follower: :followee,
+          follows_as_followee: :follower
+        ).find(@follow.follower_id)
       else
-        @user = User.find(@follow.followee_id)
+        @user = User.includes(
+          follows_as_follower: :followee,
+          follows_as_followee: :follower
+        ).find(@follow.followee_id)
       end
       render "api/users/show"
     else
@@ -27,9 +33,15 @@ class Api::FollowsController < ApplicationController
     @follow = Follow.find(params[:id])
     if @follow.destroy!
       if params[:currentUser]
-        @user = User.find(@follow.follower_id)
+        @user = User.includes(
+          follows_as_follower: :followee,
+          follows_as_followee: :follower
+        ).find(@follow.follower_id)
       else
-        @user = User.find(@follow.followee_id)
+        @user = User.includes(
+          follows_as_follower: :followee,
+          follows_as_followee: :follower
+        ).find(@follow.followee_id)
       end
       render "api/users/show"
     else
