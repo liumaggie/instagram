@@ -5,7 +5,7 @@ class ImageIndexInfinite extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { limit: 10, offset: 0, loading: false };
+    this.state = { limit: 10, offset: 0, loading: true };
     this.loadMoreImages = this.loadMoreImages.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
   }
@@ -27,7 +27,8 @@ class ImageIndexInfinite extends React.Component {
       this.props.currentUser.id,
       this.state.limit,
       this.state.offset)
-      .then(() => this.setState({ loading: false, offset: this.state.offset + 10 }));
+      .then(() => this.setState({ loading: false,
+                                  offset: this.state.offset + 10 }));
   }
 
   // Credit: http://blog.sodhanalibrary.com/2016/08/detect-when-user-scrolls-to-bottom-of.html#.WQFzlxLyszV
@@ -48,25 +49,22 @@ class ImageIndexInfinite extends React.Component {
   }
 
   render() {
-    let loading;
-    if (this.state.loading) {
-      loading = <div className='loader'></div>;
-    }
+    let loading = this.state.loading ? <div className='loader'></div> : '';
 
-      return(
-        <main className='home-photo-feed'>
-          <article className='feed-image'>
-            {
-              this.props.images.map((image) =>
-              <ImageItemDetail
-                key={image.img_path}
-                image={image}
-                imageFor='index' />
-            )
-          }
-        </article>
-
+    return(
+      <main className='home-photo-feed'>
+        <article className='feed-image'>
+          {
+            this.props.images.map((image) =>
+            <ImageItemDetail
+              key={image.img_path}
+              image={image}
+              imageFor='index' />
+          )
+        }
         { loading }
+      </article>
+
       </main>
     );
 }

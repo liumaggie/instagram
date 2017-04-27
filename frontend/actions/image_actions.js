@@ -37,23 +37,14 @@ export const fetchAllImages = () => dispatch => (
                     .then((images) => dispatch(receiveImages(images)))
 );
 
-export const fetchAllImagesFromUserForFeed = (userId) => dispatch => (
-  ImageApiUtil.fetchImagesForUser(userId)
-                    .then((images) => dispatch(receiveImagesForFeed(images)))
-);
-
 export const fetchNumOfImages = (userId, limit, offset) => dispatch => (
-  ImageApiUtil.fetchNumOfImages(userId, limit, offset).then((images) => dispatch(receiveImagesForFeed(images)))
+  ImageApiUtil.fetchNumOfImages(userId, limit, offset)
+              .then((images) => dispatch(receiveImagesForFeed(images)))
 );
 
 export const fetchImagesForUser = userId => dispatch => (
   ImageApiUtil.fetchImagesForUser(userId)
                     .then((images) => dispatch(receiveImages(images)))
-);
-
-export const fetchSingleImage = id => dispatch => (
-  ImageApiUtil.fetchSingleImage(id)
-                    .then((image) => dispatch(receiveImage(image)))
 );
 
 export const createImage = (formData, id) => dispatch => (

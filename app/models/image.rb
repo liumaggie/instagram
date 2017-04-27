@@ -45,6 +45,7 @@ class Image < ApplicationRecord
     else
       return "#{years.round}y"
     end
+
   end
 
 end
