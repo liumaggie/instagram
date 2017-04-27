@@ -71,10 +71,6 @@ class User < ApplicationRecord
     self.session_token
   end
 
-  # def query_for_following
-  #   following = self.followees.select("follows.*").where()
-  # end
-
   private
   def ensure_session_token
     self.session_token ||= generate_session_token

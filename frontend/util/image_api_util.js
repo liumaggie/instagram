@@ -11,7 +11,7 @@ export const fetchNumOfImages = (userId, limit, offset) => {
   return(
     $.ajax({
       method: 'GET',
-      url: `api/images`,
+      url: 'api/images',
       data: { userId, limit, offset }
     })
   );
@@ -34,13 +34,6 @@ export const createImage = (formData, id) => {
     data: formData
   }));
 };
-
-// export const fetchSingleImage = (id) => (
-//   $.ajax({
-//     method: 'GET',
-//     url: `api/images/${id}`
-//   })
-// );
 
 export const updateImage = (image) => (
   $.ajax({
