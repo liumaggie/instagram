@@ -3,8 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import AuthFormContainer from './session/auth_form_container';
-import UserProfileContainer from './user_profile/user_profile_container'
-import ImageIndexContainer from './photo_feed/image_index_container';
+import UserProfileContainer from './user_profile/user_profile_container';
 import EditProfileContainer from './user_profile/edit_profile_container';
 import ImageIndexInfiniteContainer from './photo_feed/image_index_infinite_container';
 

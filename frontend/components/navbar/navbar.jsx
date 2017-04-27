@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import UploadPhotoModalContainer from '../modals/upload_photo_modal_container';
+import SearchContainer from '../search/search_container';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -39,6 +40,8 @@ class NavBar extends React.Component {
                 <li><h2>Instapups</h2></li>
               </ul>
             </nav>
+
+            <SearchContainer />
 
             <nav className='right-nav'>
               <ul>

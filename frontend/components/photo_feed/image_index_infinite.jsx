@@ -50,7 +50,7 @@ class ImageIndexInfinite extends React.Component {
 
   render() {
     let loading = this.state.loading ? <div className='loader'></div> : '';
-
+    
     return(
       <main className='home-photo-feed'>
         <article className='feed-image'>

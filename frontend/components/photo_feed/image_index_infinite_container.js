@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchNumOfImages } from '../../actions/image_actions';
 import ImageIndexInfinite from './image_index_infinite';
-import { asArray } from '../../reducers/selectors';
+import { asArrayReversed } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
   return({
     currentUser: state.session.currentUser,
-    images: asArray(state.images)
+    images: asArrayReversed(state.images)
   });
 };
 

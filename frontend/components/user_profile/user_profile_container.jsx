@@ -1,13 +1,13 @@
 import React from 'react';
 import { fetchImagesForUser, removeAllImages } from '../../actions/image_actions';
 import { fetchUser } from '../../actions/user_actions';
-import { asArray } from '../../reducers/selectors';
+import { asArrayReversed } from '../../reducers/selectors';
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
 
 const mapStateToProps = (state) => {
   return({
-    images: asArray(state.images),
+    images: asArrayReversed(state.images),
     currentUser: state.session.currentUser,
     user: state.user
   });

@@ -27,3 +27,11 @@ export const updateUserWithForm = (formData, id) => {
     })
   );
 };
+
+export const fetchUsers = (string) => {
+  return $.ajax({
+      method: 'GET',
+      url: 'api/users',
+      data: { string }
+  });
+};

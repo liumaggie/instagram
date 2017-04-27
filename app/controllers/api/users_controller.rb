@@ -1,7 +1,9 @@
 class Api::UsersController < ApplicationController
 
   def index
-    @users = User.all
+    starts_with_string = params[:string].downcase
+    # @users = User.all
+    @users = User.where("lower(username) LIKE ?", "#{starts_with_string}%")
   end
 
   def create
@@ -32,8 +34,13 @@ class Api::UsersController < ApplicationController
   end
 
   private
+
   def user_params
-    params.require(:user).permit(:username, :password, :prof_image, :bio, :website)
+    params.require(:user).permit(:username,
+                                 :password,
+                                 :prof_image,
+                                 :bio,
+                                 :website)
   end
 
 end

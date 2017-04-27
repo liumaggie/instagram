@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { withRouter } from 'react-router';
 
 const customStyles = {
   overlay: {
@@ -57,7 +58,7 @@ class UploadPhotoModal extends React.Component {
     formData.append("image[location]", this.state.location);
     this.props.createImage(formData, this.props.currentUser.id)
               .then(() => this.closeModal())
-              .then(() => window.location.reload());
+              .then(() => this.props.router.push(`/users/${this.props.currentUser.id}`));
   }
 
   render() {
@@ -97,4 +98,4 @@ class UploadPhotoModal extends React.Component {
   }
 }
 
-export default UploadPhotoModal;
+export default withRouter(UploadPhotoModal);
