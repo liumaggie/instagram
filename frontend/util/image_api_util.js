@@ -7,6 +7,16 @@ export const fetchAllImages = () => {
   );
 };
 
+export const fetchNumOfImages = (userId, limit, offset) => {
+  return(
+    $.ajax({
+      method: 'GET',
+      url: `api/images`,
+      data: { userId, limit, offset }
+    })
+  );
+};
+
 export const fetchImagesForUser = (userId) => (
   $.ajax({
     method: 'GET',
@@ -25,12 +35,12 @@ export const createImage = (formData, id) => {
   }));
 };
 
-export const fetchSingleImage = (id) => (
-  $.ajax({
-    method: 'GET',
-    url: `api/images/${id}`
-  })
-);
+// export const fetchSingleImage = (id) => (
+//   $.ajax({
+//     method: 'GET',
+//     url: `api/images/${id}`
+//   })
+// );
 
 export const updateImage = (image) => (
   $.ajax({

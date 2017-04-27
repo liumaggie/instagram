@@ -1,8 +1,17 @@
 class Api::ImagesController < ApplicationController
 
     def index
+      # debugger
       if params[:user_id]
         @images = User.find(params[:user_id]).images.includes(:owner, comments: :author, likes: :liker)
+      elsif params[:limit]
+        # followees = User.find(params[:userId].to_i).followees
+        # @images = []
+        # followees.each do |followee|
+        #   @images += followee.images.includes(:owner, comments: :author, likes: :liker)
+        # end
+        # where("follower_id = ? ", params[:userId].to_i)
+        @images = Image.includes(:owner, comments: :author, likes: :liker).order('created_at DESC').all.limit(params[:limit].to_i).offset(params[:offset].to_i)
       else
         @images = Image.includes(:owner, comments: :author, likes: :liker).all
       end

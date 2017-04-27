@@ -42,6 +42,10 @@ export const fetchAllImagesFromUserForFeed = (userId) => dispatch => (
                     .then((images) => dispatch(receiveImagesForFeed(images)))
 );
 
+export const fetchNumOfImages = (userId, limit, offset) => dispatch => (
+  ImageApiUtil.fetchNumOfImages(userId, limit, offset).then((images) => dispatch(receiveImagesForFeed(images)))
+);
+
 export const fetchImagesForUser = userId => dispatch => (
   ImageApiUtil.fetchImagesForUser(userId)
                     .then((images) => dispatch(receiveImages(images)))
