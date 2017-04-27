@@ -15,15 +15,14 @@ class ImageIndexInfinite extends React.Component {
   }
 
   componentWillMount() {
-    this.props.fetchAllImages()
-              .then(() => this.setState({ loading: false, imagesLoaded: this.props.images }));
+    const that = this;
+    this.props.currentUser.followings.forEach((following) => {
+      that.fetchFollowingImages(following.id);
+    });
+    setTimeout(() => {
+      this.setState({ loading: false, imagesLoaded: this.addImages(0, 7)});
+    });
   }
-
-  // const that = this;
-  // this.props.currentUser.followings.forEach((following) => {
-  //   that.fetchFollowingImages(following.id);
-  // });
-  // this.addImages(0, 7);
 
   addImages(start, end) {
     let images = [];
@@ -46,6 +45,7 @@ class ImageIndexInfinite extends React.Component {
     });
   }
 
+
   render() {
     let loading;
     if (this.state.loading) {
@@ -60,10 +60,10 @@ class ImageIndexInfinite extends React.Component {
         <main className='home-photo-feed'>
           <article className='feed-image'>
             {
-              this.state.imagesLoaded.map((img) =>
+              this.state.imagesLoaded.map((img, idx) =>
               <ImageItemDetail
-                key={img.img_path}
-                image={img}
+                key={this.props.images[idx].img_path}
+                image={this.props.images[idx]}
                 imageFor='index' />
             )
           }
