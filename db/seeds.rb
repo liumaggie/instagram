@@ -185,6 +185,8 @@ image53 = Image.create(image: File.open("app/assets/images/puppy52.jpg"), user_i
 image54 = Image.create(image: File.open("app/assets/images/puppy53.jpg"), user_id: user22.id,)
 image55 = Image.create(image: File.open("app/assets/images/puppy54.jpg"), user_id: user10.id)
 
+
+
 Like.create(liker_id: user1.id, image_id: image1.id)
 Like.create(liker_id: user2.id, image_id: image1.id)
 Like.create(liker_id: user3.id, image_id: image1.id)
@@ -307,12 +309,28 @@ Comment.create(body: Faker::StarWars.wookie_sentence, author_id: user13.id, imag
 Comment.create(body: Faker::Hacker.say_something_smart, author_id: user14.id, image_id: image8.id)
 Comment.create(body: Faker::Hacker.say_something_smart, author_id: user16.id, image_id: image15.id)
 Comment.create(body: Faker::StarWars.wookie_sentence, author_id: user9.id, image_id: image22.id)
+Comment.create(body: "The puppy is soo cute!",
+              author_id: user1.id,
+              image_id: image2.id)
+Comment.create(body: "Awwww",
+              author_id: user2.id,
+              image_id: image3.id)
+Comment.create(body: "She's adorable!",
+                author_id: user3.id,
+                image_id: image4.id)
+Comment.create(body: "Let's hangout some time!",
+              author_id: user2.id,
+              image_id: image6.id)
 
 Follow.create(follower_id: user1.id, followee_id: user2.id)
 Follow.create(follower_id: user1.id, followee_id: user3.id)
 Follow.create(follower_id: user1.id, followee_id: user4.id)
 Follow.create(follower_id: user1.id, followee_id: user6.id)
 Follow.create(follower_id: user1.id, followee_id: user10.id)
+Follow.create(follower_id: user1.id, followee_id: user5.id)
+Follow.create(follower_id: user1.id, followee_id: user20.id)
+Follow.create(follower_id: user1.id, followee_id: user22.id)
+Follow.create(follower_id: user1.id, followee_id: user7.id)
 Follow.create(follower_id: user2.id, followee_id: user3.id)
 Follow.create(follower_id: user2.id, followee_id: user1.id)
 Follow.create(follower_id: user2.id, followee_id: user8.id)
@@ -360,4 +378,7 @@ Follow.create(follower_id: user15.id, followee_id: user1.id)
 Follow.create(follower_id: user12.id, followee_id: user15.id)
 Follow.create(follower_id: user13.id, followee_id: user19.id)
 Follow.create(follower_id: user14.id, followee_id: user22.id)
-Follow.create(follower_id: user19.id, followee_id: user12.id)
+Follow.create(follower_id: user19.id, followee_id: user1.id)
+Follow.create(follower_id: user22.id, followee_id: user1.id)
+Follow.create(follower_id: user15.id, followee_id: user1.id)
+Follow.create(follower_id: user18.id, followee_id: user1.id)
