@@ -94,6 +94,10 @@
   word-break: break-all;
 }
 
+.comment-item > article > strong {
+  font-weight: bolder;
+}
+
 .add-like-comment > li:last-child {
   width: 100%;
 }

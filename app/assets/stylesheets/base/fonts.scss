@@ -7,15 +7,12 @@ $roboto: 'Roboto', sans-serif;
 // font-family: 'segoe-ui';
 // font-style: normal;
 // font-weight: normal;
-// src: local('segoe-ui'), url('fonts/segoe-ui.woff') format('woff');
+// src: url('app/assets/fonts/segoe-ui.woff')
 // }
 //
 // @font-face {
 // font-family: 'Billabong';
 // font-style: normal;
 // font-weight: normal;
-// src: local('Billabong'), url('fonts/Billabong.woff') format('woff');
+// src: url('fonts/Billabong.woff')
 // }
-
-$segoe-ui: 'segoe-ui';
-$billabong: 'Billabong';

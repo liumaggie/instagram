@@ -27,7 +27,7 @@ class ImageIndexItem extends React.Component {
               onClick={this.props.redirectToUserProfile}
               className='username'>{ image.owner.username}
             </strong>
-            { image.caption }
+            { ' ' } { image.caption}
           </li>
 
           <li><CommentsContainer comments={ image.comments }/></li>
