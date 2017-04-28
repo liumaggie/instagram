@@ -183,7 +183,7 @@ image52 = Image.create(image: File.open("app/assets/images/puppy51.jpg"), user_i
 caption: Faker::Lorem.sentence)
 image53 = Image.create(image: File.open("app/assets/images/puppy52.jpg"), user_id: user21.id)
 image54 = Image.create(image: File.open("app/assets/images/puppy53.jpg"), user_id: user22.id,
-caption: Faker::Loren.sentence)
+caption: Faker::Lorem.sentence)
 image55 = Image.create(image: File.open("app/assets/images/puppy54.jpg"), user_id: user10.id)
 
 
