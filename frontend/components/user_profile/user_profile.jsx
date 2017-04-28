@@ -45,7 +45,7 @@ class UserProfile extends React.Component {
             imagePosts={this.props.images.length}
             user={ this.props.user }
             currentUser={ this.props.currentUser }
-            fetchUser={ this.props.fetchUser }/>
+            fetchUser={ this.props.fetchUser  }/>
           <UserImages images={ this.props.images }/>
         </div>
       );

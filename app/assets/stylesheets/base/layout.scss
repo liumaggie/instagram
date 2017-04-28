@@ -5,13 +5,13 @@ body {
 }
 
 button:hover, input[type='submit']:hover {
-  background-color: $lightest-gray;
-  color: $black;
+  opacity: 0.7;
 }
+
 
 .loader {
   margin: 100px auto;
-  font-size: 25px;
+  font-size: 18px;
   width: 1em;
   height: 1em;
   border-radius: 50%;

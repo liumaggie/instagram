@@ -5,9 +5,10 @@ class ImageIndexInfinite extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { limit: 10, offset: 0, loading: true };
+    this.state = { limit: 7, offset: 0, loading: true, more: true, previousImages: null };
     this.loadMoreImages = this.loadMoreImages.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.checkIfMoreImages = this.checkIfMoreImages.bind(this);
   }
 
   componentWillMount() {
@@ -22,13 +23,26 @@ class ImageIndexInfinite extends React.Component {
     window.removeEventListener("scroll", this.handleScroll);
   }
 
+  checkIfMoreImages() {
+    if (this.props.images.length < this.state.previousImages + this.state.limit) {
+      this.setState({ loading: false, more: false });
+    } else {
+      this.setState({ loading: false,
+                      offset: this.state.offset + this.state.limit, more: true,
+                      previousImages: this.props.images.length});
+    }
+  }
+
   loadMoreImages() {
-    this.props.fetchNumOfImages(
-      this.props.currentUser.id,
-      this.state.limit,
-      this.state.offset)
-      .then(() => this.setState({ loading: false,
-                                  offset: this.state.offset + 10 }));
+    this.checkIfMoreImages();
+    if (this.state.more) {
+      this.setState({ loading: true }, () => {
+        this.props.fetchNumOfImages(
+          this.props.currentUser.id,
+          this.state.limit,
+          this.state.offset);
+        });
+      }
   }
 
   // Credit: http://blog.sodhanalibrary.com/2016/08/detect-when-user-scrolls-to-bottom-of.html#.WQFzlxLyszV
@@ -50,7 +64,7 @@ class ImageIndexInfinite extends React.Component {
 
   render() {
     let loading = this.state.loading ? <div className='loader'></div> : '';
-    
+
     return(
       <main className='home-photo-feed'>
         <article className='feed-image'>

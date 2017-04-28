@@ -22,6 +22,11 @@
   padding: 5px 30px;
 }
 
+.edit-user-btn:hover,
+.unfollow-btn:hover {
+  background-color: $lightest-gray;
+}
+
 .follow-btn {
   padding: 5px 30px;
   font-size: 14px;
