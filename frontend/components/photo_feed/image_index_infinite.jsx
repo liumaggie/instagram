@@ -27,8 +27,7 @@ class ImageIndexInfinite extends React.Component {
     if (this.props.images.length < this.state.previousImages + this.state.limit) {
       this.setState({ loading: false, more: false });
     } else {
-      this.setState({ loading: false,
-                      offset: this.state.offset + this.state.limit, more: true,
+      this.setState({ offset: this.state.offset + this.state.limit, more: true,
                       previousImages: this.props.images.length});
     }
   }
@@ -40,7 +39,7 @@ class ImageIndexInfinite extends React.Component {
         this.props.fetchNumOfImages(
           this.props.currentUser.id,
           this.state.limit,
-          this.state.offset);
+          this.state.offset).then(() => this.setState({ loading: false }));
         });
       }
   }
