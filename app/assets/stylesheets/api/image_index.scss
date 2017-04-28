@@ -82,9 +82,20 @@
   margin-bottom: 20px;
 }
 
+.comments {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .comment-item {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  word-break: break-all;
+}
+
+.add-like-comment > li:last-child {
+  width: 100%;
 }
 
 .fa-times {

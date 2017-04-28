@@ -31,6 +31,7 @@ class NewComment extends React.Component {
   render() {
     return(
       <input
+        className='comment-box'
         type='text'
         placeholder='Add a comment...'
         onKeyPress={this.addComment}
