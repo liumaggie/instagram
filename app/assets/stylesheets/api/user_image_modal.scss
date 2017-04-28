@@ -78,6 +78,10 @@
   margin-bottom: 8px;
 }
 
+.caption-comments-scroll > li:last-child > ul > li {
+  margin-bottom: 8px;
+}
+
 @media (min-width: 1000px) {
   height: 100%;
   max-width: 1000px;
