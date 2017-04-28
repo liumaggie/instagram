@@ -32,12 +32,15 @@ strong {
   padding: 20px;
 }
 
-.upload-photo-modal form,
 .profile-photo-modal form {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
+.upload-photo-modal form {
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-photo-modal form > input[type='submit'] {
