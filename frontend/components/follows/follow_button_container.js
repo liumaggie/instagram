@@ -3,12 +3,14 @@ import { createFollowForCurrentUser, deleteFollowForCurrentUser, fetchCurrentUse
 import { createFollow, deleteFollow, fetchUser } from '../../actions/user_actions';
 import { connect } from 'react-redux';
 import FollowButton from './follow_button';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = (state, nextProps) => {
   return({
     currentUser: state.session.currentUser,
     user: state.user,
-    forModal: nextProps.forModal
+    forModal: nextProps.forModal,
+    hi: nextProps.hi
   });
 };
 
@@ -25,4 +27,4 @@ const mapDispatchToProps = (dispatch, nextProps) => {
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FollowButton);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(FollowButton));

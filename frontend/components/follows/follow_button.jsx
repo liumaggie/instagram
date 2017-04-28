@@ -3,22 +3,31 @@ import React from 'react';
 class FollowButton extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = { following: 'unfollowed', loading: true, followId: null };
     this.removeFollow = this.removeFollow.bind(this);
     this.createFollow = this.createFollow.bind(this);
     this.checkIfCurrentUserFollows = this.checkIfCurrentUserFollows.bind(this);
     this.findFollowId = this.findFollowId.bind(this);
+
   }
 
   checkIfCurrentUserFollows() {
     let userId = this.props.forModal ? this.props.follow.id : this.props.user.id;
-    this.props.currentUser.followings.forEach(
-      (following) => {
-        if (following.id === userId) {
-          this.setState({ following: 'followed', loading: false });
-        }
-      });
+    this.setState({ following: 'unfollowed'}, () => {
+      this.props.currentUser.followings.forEach(
+        (following) => {
+          if (following.id === userId) {
+            this.setState({ following: 'followed', loading: false });
+          }
+        });
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.params.id !== nextProps.params.id) {
+      this.props.fetchUser(nextProps.params.id)
+                .then(() => this.checkIfCurrentUserFollows());
+    }
   }
 
   findFollowId() {
@@ -34,13 +43,14 @@ class FollowButton extends React.Component {
     });
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const user = (
       this.props.forModal ? this.props.currentUser : this.props.user
     );
 
     if (this.props.currentUser) {
-      this.props.fetchTheUser(user.id)
+      this.props.fetchUser(this.props.user.id)
+                .then(() => this.props.fetchCurrentUser(this.props.currentUser.id))
                 .then(() => this.checkIfCurrentUserFollows())
                 .then(() => this.setState({ loading: false }));
     }
@@ -71,9 +81,8 @@ class FollowButton extends React.Component {
     let user = this.props.forModal ? this.props.follow.id : this.props.user.id;
     let hidden = (!this.props.currentUser || (this.props.currentUser.id === user) ? 'hidden' : '');
     if (this.state.loading) {
-      return <div></div>;
+      return <button disabled className={'unfollowing'}><i className="fa fa-spinner fa-spin"></i></button>;
     } else {
-      // debugger
       if (this.state.following === 'followed') {
         return(
           <button className={`unfollow-btn ${hidden}`} onClick={this.removeFollow}>Following</button>

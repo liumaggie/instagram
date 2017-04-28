@@ -29,7 +29,7 @@ class UserProfileDetail extends React.Component {
     const user = this.props.user;
     const currentUser = this.props.currentUser;
     if (!currentUser || currentUser.id !== user.id) {
-      return <FollowButtonContainer />;
+      return <FollowButtonContainer hi={'yes'} forModal={false}/>;
     } else {
       return (
         <button
