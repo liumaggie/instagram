@@ -21,6 +21,7 @@ class ImageIndexInfinite extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleScroll);
+    this.props.removeAllImages();
   }
 
   checkIfMoreImages() {
