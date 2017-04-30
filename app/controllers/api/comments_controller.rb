@@ -3,7 +3,7 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      @image = Image.find(params[:image_id])
+      @image = Image.joins(:comments).order('comments.created_at ASC').find(params[:image_id])
       render "api/images/show"
     else
       render json: ["Invalid comment"], status: 422
