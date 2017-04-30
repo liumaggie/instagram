@@ -68,7 +68,9 @@ class UserImageModal extends React.Component {
             <div className='right-details'>
               <section className='username-pic-modal'>
                 <ul>
-                  <li><img className='profile-pic' src={ image.owner.profile_pic_url } /></li>
+                  <li><img className='profile-pic'
+                           src={ image.owner.profile_pic_url } />
+                  </li>
                   <li><strong>{ image.owner.username }</strong></li>
                 </ul>
 
@@ -90,8 +92,3 @@ class UserImageModal extends React.Component {
 }
 
 export default UserImageModal;
-
-// <div className='image-hover'>
-//   <span><i className="fa fa-heart" aria-hidden="true"></i>{ image.likes.length }</span>
-//   <span><i className="fa fa-comment-o" aria-hidden="true"></i>{ image.comments.length }</span>
-// </div>

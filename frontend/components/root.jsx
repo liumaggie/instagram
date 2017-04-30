@@ -25,11 +25,20 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path='/' component={ App }>
-          <IndexRoute component={ ImageIndexInfiniteContainer } onEnter={ _ensureLoggedIn }/>
-          <Route path='/log-in' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
-          <Route path='/sign-up' component={ AuthFormContainer } onEnter={ _redirectIfLoggedIn }/>
-          <Route path='/users/:id' component={ UserProfileContainer } onEnter={ _ensureLoggedIn } />
-          <Route path='/users/:id/edit' component={ EditProfileContainer } onEnter={ _ensureLoggedIn } />
+          <IndexRoute component={ ImageIndexInfiniteContainer }
+                      onEnter={ _ensureLoggedIn }/>
+          <Route path='/log-in'
+                 component={ AuthFormContainer }
+                 onEnter={ _redirectIfLoggedIn }/>
+          <Route path='/sign-up'
+                 component={ AuthFormContainer }
+                 onEnter={ _redirectIfLoggedIn }/>
+          <Route path='/users/:id'
+                 component={ UserProfileContainer }
+                 onEnter={ _ensureLoggedIn } />
+          <Route path='/users/:id/edit'
+                 component={ EditProfileContainer }
+                 onEnter={ _ensureLoggedIn } />
         </Route>
       </Router>
     </Provider>

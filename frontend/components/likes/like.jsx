@@ -4,7 +4,10 @@ import { merge } from 'lodash';
 class Like extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { liker_id: null, image_id: this.props.image.id, liked: false };
+    this.state = {
+      liker_id: null,
+      image_id: this.props.image.id,
+      liked: false };
     this.addLike = this.addLike.bind(this);
     this.deleteLike = this.deleteLike.bind(this);
   }
@@ -20,7 +23,9 @@ class Like extends React.Component {
   }
 
   componentDidMount() {
-    if (this.imageLikesIncludeUser(this.props.image, this.props.currentUser)) {
+    if (this.imageLikesIncludeUser(
+      this.props.image, this.props.currentUser
+    )) {
       this.setState({ liked: false });
     } else {
       this.setState({ liked: true });
@@ -32,14 +37,18 @@ class Like extends React.Component {
       { liker_id: this.props.currentUser.id },
         () => {
           let like = merge({}, this.state);
-          this.props.addLikeToImage(like).then(() => this.setState({ liked: false }));
+          this.props.addLikeToImage(like)
+                    .then(() => this.setState({ liked: false }));
       }
     );
   }
 
   deleteLike() {
-    let likeId = this.imageLikesIncludeUser(this.props.image, this.props.currentUser);
-    this.props.deleteLikeFromImage(likeId).then(() => this.setState({ liked: true }));
+    let likeId = this.imageLikesIncludeUser(
+      this.props.image, this.props.currentUser
+    );
+    this.props.deleteLikeFromImage(likeId)
+              .then(() => this.setState({ liked: true }));
   }
 
   render() {

@@ -3,16 +3,21 @@ import React from 'react';
 class FollowButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { following: 'unfollowed', loading: true, followId: null };
+    this.state = {
+      following: 'unfollowed',
+      loading: true,
+      followId: null };
     this.removeFollow = this.removeFollow.bind(this);
     this.createFollow = this.createFollow.bind(this);
-    this.checkIfCurrentUserFollows = this.checkIfCurrentUserFollows.bind(this);
+    this.checkIfCurrentUserFollows =
+      this.checkIfCurrentUserFollows.bind(this);
     this.findFollowId = this.findFollowId.bind(this);
 
   }
 
   checkIfCurrentUserFollows() {
-    let userId = this.props.forModal ? this.props.follow.id : this.props.user.id;
+    let userId = this.props.forModal ?
+      this.props.follow.id : this.props.user.id;
     this.setState({ following: 'unfollowed'}, () => {
       this.props.currentUser.followings.forEach(
         (following) => {
@@ -69,7 +74,8 @@ class FollowButton extends React.Component {
   createFollow(e) {
     this.setState({ following: 'following' });
     setTimeout(() => {
-      let followee = (this.props.forModal ? this.props.follow.id : this.props.user.id);
+      let followee = (this.props.forModal ?
+        this.props.follow.id : this.props.user.id);
       this.props.makeFollow({
         follower_id: this.props.currentUser.id,
         followee_id: followee
@@ -78,22 +84,33 @@ class FollowButton extends React.Component {
   }
 
   render() {
-    let user = this.props.forModal ? this.props.follow.id : this.props.user.id;
-    let hidden = (!this.props.currentUser || (this.props.currentUser.id === user) ? 'hidden' : '');
+    let user = this.props.forModal ?
+      this.props.follow.id : this.props.user.id;
+    let hidden = (!this.props.currentUser ||
+      (this.props.currentUser.id === user) ? 'hidden' : '');
     if (this.state.loading) {
-      return <button disabled className={'unfollowing'}><i className="fa fa-spinner fa-spin"></i></button>;
+      return <button disabled
+                     className={'unfollowing'}>
+                <i className="fa fa-spinner fa-spin"></i>
+              </button>;
     } else {
       if (this.state.following === 'followed') {
         return(
-          <button className={`unfollow-btn ${hidden}`} onClick={this.removeFollow}>Following</button>
+          <button className={`unfollow-btn ${hidden}`}
+                  onClick={this.removeFollow}>Following</button>
         );
       } else if (this.state.following === 'unfollowing') {
-        return <button disabled className={'unfollowing'}><i className="fa fa-spinner fa-spin"></i></button>;
+        return <button disabled className={'unfollowing'}>
+                  <i className="fa fa-spinner fa-spin"></i>
+               </button>;
       } else if (this.state.following === 'following') {
-        return <button disabled className={'following'}><i className="fa fa-spinner fa-spin"></i></button>;
+        return <button disabled className={'following'}>
+                <i className="fa fa-spinner fa-spin"></i>
+               </button>;
       } else {
         return(
-          <button className={`follow-btn ${hidden}`} onClick={this.createFollow}>Follow</button>
+          <button className={`follow-btn ${hidden}`}
+                  onClick={this.createFollow}>Follow</button>
         );
       }
     }

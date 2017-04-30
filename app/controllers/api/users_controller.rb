@@ -2,8 +2,8 @@ class Api::UsersController < ApplicationController
 
   def index
     starts_with_string = params[:string].downcase
-    # @users = User.all
-    @users = User.where("lower(username) LIKE ?", "#{starts_with_string}%")
+    @users = User.where("lower(username) LIKE ?",
+                        "#{starts_with_string}%")
   end
 
   def create
@@ -20,9 +20,9 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       render :show
+    else
+      render json: @user.errors.full_messages, status: 422
     end
-    # check back to see if need to show errors; shouldn't need to because just
-    # changing prof pic path and description
   end
 
   def show

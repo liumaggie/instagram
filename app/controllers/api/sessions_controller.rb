@@ -7,7 +7,8 @@ class Api::SessionsController < ApplicationController
     )
 
     if @user.nil?
-      render( json: ["Invalid username and password combination"], status: 401)
+      render json: ["Invalid username and password combination"],
+             status: 401
     else
       log_in(@user)
       render "api/users/show"
@@ -20,7 +21,7 @@ class Api::SessionsController < ApplicationController
       @user = current_user
       render "api/users/show"
     else
-      render( json: ['Please login or signup'], status: 404)
+      render json: ['Please login or signup'], status: 404
     end
   end
 

@@ -43,7 +43,8 @@ class User < ApplicationRecord
     source: :follower
 
   has_attached_file :prof_image, default_url: "default_prof_pic.png"
-  validates_attachment_content_type :prof_image, content_type: /\Aimage\/.*\z/
+  validates_attachment_content_type :prof_image,
+                                    content_type: /\Aimage\/.*\z/
 
   attr_reader :password
 

@@ -1,10 +1,5 @@
 class Api::LikesController < ApplicationController
 
-  # def index
-  #   @likes = Like.include(:image)
-  #   render "api/images/index"
-  # end
-
   def create
     @like = Like.new(like_params)
     if @like.save

@@ -102,90 +102,89 @@ user29 = User.create(username: Faker::Pokemon.unique.name,
 image1 = Image.create(
                 image: File.open("app/assets/images/puppy.jpg"),
                 user_id: user1.id,
-                caption: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+                caption: "my cute little puppy")
 image2 = Image.create(image: File.open("app/assets/images/puppy2.jpg"), user_id: user2.id,
-                      caption: Faker::Lorem.sentence)
+                      caption: Faker::StarWars.unique.quote)
 image3 = Image.create(image: File.open("app/assets/images/puppy3.jpg"), user_id: user1.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image4 = Image.create(image: File.open("app/assets/images/puppy4.jpg"), user_id: user1.id)
 image5 = Image.create(image: File.open("app/assets/images/pup.jpg"), user_id: user1.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image6 = Image.create(image: File.open("app/assets/images/puppy5.jpg"), user_id: user2.id)
 image7 = Image.create(image: File.open("app/assets/images/puppy6.jpg"), user_id: user2.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image8 = Image.create(image: File.open("app/assets/images/puppy7.jpg"), user_id: user3.id)
 image9 = Image.create(image: File.open("app/assets/images/puppy8.jpg"), user_id: user2.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image10 = Image.create(image: File.open("app/assets/images/puppy9.jpg"), user_id: user3.id)
 image11 = Image.create(image: File.open("app/assets/images/puppy10.jpg"), user_id: user2.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image12 = Image.create(image: File.open("app/assets/images/puppy11.jpg"), user_id: user3.id)
 image13 = Image.create(image: File.open("app/assets/images/puppy12.jpg"), user_id: user4.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image14 = Image.create(image: File.open("app/assets/images/puppy13.jpg"), user_id: user5.id)
 image15 = Image.create(image: File.open("app/assets/images/puppy14.jpg"), user_id: user4.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image16 = Image.create(image: File.open("app/assets/images/puppy15.jpg"), user_id: user5.id)
 image17 = Image.create(image: File.open("app/assets/images/puppy16.jpg"), user_id: user5.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image18 = Image.create(image: File.open("app/assets/images/puppy17.jpg"), user_id: user6.id)
 image19 = Image.create(image: File.open("app/assets/images/puppy18.jpg"), user_id: user6.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image20 = Image.create(image: File.open("app/assets/images/puppy19.jpg"), user_id: user7.id)
 image21 = Image.create(image: File.open("app/assets/images/puppy20.jpg"), user_id: user1.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image22 = Image.create(image: File.open("app/assets/images/puppy21.jpg"), user_id: user9.id)
 image23 = Image.create(image: File.open("app/assets/images/puppy22.jpg"), user_id: user10.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image24 = Image.create(image: File.open("app/assets/images/puppy23.jpg"), user_id: user10.id)
 image25 = Image.create(image: File.open("app/assets/images/puppy24.jpg"), user_id: user9.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image26 = Image.create(image: File.open("app/assets/images/puppy25.jpg"), user_id: user8.id)
 image27 = Image.create(image: File.open("app/assets/images/puppy26.jpg"), user_id: user7.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image28 = Image.create(image: File.open("app/assets/images/puppy27.jpg"), user_id: user11.id)
 image29 = Image.create(image: File.open("app/assets/images/puppy28.jpg"), user_id: user12.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image30 = Image.create(image: File.open("app/assets/images/puppy29.jpg"), user_id: user13.id)
 image31 = Image.create(image: File.open("app/assets/images/puppy30.jpg"), user_id: user14.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image32 = Image.create(image: File.open("app/assets/images/puppy31.jpg"), user_id: user15.id)
 image33 = Image.create(image: File.open("app/assets/images/puppy32.jpg"), user_id: user16.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image34 = Image.create(image: File.open("app/assets/images/puppy33.jpg"), user_id: user17.id)
 image35 = Image.create(image: File.open("app/assets/images/puppy34.jpg"), user_id: user18.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image36 = Image.create(image: File.open("app/assets/images/puppy35.jpg"), user_id: user18.id)
 image37 = Image.create(image: File.open("app/assets/images/puppy36.jpg"), user_id: user1.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image38 = Image.create(image: File.open("app/assets/images/puppy37.jpg"), user_id: user20.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image39 = Image.create(image: File.open("app/assets/images/puppy38.jpg"), user_id: user21.id)
 image40 = Image.create(image: File.open("app/assets/images/puppy39.jpg"), user_id: user22.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image41 = Image.create(image: File.open("app/assets/images/puppy40.jpg"), user_id: user17.id)
 image42 = Image.create(image: File.open("app/assets/images/puppy41.jpg"), user_id: user15.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image43 = Image.create(image: File.open("app/assets/images/puppy42.jpg"), user_id: user11.id)
 image44 = Image.create(image: File.open("app/assets/images/puppy43.jpg"), user_id: user10.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image45 = Image.create(image: File.open("app/assets/images/puppy44.jpg"), user_id: user1.id)
 image46 = Image.create(image: File.open("app/assets/images/puppy45.jpg"), user_id: user18.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image47 = Image.create(image: File.open("app/assets/images/puppy46.jpg"), user_id: user19.id)
 image48 = Image.create(image: File.open("app/assets/images/puppy47.jpg"), user_id: user14.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image49 = Image.create(image: File.open("app/assets/images/puppy48.jpg"), user_id: user13.id)
 image50 = Image.create(image: File.open("app/assets/images/puppy49.jpg"), user_id: user12.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image51 = Image.create(image: File.open("app/assets/images/puppy50.jpg"), user_id: user11.id)
 image52 = Image.create(image: File.open("app/assets/images/puppy51.jpg"), user_id: user20.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image53 = Image.create(image: File.open("app/assets/images/puppy52.jpg"), user_id: user21.id)
 image54 = Image.create(image: File.open("app/assets/images/puppy53.jpg"), user_id: user22.id,
-caption: Faker::Lorem.sentence)
+caption: Faker::StarWars.unique.quote)
 image55 = Image.create(image: File.open("app/assets/images/puppy54.jpg"), user_id: user10.id)
-
 
 
 Like.create(liker_id: user1.id, image_id: image1.id)

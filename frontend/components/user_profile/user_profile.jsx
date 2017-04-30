@@ -24,7 +24,8 @@ class UserProfile extends React.Component {
 
   fetchUserAndImages(props) {
     this.props.fetchUser(this.parseParamsId(props))
-      .then(() => this.props.fetchImagesForUser(this.parseParamsId(props)))
+      .then(() => this.props.fetchImagesForUser(
+                    this.parseParamsId(props)))
       .then(() => this.setState({ loading: false }));
   }
 

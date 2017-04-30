@@ -34,7 +34,10 @@ class AuthForm extends React.Component {
     e.preventDefault();
     const user = merge({}, this.state);
     this.props.processForm(user).then(() => this.redirect(),
-                                      () => this.setState({username: '', password: ''}));
+                                      () => this.setState({
+                                              username: '',
+                                              password: ''
+                                            }));
   }
 
   checkIfLogIn() {
@@ -48,10 +51,14 @@ class AuthForm extends React.Component {
 
   render() {
     let formType = this.checkIfLogIn() ? 'Log In' : 'Sign Up';
-    let alternateText = this.checkIfLogIn() ? `Don't have an account?` : `Have an account?`;
-    let alternateLink = this.checkIfLogIn() ? ' Sign Up' : ' Log In';
-    let alternatePath = this.checkIfLogIn() ? '/sign-up' : '/log-in';
-    let description = this.checkIfLogIn() ? '' : 'Sign up to see photos of puppies from your friends!';
+    let alternateText = this.checkIfLogIn() ?
+      `Don't have an account?` : `Have an account?`;
+    let alternateLink = this.checkIfLogIn() ?
+      ' Sign Up' : ' Log In';
+    let alternatePath = this.checkIfLogIn() ?
+      '/sign-up' : '/log-in';
+    let description = this.checkIfLogIn() ?
+      '' : 'Sign up to see photos of puppies from your friends!';
     return(
       <div className='auth-full-page group'>
 
@@ -71,7 +78,8 @@ class AuthForm extends React.Component {
                 <p>OR</p>
                 <hr className='horizontal'/>
               </div>
-              <form className='auth-form' onSubmit={ this.handleSubmit }>
+              <form className='auth-form'
+                    onSubmit={ this.handleSubmit }>
 
                 <input
                   type='text'
@@ -90,7 +98,9 @@ class AuthForm extends React.Component {
 
                 <div className='errors'>
                   <ul>
-                    { this.props.errors.map((error) => <li key={error}>{ error }</li>) }
+                    { this.props.errors.map((error) =>
+                      <li key={error}>{ error }</li>)
+                    }
                   </ul>
                 </div>
 
@@ -99,7 +109,8 @@ class AuthForm extends React.Component {
 
             <div className='switch-auth'>
               <p>{alternateText}
-                <Link to={alternatePath} className='link'>{ alternateLink }</Link>
+                <Link to={alternatePath}
+                      className='link'>{ alternateLink }</Link>
               </p>
             </div>
 

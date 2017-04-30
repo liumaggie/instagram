@@ -23,7 +23,8 @@ class EditProfile extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if ((this.props.currentUser.id !== parseInt(nextProps.params.id)) || (!nextProps.currentUser)) {
+    if ((this.props.currentUser.id !== parseInt(nextProps.params.id)) ||
+      (!nextProps.currentUser)) {
       this.props.router.push('/');
     }
   }
@@ -34,8 +35,14 @@ class EditProfile extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = Object.assign({}, this.state, { id: this.props.currentUser.id });
-    this.props.updateCurrentUser(user).then(() => this.setState({ successfulSaveText: 'Profile saved!' }));
+    let user = Object.assign(
+                {},
+                this.state,
+                { id: this.props.currentUser.id }
+              );
+    this.props.updateCurrentUser(user)
+              .then(() => this.setState(
+                { successfulSaveText: 'Profile saved!' }));
   }
 
   isCurrentUser() {
@@ -60,7 +67,9 @@ class EditProfile extends React.Component {
           </div>
 
           <div className='right-col'>
-            <h3 className='current-username'>{ currentUser.username }</h3>
+            <h3 className='current-username'>
+              { currentUser.username }
+            </h3>
             <input
               type='text'
               id='username'
@@ -82,8 +91,12 @@ class EditProfile extends React.Component {
               onChange={this.handleInput('bio')}
               />
 
-            <input className='edit-submit-btn' type='submit' value='Submit'/>
-            <p className='successful-save'>{this.state.successfulSaveText}</p>
+            <input className='edit-submit-btn'
+                   type='submit'
+                  value='Submit'/>
+            <p className='successful-save'>
+              {this.state.successfulSaveText}
+            </p>
           </div>
 
         </form>

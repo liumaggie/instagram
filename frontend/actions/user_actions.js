@@ -55,11 +55,3 @@ export const fetchUsers = (string) => dispatch => (
   UserApiUtil.fetchUsers(string)
              .then((users) => dispatch(receiveUsers(users)))
 );
-
-// export const fetchFollowersForUser = (userId, followers) => dispatch => (
-//   FollowApiUtil.fetchFollowsForUser(userId, followers).then((user) => dispatch(receiveUser(user)))
-// );
-//
-// export const fetchFollowingsForUser = (userId, followings) => dispatch => (
-//   FollowApiUtil.fetchFollowsForUser(userId, followings).then((user) => dispatch(receiveUser(user)))
-// );

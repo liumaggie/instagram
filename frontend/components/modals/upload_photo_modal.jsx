@@ -58,13 +58,16 @@ class UploadPhotoModal extends React.Component {
     formData.append("image[location]", this.state.location);
     this.props.createImage(formData, this.props.currentUser.id)
               .then(() => this.closeModal())
-              .then(() => this.props.router.push(`/users/${this.props.currentUser.id}`));
+              .then(() => this.props.router.push(
+                            `/users/${this.props.currentUser.id}`
+                          ));
   }
 
   render() {
     return (
       <div>
-        <i onClick={this.openModal} className="btn fa fa-cloud-upload"></i>
+        <i onClick={this.openModal}
+           className="btn fa fa-cloud-upload"></i>
         <Modal
           className="upload-photo-modal modal"
           isOpen={this.state.modalIsOpen}
@@ -77,14 +80,18 @@ class UploadPhotoModal extends React.Component {
             <li><strong>Upload Image</strong></li>
             <li>
               <form onSubmit={this.handleSubmit}>
-                <input className='file' type="file" onChange={this.updateFile} />
+                <input className='file'
+                       type="file"
+                       onChange={this.updateFile} />
                 <img src={this.state.imageUrl} />
                 <label>Caption
-                  <input type="text" onChange={this.handleInput("caption")} />
+                  <input type="text"
+                         onChange={this.handleInput("caption")} />
                 </label>
 
                 <label>Location
-                    <input type="text" onChange={this.handleInput("location")} />
+                    <input type="text"
+                           onChange={this.handleInput("location")} />
                 </label>
 
                 <input type="submit" />

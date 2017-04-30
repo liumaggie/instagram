@@ -3,8 +3,6 @@ import ImageHeaderDetail from './image_header_detail';
 import LikeContainer from '../likes/like_container';
 import CommentsContainer from '../comments/comments_container';
 import NewCommentContainer from '../comments/new_comment_container';
-import { merge } from 'lodash';
-import { withRouter } from 'react-router';
 
 class ImageIndexItem extends React.Component {
   render() {
@@ -42,8 +40,7 @@ class ImageIndexItem extends React.Component {
         </ul>
       </ul>
     );
-
   }
 }
 
-export default withRouter(ImageIndexItem);
+export default ImageIndexItem;

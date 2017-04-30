@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateUser, updateUserWithForm } from '../../actions/user_actions';
 import ProfilePhotoModal from './profile_photo_modal';
-import { closeModal } from '../../actions/modal_actions';
 
 const mapStateToProps = (state) => {
   return ({
@@ -13,7 +12,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return({
-    updateUserWithForm: (formData, id) => dispatch(updateUserWithForm(formData, id))
+    updateUserWithForm: (formData, id) =>
+      dispatch(updateUserWithForm(formData, id))
   });
 };
 

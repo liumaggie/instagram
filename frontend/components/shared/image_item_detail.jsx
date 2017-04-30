@@ -31,16 +31,18 @@ class ImageItemDetail extends React.Component {
   render() {
     if (this.props.imageFor === 'modal') {
       return <ImageDetailModal
-                image={ this.props.image }
-                imageLikesText= { this.imageLikesText() }
-                deleteButtonHidden={this.props.hidden}
-                deleteImage={this.props.deleteImage}
-                redirectToUserProfile = { this.redirectToUserProfile } />;
+              image={ this.props.image }
+              imageLikesText= { this.imageLikesText() }
+              deleteButtonHidden={this.props.hidden}
+              deleteImage={this.props.deleteImage}
+              redirectToUserProfile = { this.redirectToUserProfile }
+              />;
     } else {
       return <ImageIndexItem
-                image={ this.props.image }
-                imageLikesText= { this.imageLikesText() }
-                redirectToUserProfile = { this.redirectToUserProfile } />;
+              image={ this.props.image }
+              imageLikesText= { this.imageLikesText() }
+              redirectToUserProfile = { this.redirectToUserProfile }
+            />;
     }
   }
 }

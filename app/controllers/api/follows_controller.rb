@@ -45,7 +45,7 @@ class Api::FollowsController < ApplicationController
       end
       render "api/users/show"
     else
-      render json: ["Invalid un-follow"], status: 404
+      render json: ["Follow doesn't exist"], status: 404
     end
   end
 

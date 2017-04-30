@@ -9,19 +9,16 @@ const mapStateToProps = (state, nextProps) => {
   return({
     currentUser: state.session.currentUser,
     user: state.user,
-    forModal: nextProps.forModal,
-    hi: nextProps.hi
+    forModal: nextProps.forModal
   });
 };
 
 const mapDispatchToProps = (dispatch, nextProps) => {
   const makeFollow = nextProps.forModal ? createFollowForCurrentUser : createFollow;
   const removeFollow = nextProps.forModal ? deleteFollowForCurrentUser : deleteFollow;
-  const fetchTheUser = nextProps.forModal ? fetchCurrentUser : fetchUser;
   return({
     makeFollow: (follow, currentUser) => dispatch(makeFollow(follow, currentUser)),
     removeFollow: (id, currentUser) => dispatch(removeFollow(id, currentUser)),
-    fetchTheUser: (id) => dispatch(fetchTheUser(id)),
     fetchCurrentUser: (id) => dispatch(fetchCurrentUser(id)),
     fetchUser: (id) => dispatch(fetchUser(id))
   });

@@ -18,6 +18,7 @@ class FollowsModal extends React.Component {
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.getFollows = this.getFollows.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,14 +35,20 @@ class FollowsModal extends React.Component {
     this.setState({ modalIsOpen: false });
   }
 
+  getFollows(follows) {
+    return <p onClick={this.openModal}>{ follows }</p>;
+  }
+
   render() {
     let follows;
-    const headerText = this.props.totalFollowers ? 'Followers' : 'Following';
-    const followsArray = this.props.totalFollowers ? this.props.followers : this.props.followings;
+    const headerText =
+      this.props.totalFollowers ? 'Followers' : 'Following';
+    const followsArray = this.props.totalFollowers ?
+      this.props.followers : this.props.followings;
     if (this.props.totalFollowers) {
-      follows = <p onClick={this.openModal}>{ this.props.totalFollowers }</p>;
+      follows = this.getFollows(this.props.totalFollowers);
     } else {
-      follows = <p onClick={this.openModal}>{ this.props.totalFollowing }</p>;
+      follows = this.getFollows(this.props.totalFollowing);
     }
 
     return(

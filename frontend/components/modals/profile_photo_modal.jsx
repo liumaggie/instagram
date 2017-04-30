@@ -49,7 +49,9 @@ class ProfilePhotoModal extends React.Component {
   updateFile(e) {
     const file = e.target.files[0];
     const fileReader = new FileReader();
-    fileReader.onload = () => this.setState({ imageFile: file, imageUrl: fileReader.result });
+    fileReader.onload = () => this.setState(
+      { imageFile: file, imageUrl: fileReader.result }
+    );
 
     if (file) {
       fileReader.readAsDataURL(file);
@@ -69,7 +71,8 @@ class ProfilePhotoModal extends React.Component {
     if (this.state.isCurrentUser) {
       return (
         <div className='current-user-open-modal'>
-          <img onClick={this.openModal} src={ this.props.user.profile_pic_url } />
+          <img onClick={this.openModal}
+               src={ this.props.user.profile_pic_url } />
           <Modal
             className="profile-photo-modal modal"
             isOpen={this.state.modalIsOpen}

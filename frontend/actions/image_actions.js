@@ -65,21 +65,21 @@ export const deleteImage = id => dispatch => {
 };
 
 export const addLikeToImage = (like) => dispatch => (
-  LikeApiUtil.createLike(like).then((image) => dispatch(receiveImage(image)))
+  LikeApiUtil.createLike(like)
+             .then((image) => dispatch(receiveImage(image)))
 );
 
 export const deleteLikeFromImage = (id) => dispatch => (
-  LikeApiUtil.deleteLike(id).then((image) => dispatch(receiveImage(image)))
-);
-
-export const fetchLikesForImage = (imageId) => dispatch => (
-  LikeApiUtil.fetchLikesForImage(imageId).then((image) => dispatch(receiveImage(image)))
+  LikeApiUtil.deleteLike(id)
+             .then((image) => dispatch(receiveImage(image)))
 );
 
 export const addCommentToImage = (comment) => dispatch => (
-  CommentApiUtil.createComment(comment).then((image) => dispatch(receiveImage(image)))
+  CommentApiUtil.createComment(comment)
+                .then((image) => dispatch(receiveImage(image)))
 );
 
 export const deleteCommentFromImage = (id) => dispatch => (
-  CommentApiUtil.deleteComment(id).then((image) => dispatch(receiveImage(image)))
+  CommentApiUtil.deleteComment(id)
+                .then((image) => dispatch(receiveImage(image)))
 );

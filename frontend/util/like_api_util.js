@@ -12,10 +12,3 @@ export const deleteLike = (id) => {
     url: `api/likes/${id}`
   });
 };
-
-export const fetchLikesForImage = (imageId) => {
-  return $.ajax({
-    method: 'GET',
-    url: `api/images/${imageId}/likes`
-  });
-};

@@ -7,7 +7,8 @@ class ImageDetailModal extends React.Component {
   constructor(props) {
     super(props);
 
-    this.redirectToUserProfile = this.props.redirectToUserProfile.bind(this);
+    this.redirectToUserProfile =
+      this.props.redirectToUserProfile.bind(this);
   }
 
   render() {

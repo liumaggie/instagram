@@ -29,7 +29,8 @@ class NavBar extends React.Component {
         <header className='main-nav'>
 
           <div className='centered-nav'>
-            <nav className='left-nav' onClick={ this.redirectToHomePage }>
+            <nav className='left-nav'
+                 onClick={ this.redirectToHomePage }>
               <ul>
                 <li className='home-btn'>
                   <i className="fa fa-instagram"></i>
@@ -50,10 +51,12 @@ class NavBar extends React.Component {
                 </li>
 
                 <li>
-                  <i className="btn fa fa-user-o" onClick={ this.redirectToUserProfile }></i>
+                  <i className="btn fa fa-user-o"
+                    onClick={ this.redirectToUserProfile }></i>
                 </li>
 
-                <li className='logout-btn' onClick={ this.handleLogout }>
+                <li className='logout-btn'
+                    onClick={ this.handleLogout }>
                   <i className="btn fa fa-sign-out"></i>
                 </li>
 

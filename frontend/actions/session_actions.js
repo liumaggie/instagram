@@ -21,31 +21,39 @@ export const clearErrors = () => ({
 });
 
 export const signup = user => dispatch => (
-  SessionApiUtil.signup(user).then((newUser) => dispatch(receiveCurrentUser(newUser)),
-                                  (errs) => dispatch(receiveErrors(errs.responseJSON)))
+  SessionApiUtil.signup(user)
+                .then((newUser) => dispatch(receiveCurrentUser(newUser)),
+                      (errs) => dispatch(receiveErrors(errs.responseJSON)))
 );
 
 export const login = user => dispatch => (
-  SessionApiUtil.login(user).then((newUser) => dispatch(receiveCurrentUser(newUser)),
-                                  (errs) => dispatch(receiveErrors(errs.responseJSON)))
+  SessionApiUtil.login(user)
+                .then((newUser) => dispatch(receiveCurrentUser(newUser)),
+                      (errs) => dispatch(receiveErrors(errs.responseJSON)))
 );
 
 export const logout = () => dispatch => (
-  SessionApiUtil.logout().then(() => dispatch(receiveCurrentUser(null)))
+  SessionApiUtil.logout()
+                .then(() => dispatch(receiveCurrentUser(null)))
 );
 
 export const updateCurrentUser = (user) => dispatch => (
-  UserApiUtil.updateUser(user).then((user) => dispatch(receiveCurrentUser(user)))
+  UserApiUtil.updateUser(user)
+             .then((newUser) => dispatch(receiveCurrentUser(newUser)))
 );
 
-export const createFollowForCurrentUser = (follow, currentUser) => dispatch => (
-  FollowApiUtil.createFollow(follow, currentUser).then((user) => dispatch(receiveCurrentUser(user)))
+// creates follow from clicking on list of follows
+export const createFollowForCurrentUser = (follow, currentUser) =>
+  dispatch => (FollowApiUtil.createFollow(follow, currentUser)
+               .then((user) => dispatch(receiveCurrentUser(user)))
 );
 
-export const deleteFollowForCurrentUser = (id, currentUser) => dispatch => (
-  FollowApiUtil.deleteFollow(id, currentUser).then((user) => dispatch(receiveCurrentUser(user)))
+export const deleteFollowForCurrentUser = (id, currentUser) =>
+  dispatch => (FollowApiUtil.deleteFollow(id, currentUser)
+               .then((user) => dispatch(receiveCurrentUser(user)))
 );
 
 export const fetchCurrentUser = (id) => dispatch => (
-  UserApiUtil.fetchUser(id).then((user) => dispatch(receiveCurrentUser(user)))
-)
+  UserApiUtil.fetchUser(id)
+             .then((user) => dispatch(receiveCurrentUser(user)))
+);

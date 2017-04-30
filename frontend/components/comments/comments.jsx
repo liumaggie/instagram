@@ -15,7 +15,8 @@ class Comments extends React.Component {
               key={comment.id}
               comment={ comment }
               currentUser={this.props.currentUser}
-              deleteCommentFromImage={this.props.deleteCommentFromImage} />)
+              deleteCommentFromImage={this.props.deleteCommentFromImage}
+            />)
         }
       </ul>
     );

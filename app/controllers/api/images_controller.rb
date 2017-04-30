@@ -4,7 +4,9 @@ class Api::ImagesController < ApplicationController
       if params[:user_id]
         @images = User.find(params[:user_id])
                       .images
-                      .includes(:owner, comments: :author, likes: :liker)
+                      .includes(:owner,
+                                comments: :author,
+                                likes: :liker)
       elsif params[:limit]
         followees = User.find(params[:userId].to_i).followees
         # used to change array to active relation
@@ -16,7 +18,9 @@ class Api::ImagesController < ApplicationController
               .limit(params[:limit].to_i)
               .offset(params[:offset].to_i)
       else
-        @images = Image.includes(:owner, comments: :author, likes: :liker).all
+        @images = Image.includes(:owner,
+                                  comments: :author,
+                                  likes: :liker).all
       end
       render :index
     end
@@ -26,12 +30,13 @@ class Api::ImagesController < ApplicationController
       if @image.save
         render :show
       else
-        render( json: @image.errors.full_messages, status: 422)
+        render json: @image.errors.full_messages, status: 422
       end
     end
 
     def show
-      @image = Image.includes(comments: :author, likes: :liker).find(params[:id])
+      @image = Image.includes(comments: :author, likes: :liker)
+                    .find(params[:id])
       render :show
     end
 
@@ -40,16 +45,16 @@ class Api::ImagesController < ApplicationController
       if @image.update(image_params)
         render :show
       else
-        render( json: @image.errors.full_messages, status: 422)
+        render json: @image.errors.full_messages, status: 422
       end
     end
 
     def destroy
       @image = Image.find(params[:id])
       if @image.destroy!
-        render( json: ["Image successfully deleted"], status: 200)
+        render json: ["Image successfully deleted"], status: 200
       else
-        render( json: ["Image deletion failed"], status: 404)
+        render json: ["Image deletion failed"], status: 404
       end
     end
 

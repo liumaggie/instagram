@@ -19,14 +19,19 @@ class CommentItem extends React.Component {
   render() {
     let comment = this.props.comment;
     let currentUser = this.props.currentUser;
-    let hidden = (!currentUser || comment.author.id === currentUser.id) ? '' : 'hidden';
+    let hidden = (!currentUser ||
+                  comment.author.id === currentUser.id) ? '' : 'hidden';
     return(
       <li className='comment-item'>
         <article>
-          <strong className='username' onClick={this.redirectToUserProfile}>{ comment.author.username }</strong>
+          <strong className='username'
+                  onClick={this.redirectToUserProfile}>
+                    { comment.author.username }
+          </strong>
           { ' ' + comment.body }
         </article>
-        <i className={`fa fa-times ${hidden}`} onClick={this.deleteComment}></i>
+        <i className={`fa fa-times ${hidden}`}
+            onClick={this.deleteComment}></i>
       </li>
     );
   }

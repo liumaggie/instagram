@@ -4,7 +4,11 @@ import SearchItem from './search_item';
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { body: '', showResults: false, user: this.props.user };
+    this.state = {
+      body: '',
+      showResults: false,
+      user: this.props.user
+    };
 
     this.handleInput = this.handleInput.bind(this);
     this.handleUsers = this.handleUsers.bind(this);
