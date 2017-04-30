@@ -25,7 +25,7 @@ Images on the home page are rendered in the `ImageIndex` component which shows a
 
 <!-- ![ImageIndexItem](https://github.com/liumaggie/instagram/blob/master/app/assets/images/image_index_item.png) -->
 
-<img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/image_index_item.png" alt="ImageIndexItem" width="30%" height="auto">
+<img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/image_index_item.png" alt="ImageIndexItem" width="50%" height="auto">
 
 These images load by infinite scroll, where an AJAX call is made for additional images to render when the bottom of the page is reached. The images are then prefetched using the data passed into `params` from the AJAX call as shown below:
 
@@ -49,7 +49,7 @@ The user profile page is rendered by the `UserProfile` component with subcompone
 
 <!-- ![UserImage](https://github.com/liumaggie/instagram/blob/master/app/assets/images/image-modal.png) -->
 
-<img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/image-modal.png" alt="UserImageModal" width="30%" height="auto">
+<img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/image-modal.png" alt="UserImageModal" width="50%" height="auto">
 
 
 A `Search` component on the `NavBar` allows search for existing users. As the user types in the search bar, a list of users matching the input are fetched from the database through an AJAX call.
@@ -63,7 +63,7 @@ Comments are also stored through an associated joined `comments` table which con
 Likes and comments are rendered on the frontend based on the `images` slice of state since creating and destroying likes and comments alters the image's. There is a `Like` and `Comment` component rendered for each image stored.
 
 <!-- ![LikeComments](https://github.com/liumaggie/instagram/blob/master/app/assets/images/like-comments.png) -->
-<img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/like-comments.png" alt="LikeComments" width="15%" height="auto">
+<img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/like-comments.png" alt="LikeComments" width="50%" height="auto">
 
 ### Follows
 
@@ -72,7 +72,7 @@ Follows, similar to comments and likes, are also stored through an associated jo
 There is a `session` slice of state storing the current user as well as a `user` slice of state storing the user we are looking at, from either on the user's profile page or on the list of follows. A `FollowButton` component is rendered based on whether or not the current user is following the respective user.
 
 <!-- ![Followers](https://github.com/liumaggie/instagram/blob/master/app/assets/images/followers-list.png) -->
-<img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/followers-list.png" alt="Followers" width="20%" height="auto">
+<img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/followers-list.png" alt="Followers" width="50%" height="auto">
 
 ## Future Directions for the Project
 
