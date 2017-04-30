@@ -1,7 +1,7 @@
 import React from 'react';
 import ImageItemDetail from '../shared/image_item_detail';
 
-class ImageIndexInfinite extends React.Component {
+class ImageIndex extends React.Component {
   constructor(props) {
     super(props);
 
@@ -94,4 +94,4 @@ class ImageIndexInfinite extends React.Component {
 }
 }
 
-export default ImageIndexInfinite;
+export default ImageIndex;

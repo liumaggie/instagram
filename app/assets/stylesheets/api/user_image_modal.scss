@@ -28,7 +28,6 @@
   height: 100%;
 }
 
-// need to set this height same as neighbor
 .right-details {
   width: 50%;
   height: auto;
@@ -80,6 +79,10 @@
 
 .caption-comments-scroll > li:last-child > ul > li {
   margin-bottom: 8px;
+}
+
+.image-modal-details > ul:last-child > li:last-child {
+  margin-top: 7px;
 }
 
 @media (min-width: 1000px) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchNumOfImages, removeAllImages } from '../../actions/image_actions';
-import ImageIndexInfinite from './image_index_infinite';
+import ImageIndex from './image_index';
 import { asArrayReversed } from '../../reducers/selectors';
 
 const mapStateToProps = (state) => {
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ImageIndexInfinite);
+export default connect(mapStateToProps, mapDispatchToProps)(ImageIndex);
