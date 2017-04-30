@@ -45,7 +45,7 @@ Users are also stored in the database through a `users` table. They can edit the
 
 The user profile page is rendered by the `UserProfile` component with subcomponents of `UserProfileDetail`, displaying the number of posts, followers and following and `UserImages`, displaying images uploaded by the user and a modal when an image is clicked.
 
-<img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/image-modal.png" alt="UserImageModal" width="70%" height="auto">
+<img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/image-modal.png" alt="UserImageModal" width="80%" height="auto">
 
 
 A `Search` component on the `NavBar` allows search for existing users. As the user types in the search bar, a list of users matching the input are fetched from the database through an AJAX call.
@@ -56,7 +56,7 @@ Likes are stored in the database through an associated join `likes` table which 
 
 Comments are also stored through an associated joined `comments` table which contains the columns, `author_id` and `image_id`. These are used to reference the person who commented on the image and the image that is being commented on, respectively.
 
-Likes and comments are rendered on the frontend based on the `images` slice of state since creating and destroying likes and comments alters the image's. There is a `Like` and `Comment` component rendered for each image stored.
+Likes and comments are rendered on the frontend with a `Like` component and a `Comment` component based on the `images` slice of state since creating and destroying likes and comments alters the images rendered.
 
 <img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/like-comments.png" alt="LikeComments" width="50%" height="auto">
 
