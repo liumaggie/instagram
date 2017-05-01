@@ -47,7 +47,6 @@ The user profile page is rendered by the `UserProfile` component with subcompone
 
 <img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/image-modal.png" alt="UserImageModal" width="80%" height="auto">
 
-
 A `Search` component on the `NavBar` allows search for existing users. As the user types in the search bar, a list of users matching the input are fetched from the database through an AJAX call.
 
 ### Likes and Comments
@@ -56,7 +55,7 @@ Likes are stored in the database through an associated join `likes` table which 
 
 Comments are also stored through an associated joined `comments` table which contains the columns, `author_id` and `image_id`. These are used to reference the person who commented on the image and the image that is being commented on, respectively.
 
-Likes and comments are rendered on the frontend with a `Like` component and a `Comment` component based on the `images` slice of state since creating and destroying likes and comments alters the images rendered.
+Likes and comments are rendered on the frontend with a `Like` component and a `Comment` component based on the `images` slice of state since creating and destroying likes and comments alters the image details that are associated with it.
 
 <img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/like-comments.png" alt="LikeComments" width="50%" height="auto">
 
@@ -64,7 +63,7 @@ Likes and comments are rendered on the frontend with a `Like` component and a `C
 
 Follows, similar to comments and likes, are also stored through an associated joined `follows` table which contains the columns, `follower_id` and `followee_id`. This is used to reference the follower and the followee.
 
-There is a `session` slice of state storing the current user as well as a `user` slice of state storing the user we are looking at, from either on the user's profile page or on the list of follows. A `FollowButton` component is rendered based on whether or not the current user is following the respective user.
+There is a `session` slice of state storing the current user as well as a `user` slice of state storing the user we are looking at, from either the user's profile page or the list of follows. These slices of state are updated whenever the current user creates or destroys a follow. A `FollowButton` component is rendered based on whether or not the current user is following the respective user.
 
 <img src="https://github.com/liumaggie/instagram/blob/master/app/assets/images/followers-list.png" alt="Followers" width="70%" height="auto">
 
