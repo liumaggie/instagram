@@ -1,3 +1,7 @@
+.ReactModal__Body--open {
+  overflow-y: hidden;
+}
+
 .modal {
   background: $white;
   width: 45%;

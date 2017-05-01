@@ -48,7 +48,7 @@ class UserImageModal extends React.Component {
     }
     return(
       <div>
-        <div>
+        <div className='user-image-item'>
           <img onClick={this.openModal} src={ image.img_path } />
         </div>
 
@@ -65,6 +65,7 @@ class UserImageModal extends React.Component {
               <img src={ image.img_path } />
             </div>
 
+            
             <div className='right-details'>
               <section className='username-pic-modal'>
                 <ul>
