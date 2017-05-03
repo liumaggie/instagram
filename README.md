@@ -1,6 +1,6 @@
 # Instapups
 
-[Instapups live](https://www.instapups.herokuapp.com)
+[Instapups live](https://instapups.maggieliu.me)
 
 Instapups is a web application inspired by Instagram for people to post photos of their puppies and check out photos of friends and other users.
 
