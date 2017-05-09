@@ -29,10 +29,12 @@
 
 .user-dropdown {
   background-color: $white;
-  width: 100%;
+  width: 200px;
   box-shadow: 0 0 1em $lightest-gray;
   border: 1px solid $lightest-gray;
   margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .search-item {
@@ -42,6 +44,8 @@
   padding: 15px;
   font-size: 14px;
   font-weight: bold;
+  width: 100%;
+  word-break: break-all;
 }
 
 .user-dropdown > li:hover {
