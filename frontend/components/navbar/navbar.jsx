@@ -32,8 +32,8 @@ class NavBar extends React.Component {
             <nav className='left-nav'
                  onClick={ this.redirectToHomePage }>
               <ul>
-                <li className='home-btn'>
-                  <i className="fa fa-instagram"></i>
+                <li className='logo'>
+                  <img src={ window.images.logo } />
                 </li>
 
                 <li><hr className='vertical'/></li>
