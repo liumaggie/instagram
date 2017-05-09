@@ -63,24 +63,21 @@ class FollowButton extends React.Component {
 
   removeFollow(e) {
     this.setState({ following: 'unfollowing' });
-    setTimeout(() => {
-      this.props.fetchCurrentUser(this.props.currentUser.id)
-        .then(() => this.findFollowId())
-        .then(() => this.props.removeFollow(this.state.followId, true))
-        .then(() => this.setState({ following: 'unfollowed' }));
-    }, 500);
+
+    this.props.fetchCurrentUser(this.props.currentUser.id)
+      .then(() => this.findFollowId())
+      .then(() => this.props.removeFollow(this.state.followId, true))
+      .then(() => this.setState({ following: 'unfollowed' }));
   }
 
   createFollow(e) {
     this.setState({ following: 'following' });
-    setTimeout(() => {
-      let followee = (this.props.forModal ?
-        this.props.follow.id : this.props.user.id);
-      this.props.makeFollow({
-        follower_id: this.props.currentUser.id,
-        followee_id: followee
-      }, true).then(() => this.setState({ following: 'followed'}));
-    }, 500);
+    let followee = (this.props.forModal ?
+      this.props.follow.id : this.props.user.id);
+    this.props.makeFollow({
+      follower_id: this.props.currentUser.id,
+      followee_id: followee
+    }, true).then(() => this.setState({ following: 'followed'}));
   }
 
   render() {
