@@ -9,6 +9,7 @@
   justify-content: space-between;
   align-items: center;
   width: 70%;
+  background-color: white;
   margin: 0 auto;
 }
 
@@ -53,4 +54,16 @@ h2 {
 .logo {
   width: 50px;
   height: 50px;
+}
+
+@media screen and (max-width: 620px) {
+  .centered-nav {
+    width: 720px;
+    border-bottom: 1px solid $lightest-gray;
+  }
+
+  .main-nav {
+    border-bottom: 0px;
+  }
+
 }
