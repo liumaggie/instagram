@@ -1,0 +1,18 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  margin: 0 auto;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #003569;
+  font-weight: bold;
+  font-family: arial;
+  padding: 30px;
+}
+
+footer > ul {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+}
