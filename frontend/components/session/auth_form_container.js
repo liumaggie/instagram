@@ -1,5 +1,5 @@
 import React from 'react';
-import { login, signup, clearErrors } from '../../actions/session_actions';
+import { login, signup, clearErrors, createFollowForCurrentUser } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 import AuthForm from './auth_form';
 
