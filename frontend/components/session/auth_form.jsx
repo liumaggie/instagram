@@ -1,6 +1,7 @@
 import React from 'react';
 import { merge } from 'lodash';
 import { Link } from 'react-router';
+import Footer from '../footer/footer';
 
 class AuthForm extends React.Component {
   constructor(props) {
@@ -60,60 +61,64 @@ class AuthForm extends React.Component {
     let description = this.checkIfLogIn() ?
       '' : 'Sign up to see photos of puppies from your friends!';
     return(
-      <div className='auth-full-page'>
-        <div className='phone-img'>
-          <img src={ window.images.authPhoto } />
-        </div>
+      <div>
+        <div className='auth-full-page'>
+          <div className='phone-img'>
+            <img src={ window.images.authPhoto } />
+          </div>
 
-        <section className='right-container'>
+          <section className='right-container'>
 
-          <div className='auth-container'>
-            <h1>Instapups</h1>
-            <h3>{ description }</h3>
-            <button onClick={ this.handleDemo }>Demo Login</button>
+            <div className='auth-container'>
+              <h1>Instapups</h1>
+              <h3>{ description }</h3>
+              <button onClick={ this.handleDemo }>Demo Login</button>
 
-            <div className='or-container'>
-              <hr className='horizontal'/>
-              <p>OR</p>
-              <hr className='horizontal'/>
-            </div>
-            <form className='auth-form'
-              onSubmit={ this.handleSubmit }>
+              <div className='or-container'>
+                <hr className='horizontal'/>
+                <p>OR</p>
+                <hr className='horizontal'/>
+              </div>
+              <form className='auth-form'
+                onSubmit={ this.handleSubmit }>
 
-              <input
-                type='text'
-                placeholder='Username'
-                onChange={ this.handleInput('username') }
-                value={ this.state.username }
-                />
+                <input
+                  type='text'
+                  placeholder='Username'
+                  onChange={ this.handleInput('username') }
+                  value={ this.state.username }
+                  />
 
-              <input
-                type='password'
-                placeholder='Password'
-                onChange={ this.handleInput('password') }
-                value={ this.state.password } />
+                <input
+                  type='password'
+                  placeholder='Password'
+                  onChange={ this.handleInput('password') }
+                  value={ this.state.password } />
 
-              <input type='submit' value={formType} />
+                <input type='submit' value={formType} />
 
-              <div className='errors'>
-                <ul>
-                  { this.props.errors.map((error) =>
-                    <li key={error}>{ error }</li>)
+                <div className='errors'>
+                  <ul>
+                    { this.props.errors.map((error) =>
+                      <li key={error}>{ error }</li>)
                     }
                   </ul>
                 </div>
 
-              </form>
-            </div>
+                </form>
+              </div>
 
-            <div className='switch-auth'>
-              <p>{alternateText}
-                <Link to={alternatePath}
-                  className='link'>{ alternateLink }</Link>
-              </p>
-            </div>
+              <div className='switch-auth'>
+                <p>{alternateText}
+                  <Link to={alternatePath}
+                    className='link'>{ alternateLink }</Link>
+                </p>
+              </div>
 
-          </section>
+            </section>
+          </div>
+
+          <Footer />
       </div>
     );
   }
