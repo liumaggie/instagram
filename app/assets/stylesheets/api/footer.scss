@@ -16,3 +16,7 @@ footer > ul {
   width: 200px;
   justify-content: space-between;
 }
+
+.footer > li > a:hover {
+  color: $blue;
+}
