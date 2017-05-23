@@ -19,6 +19,7 @@ class FollowsModal extends React.Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.getFollows = this.getFollows.bind(this);
+    this.checkIfCurrentUserFollows = this.checkIfCurrentUserFollows.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -37,6 +38,16 @@ class FollowsModal extends React.Component {
 
   getFollows(follows) {
     return <p onClick={this.openModal}>{ follows }</p>;
+  }
+
+  checkIfCurrentUserFollows(userId) {
+    let followings = this.props.currentUser.followings;
+    for (let i=0; i < followings.length; i++) {
+      if (followings[i].id === userId) {
+        return true;
+      }
+    }
+    return false;
   }
 
   render() {
@@ -69,6 +80,7 @@ class FollowsModal extends React.Component {
                   <FollowItem
                     key={follow.id}
                     follow={follow}
+                    followboolean={this.checkIfCurrentUserFollows(follow.id)}
                     fetchUser={this.props.fetchUser}
                     modalIsOpen={this.state.modalIsOpen}
                   />)

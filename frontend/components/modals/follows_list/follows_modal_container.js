@@ -7,7 +7,8 @@ export const mapStateToProps = (state) => {
   return {
     followers: state.user.followers,
     followings: state.user.followings,
-    user: state.user
+    user: state.user,
+    currentUser: state.session.currentUser
   };
 };
 
