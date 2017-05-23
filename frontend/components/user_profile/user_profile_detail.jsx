@@ -11,6 +11,7 @@ class UserProfileDetail extends React.Component {
     this.linkToEditPage = this.linkToEditPage.bind(this);
     this.calculateTotal = this.calculateTotal.bind(this);
     this.editOrFollowButton = this.editOrFollowButton.bind(this);
+    this.checkIfCurrentUserFollows = this.checkIfCurrentUserFollows.bind(this);
   }
 
   linkToEditPage() {
@@ -25,11 +26,21 @@ class UserProfileDetail extends React.Component {
     }
   }
 
+  checkIfCurrentUserFollows() {
+    let followings = this.props.currentUser.followings;
+    for (let i=0; i < followings.length; i++) {
+      if (followings[i].id === this.props.user.id) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   editOrFollowButton() {
     const user = this.props.user;
     const currentUser = this.props.currentUser;
     if (!currentUser || currentUser.id !== user.id) {
-      return <FollowButtonContainer hi={'yes'} forModal={false}/>;
+      return <FollowButtonContainer forModal={false} followboolean={this.checkIfCurrentUserFollows()}/>;
     } else {
       return (
         <button
