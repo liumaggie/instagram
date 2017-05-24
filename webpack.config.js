@@ -1,5 +1,5 @@
-// const webpack = require('webpack');
-// const prod = process.argv.indexOf('-p') !== -1;
+const webpack = require('webpack');
+const prod = process.argv.indexOf('-p') !== -1;
 
 module.exports = {
   context: __dirname,
@@ -10,14 +10,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '*']
   },
-  // plugins: [
-  //   new webpack.DefinePlugin({
-  //     'process.env': {
-  //       NODE_ENV: JSON.stringify('production')
-  //     }
-  //   }),
-  //   new webpack.optimize.UglifyJsPlugin()
-  // ],
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin()
+  ],
   module: {
     loaders: [
       {
