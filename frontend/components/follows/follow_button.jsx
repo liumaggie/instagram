@@ -14,12 +14,6 @@ class FollowButton extends React.Component {
     this.findFollowId = this.findFollowId.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.params.id !== nextProps.params.id) {
-      this.props.fetchUser(nextProps.params.id);
-    }
-  }
-
   findFollowId() {
     const userId =
       (this.props.follow ? this.props.follow.id : this.props.user.id);
@@ -31,12 +25,6 @@ class FollowButton extends React.Component {
           this.setState({ followId: following.follow_id });
         }
     });
-  }
-
-  componentWillMount() {
-    if (this.props.currentUser) {
-      this.props.fetchUser(this.props.user.id);
-    }
   }
 
   removeFollow(e) {
