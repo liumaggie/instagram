@@ -62,14 +62,15 @@ class Search extends React.Component {
   }
 
   height() {
+    const cellHeight = 65;
     if (this.props.users.length === 1) {
-      return 65;
+      return cellHeight;
     } else if (this.props.users.length === 2) {
-      return 130;
+      return cellHeight*2;
     } else if (this.props.users.length === 3) {
-      return 200;
+      return cellHeight*3;
     } else {
-      return 250;
+      return cellHeight*4;
     }
   }
 
