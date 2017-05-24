@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import FollowsModal from './follows_modal';
 import { fetchUser } from '../../../actions/user_actions';
+import { fetchCurrentUser } from '../../../actions/session_actions';
 
 export const mapStateToProps = (state) => {
   return {
@@ -14,7 +15,8 @@ export const mapStateToProps = (state) => {
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUser: (id) => dispatch(fetchUser(id))
+    fetchUser: (id) => dispatch(fetchUser(id)),
+    fetchCurrentUser: (id) => dispatch(fetchCurrentUser(id))
   };
 };
 

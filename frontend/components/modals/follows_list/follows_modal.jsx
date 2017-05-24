@@ -28,6 +28,10 @@ class FollowsModal extends React.Component {
     }
   }
 
+  componentWillMount() {
+    this.props.fetchCurrentUser(this.props.currentUser.id);
+  }
+
   openModal() {
     this.setState({ modalIsOpen: true });
   }
