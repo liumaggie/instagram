@@ -19,10 +19,6 @@ class UserProfileDetail extends React.Component {
     this.props.router.push(`/users/${this.props.user.id}/edit`);
   }
 
-  componentWillMount() {
-    this.props.fetchUser(this.props.user.id);
-  }
-
   calculateTotal(count, name) {
     if (count <= 1) {
       return `${count} ${name}`;

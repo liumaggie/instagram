@@ -10,9 +10,7 @@ class FollowItem extends React.Component {
   }
 
   redirectToUserProfile() {
-    this.props.fetchUser(this.props.follow.id).then(() => {
-      this.props.router.push(`/users/${this.props.follow.id}`);
-    });
+    this.props.router.push(`/users/${this.props.follow.id}`);
   }
 
   render() {
