@@ -4,7 +4,6 @@ import { fetchUser } from '../../actions/user_actions';
 import { asArrayReversed } from '../../reducers/selectors';
 import { connect } from 'react-redux';
 import UserProfile from './user_profile';
-import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => {
   return({
@@ -22,4 +21,4 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserProfile));
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

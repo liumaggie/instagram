@@ -2,7 +2,6 @@ import React from 'react';
 import UserProfileDetail from './user_profile_detail';
 import UserImages from './user_images';
 import Footer from '../footer/footer';
-import { withRouter } from 'react-router';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -58,4 +57,4 @@ class UserProfile extends React.Component {
   }
 }
 
-export default withRouter(UserProfile);
+export default UserProfile;
