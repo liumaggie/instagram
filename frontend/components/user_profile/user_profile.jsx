@@ -22,6 +22,7 @@ class UserProfile extends React.Component {
 
   componentWillUnmount() {
     this.props.removeAllImages();
+    this.props.removeUser();
   }
 
   fetchUserAndImages(props) {
