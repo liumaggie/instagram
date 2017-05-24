@@ -7,12 +7,15 @@ class Search extends React.Component {
     this.state = {
       body: '',
       showResults: false,
-      user: this.props.user
+      user: this.props.user,
+      hidden: ''
     };
 
     this.handleInput = this.handleInput.bind(this);
     this.handleUsers = this.handleUsers.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.checkUsersLength = this.checkUsersLength.bind(this);
+    this.height = this.height.bind(this);
   }
 
   handleClick(e) {
@@ -35,12 +38,21 @@ class Search extends React.Component {
     }
   }
 
+  checkUsersLength() {
+    if (this.props.users.length > 0) {
+      this.setState({ showResults: true });
+    } else {
+      this.setState({ showResults: false });
+    }
+  }
+
   handleUsers() {
     if (this.state.body === '') {
       this.props.removeUsers();
+      this.setState({ showResults: false });
     } else {
       this.props.fetchUsers(this.state.body)
-                .then(() => this.setState({ showResults: true }));
+                .then(() => this.checkUsersLength());
     }
   }
 
@@ -49,11 +61,24 @@ class Search extends React.Component {
                   () => this.handleUsers());
   }
 
+  height() {
+    if (this.props.users.length === 1) {
+      return 65;
+    } else if (this.props.users.length === 2) {
+      return 130;
+    } else if (this.props.users.length === 3) {
+      return 200;
+    } else {
+      return 250;
+    }
+  }
+
   render() {
     let show = '';
+    let height = this.height();
     if (this.state.showResults) {
       show = (
-        <ul className='user-dropdown'>
+        <ul className='user-dropdown' style={{height: height}}>
           { this.props.users.map((user) =>
           <SearchItem key={user.id} user={user}/>)}
         </ul>
