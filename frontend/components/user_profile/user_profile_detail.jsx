@@ -28,10 +28,12 @@ class UserProfileDetail extends React.Component {
   }
 
   checkIfCurrentUserFollows(userId) {
-    let followings = this.props.currentUser.followings;
-    for (let i=0; i < followings.length; i++) {
-      if (followings[i].id === userId) {
-        return true;
+    if (this.props.currentUser) {
+      let followings = this.props.currentUser.followings;
+      for (let i=0; i < followings.length; i++) {
+        if (followings[i].id === userId) {
+          return true;
+        }
       }
     }
     return false;
