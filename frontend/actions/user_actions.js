@@ -4,7 +4,6 @@ import * as FollowApiUtil from '../util/follow_api_util';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USERS = 'RECEIVE_USERS';
 export const REMOVE_USERS = 'REMOVE_USERS';
-export const REMOVE_USER = 'REMOVE_USER';
 
 export const receiveUser = (user) => {
   return({
@@ -23,12 +22,6 @@ export const receiveUsers = (users) => {
 export const removeUsers = () => {
   return ({
     type: REMOVE_USERS
-  });
-};
-
-export const removeUser = () => {
-  return ({
-    type: REMOVE_USER
   });
 };
 
@@ -55,7 +48,7 @@ export const createFollow = (follow) => dispatch => (
 export const deleteFollow = (id) => dispatch => {
   return(FollowApiUtil.deleteFollow(id)
                   .then((user) => dispatch(receiveUser(user)))
-)};
+);};
 
 
 export const fetchUsers = (string) => dispatch => (

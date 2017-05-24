@@ -8,7 +8,6 @@ class FollowButton extends React.Component {
 
     this.state = {
       following,
-      loading: true,
       followId: null };
     this.removeFollow = this.removeFollow.bind(this);
     this.createFollow = this.createFollow.bind(this);
@@ -17,8 +16,7 @@ class FollowButton extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.params.id !== nextProps.params.id) {
-      this.props.fetchUser(nextProps.params.id)
-                .then(() => this.props.fetchCurrentUser(nextProps.currentUser.id));
+      this.props.fetchUser(nextProps.params.id);
     }
   }
 
@@ -36,14 +34,8 @@ class FollowButton extends React.Component {
   }
 
   componentWillMount() {
-    const user = (
-      this.props.forModal ? this.props.currentUser : this.props.user
-    );
-
     if (this.props.currentUser) {
-      this.props.fetchUser(this.props.user.id)
-                .then(() => this.props.fetchCurrentUser(this.props.currentUser.id))
-                .then(() => console.log(this.props.user.username))
+      this.props.fetchUser(this.props.user.id);
     }
   }
 
@@ -58,13 +50,14 @@ class FollowButton extends React.Component {
   }
 
   createFollow(e) {
-    this.setState({ following: 'following' });
-    let followee = (this.props.forModal ?
-      this.props.follow.id : this.props.user.id);
-    this.props.makeFollow({
-      follower_id: this.props.currentUser.id,
-      followee_id: followee
-    }, true).then(() => this.setState({ following: 'followed'}));
+    this.setState({ following: 'following' }, () => {
+      let followee = (this.props.forModal ?
+        this.props.follow.id : this.props.user.id);
+        this.props.makeFollow({
+          follower_id: this.props.currentUser.id,
+          followee_id: followee
+        }, true).then(() => this.setState({ following: 'followed'}));
+    });
   }
 
   render() {
@@ -73,43 +66,20 @@ class FollowButton extends React.Component {
     let hidden = (!this.props.currentUser ||
        (this.props.currentUser.id === user) ? 'hidden' : '');
     if (this.state.following === 'followed') {
-      return <button className={`unfollow-btn ${hidden}`} onClick={this.removeFollow}>Following</button>
+      return <button className={`unfollow-btn ${hidden}`}
+                    onClick={this.removeFollow}>Following
+              </button>;
+    } else if (this.state.following === 'unfollowed') {
+      return <button className={`follow-btn ${hidden}`}
+                    onClick={this.createFollow}>Follow
+              </button>;
     } else {
-      return <button className={`follow-btn ${hidden}`} onClick={this.createFollow}>Follow</button>
+      return <button disabled className='unfollowing'>
+        <i className="fa fa-spinner fa-spin"></i>
+      </button>;
     }
   }
-  // render() {
-  //   let user = this.props.forModal ?
-  //     this.props.follow.id : this.props.user.id;
-  //   let hidden = (!this.props.currentUser ||
-  //     (this.props.currentUser.id === user) ? 'hidden' : '');
-  //   if (this.state.loading) {
-  //     return <button disabled
-  //                    className={'unfollowing'}>
-  //               <i className="fa fa-spinner fa-spin"></i>
-  //             </button>;
-  //   } else {
-  //     if (this.state.following === 'followed') {
-  //       return(
-  //         <button className={`unfollow-btn ${hidden}`}
-  //                 onClick={this.removeFollow}>Following</button>
-  //       );
-  //     } else if (this.state.following === 'unfollowing') {
-  //       return <button disabled className={'unfollowing'}>
-  //                 <i className="fa fa-spinner fa-spin"></i>
-  //              </button>;
-  //     } else if (this.state.following === 'following') {
-  //       return <button disabled className={'following'}>
-  //               <i className="fa fa-spinner fa-spin"></i>
-  //              </button>;
-  //     } else {
-  //       return(
-  //         <button className={`follow-btn ${hidden}`}
-  //                 onClick={this.createFollow}>Follow</button>
-  //       );
-  //     }
-  //   }
-  // }
+
 }
 
 export default FollowButton;

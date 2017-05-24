@@ -21,7 +21,10 @@ class FollowItem extends React.Component {
           <img src={ follow.profile_pic_url } />
           <strong>{ follow.username }</strong>
         </li>
-        <FollowButtonContainer follow={follow} followboolean={this.props.followboolean} forModal={true}/>
+        <FollowButtonContainer
+          follow={follow}
+          followboolean={this.props.followboolean}
+          forModal={true}/>
       </ul>
     );
   }
