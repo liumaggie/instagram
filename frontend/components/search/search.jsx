@@ -7,8 +7,7 @@ class Search extends React.Component {
     this.state = {
       body: '',
       showResults: false,
-      user: this.props.user,
-      hidden: ''
+      user: this.props.user
     };
 
     this.handleInput = this.handleInput.bind(this);
