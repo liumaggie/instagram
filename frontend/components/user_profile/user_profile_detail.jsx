@@ -26,10 +26,10 @@ class UserProfileDetail extends React.Component {
     }
   }
 
-  checkIfCurrentUserFollows() {
+  checkIfCurrentUserFollows(userId) {
     let followings = this.props.currentUser.followings;
     for (let i=0; i < followings.length; i++) {
-      if (followings[i].id === this.props.user.id) {
+      if (followings[i].id === userId) {
         return true;
       }
     }
@@ -40,7 +40,10 @@ class UserProfileDetail extends React.Component {
     const user = this.props.user;
     const currentUser = this.props.currentUser;
     if (!currentUser || currentUser.id !== user.id) {
-      return <FollowButtonContainer forModal={false} followboolean={this.checkIfCurrentUserFollows()}/>;
+      return <FollowButtonContainer
+                forModal={false}
+                followboolean={this.checkIfCurrentUserFollows(user.id)}
+                username={user}/>;
     } else {
       return (
         <button
@@ -51,7 +54,6 @@ class UserProfileDetail extends React.Component {
 
   render() {
     const user = this.props.user;
-
     return(
       <div className='user-profile-detail'>
         <ProfilePhotoModalContainer />

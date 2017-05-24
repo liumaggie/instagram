@@ -70,7 +70,7 @@ class FollowsModal extends React.Component {
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
           style={customStyles}
-          contentLabel="Profile Photo Modal"
+          contentLabel="Follows Modal"
         >
           <div className='follows'>
             <h3>{ headerText }</h3>

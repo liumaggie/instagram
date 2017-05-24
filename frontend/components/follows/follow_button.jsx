@@ -1,38 +1,24 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class FollowButton extends React.Component {
   constructor(props) {
     super(props);
     let following = this.props.followboolean ? 'followed' : 'unfollowed';
+
     this.state = {
       following,
       loading: true,
       followId: null };
     this.removeFollow = this.removeFollow.bind(this);
     this.createFollow = this.createFollow.bind(this);
-    // this.checkIfCurrentUserFollows =
-    //   this.checkIfCurrentUserFollows.bind(this);
     this.findFollowId = this.findFollowId.bind(this);
-
   }
-
-  // checkIfCurrentUserFollows() {
-  //   let userId = this.props.forModal ?
-  //     this.props.follow.id : this.props.user.id;
-  //   this.setState({ following: 'unfollowed'}, () => {
-  //     this.props.currentUser.followings.forEach(
-  //       (following) => {
-  //         if (following.id === userId) {
-  //           this.setState({ following: 'followed', loading: false });
-  //         }
-  //       });
-  //   });
-  // }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.params.id !== nextProps.params.id) {
       this.props.fetchUser(nextProps.params.id)
-                .then(() => this.props.fetchCurrentUser(this.props.currentUser.id));
+                .then(() => this.props.fetchCurrentUser(nextProps.currentUser.id));
     }
   }
 
@@ -49,7 +35,7 @@ class FollowButton extends React.Component {
     });
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const user = (
       this.props.forModal ? this.props.currentUser : this.props.user
     );
@@ -57,8 +43,7 @@ class FollowButton extends React.Component {
     if (this.props.currentUser) {
       this.props.fetchUser(this.props.user.id)
                 .then(() => this.props.fetchCurrentUser(this.props.currentUser.id))
-                // .then(() => this.checkIfCurrentUserFollows())
-                .then(() => this.setState({ loading: false }));
+                .then(() => console.log(this.props.user.username))
     }
   }
 

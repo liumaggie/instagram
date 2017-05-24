@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { push } from 'react-router-redux';
 
 class SearchItem extends React.Component {
   constructor(props) {
