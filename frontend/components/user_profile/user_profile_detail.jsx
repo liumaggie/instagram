@@ -11,7 +11,8 @@ class UserProfileDetail extends React.Component {
     this.linkToEditPage = this.linkToEditPage.bind(this);
     this.calculateTotal = this.calculateTotal.bind(this);
     this.editOrFollowButton = this.editOrFollowButton.bind(this);
-    this.checkIfCurrentUserFollows = this.checkIfCurrentUserFollows.bind(this);
+    this.checkIfCurrentUserFollows =
+      this.checkIfCurrentUserFollows.bind(this);
   }
 
   linkToEditPage() {
