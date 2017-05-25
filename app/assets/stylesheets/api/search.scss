@@ -30,10 +30,11 @@
 
 .user-dropdown {
   background-color: $white;
-  width: 200px;
+  width: 220px;
   box-shadow: 0 0 1em $lightest-gray;
   border: 1px solid $lightest-gray;
   margin-top: 10px;
+  left: -8px;
   display: flex;
   flex-wrap: wrap;
   overflow: auto;
@@ -53,4 +54,19 @@
 .user-dropdown > li:hover {
   background-color: $light-gray;
   cursor: pointer;
+}
+
+.arrow-up {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 45%;
+    top: 100%;
+    z-index: 5;
+    margin-top: 0px;
+    border-width: 0px 10px 10px 10px;
+    border-style: solid;
+    border-color: $lightest-gray transparent;
+    // border: 1px solid $lightest-gray;
 }

@@ -78,10 +78,13 @@ class Search extends React.Component {
     let height = this.height();
     if (this.state.showResults) {
       show = (
-        <ul className='user-dropdown' style={{height: height}}>
-          { this.props.users.map((user) =>
-          <SearchItem key={user.id} user={user}/>)}
-        </ul>
+        <div>
+          <div className='arrow-up'></div>
+          <ul className='user-dropdown' style={{height: height}}>
+            { this.props.users.map((user) =>
+              <SearchItem key={user.id} user={user}/>)}
+          </ul>
+        </div>
       );
     }
 
