@@ -38,6 +38,7 @@ gem 'paperclip', '~> 5.0.0.beta1'
 gem 'figaro'
 gem 'aws-sdk', '>= 2.0'
 gem 'faker'
+gem 'tickle_engine', path: "/Users/maggieliu/Documents/policygenius"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

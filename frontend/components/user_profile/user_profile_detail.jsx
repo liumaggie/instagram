@@ -80,7 +80,7 @@ class UserProfileDetail extends React.Component {
                 totalFollowing={ `${user.followings.length} following`}
                 /></li>
           </ul>
-          <p className='bio'>{ user.bio }</p>
+          <p className='bio'>{ user.cost }</p>
         </div>
       </div>
     );
