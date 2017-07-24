@@ -28,7 +28,7 @@ class ImageIndexItem extends React.Component {
             { ' ' } { image.caption}
           </li>
 
-          <li><CommentsContainer comments={ image.comments }/></li>
+          <li><CommentsContainer comments={ image.comments } imageId={ image.id }/></li>
 
           <ul className='add-like-comment'>
             <li className='heart'><LikeContainer image={image}/></li>
