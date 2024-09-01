@@ -1626,7 +1626,7 @@ GEM
     execjs (2.9.1)
     faker (2.22.0)
       i18n (>= 1.8.11, < 2)
-    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0)
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     globalid (1.1.0)
@@ -1672,6 +1672,8 @@ GEM
       net-protocol
     nio4r (2.7.3)
     nokogiri (1.13.10-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.10-x86_64-linux)
       racc (~> 1.4)
     paperclip (5.0.0)
       activemodel (>= 4.2.0)
@@ -1766,6 +1768,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   annotate
