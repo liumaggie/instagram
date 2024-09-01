@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'rails_12factor'
 
-gem 'paperclip', '~> 5.0.0.beta1'
+gem 'paperclip', '~> 5.0.0'
 gem 'figaro'
 gem 'aws-sdk', '>= 2.0'
 gem 'faker'
