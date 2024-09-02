@@ -16,88 +16,88 @@ user1 = User.create(username: "ilovepuppies",
                     password: "password",
                     bio: "Hi :) I love traveling and bringing my puppy with me everywhere I go!",
                     prof_image: File.open("app/assets/images/puppy13.jpg"))
-user2 = User.create(username: Faker::Pokemon.name,
+user2 = User.create(username: Faker::Games::Pokemon.name,
                     password: "password",
                     prof_image: File.open("app/assets/images/puppy2.jpg",
                     bio: "Hello world!"))
-user3 = User.create(username: Faker::Pokemon.unique.name,
-                    password: "password", bio: Faker::StarWars.unique.quote)
-user4= User.create(username: Faker::Pokemon.unique.name,
+user3 = User.create(username: Faker::Games::Pokemon.unique.name,
+                    password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user4= User.create(username: Faker::Games::Pokemon.unique.name,
                     password: "password",
-                    bio: Faker::StarWars.unique.quote,
+                    bio: Faker::Movies::StarWars.unique.quote,
                     prof_image: File.open("app/assets/images/puppy20.jpg"))
-user5 = User.create(username: Faker::Pokemon.unique.name,
-                    password: "password", bio: Faker::StarWars.unique.quote)
-user6 = User.create(username: Faker::Pokemon.unique.name,
+user5 = User.create(username: Faker::Games::Pokemon.unique.name,
+                    password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user6 = User.create(username: Faker::Games::Pokemon.unique.name,
                     password: "password",
-                    bio: Faker::StarWars.unique.quote,
+                    bio: Faker::Movies::StarWars.unique.quote,
                     prof_image: File.open("app/assets/images/puppy15.jpg"))
-user7 = User.create(username: Faker::Pokemon.unique.name,
-                    password: "password", bio: Faker::StarWars.unique.quote,
+user7 = User.create(username: Faker::Games::Pokemon.unique.name,
+                    password: "password", bio: Faker::Movies::StarWars.unique.quote,
                     prof_image: File.open("app/assets/images/puppy10.jpg"))
-user8 = User.create(username: Faker::Pokemon.unique.name,
-                    password: "password", bio: Faker::StarWars.unique.quote,
+user8 = User.create(username: Faker::Games::Pokemon.unique.name,
+                    password: "password", bio: Faker::Movies::StarWars.unique.quote,
                     prof_image: File.open("app/assets/images/puppy6.jpg"))
-user9 = User.create(username: Faker::Pokemon.unique.name,
-                    password: "password", bio: Faker::StarWars.unique.quote,
+user9 = User.create(username: Faker::Games::Pokemon.unique.name,
+                    password: "password", bio: Faker::Movies::StarWars.unique.quote,
                     prof_image: File.open("app/assets/images/puppy18.jpg"))
-user10 = User.create(username: Faker::Pokemon.unique.name,
-                    password: "password", bio: Faker::StarWars.unique.quote,
+user10 = User.create(username: Faker::Games::Pokemon.unique.name,
+                    password: "password", bio: Faker::Movies::StarWars.unique.quote,
                     prof_image: File.open("app/assets/images/puppy.jpg"))
-user11 = User.create(username: Faker::Pokemon.unique.name,
-                    password: "password", bio: Faker::StarWars.unique.quote,
+user11 = User.create(username: Faker::Games::Pokemon.unique.name,
+                    password: "password", bio: Faker::Movies::StarWars.unique.quote,
                     prof_image: File.open("app/assets/images/puppy4.jpg"))
-user22 = User.create(username: Faker::Pokemon.unique.name,
+user22 = User.create(username: Faker::Games::Pokemon.unique.name,
         password: "password",
         bio: "Hi :) I love traveling and bringing my puppy with me everywhere I go!",
         prof_image: File.open("app/assets/images/puppy15.jpg"))
-user12 = User.create(username: Faker::Pokemon.name,
+user12 = User.create(username: Faker::Games::Pokemon.name,
         password: "password",
         prof_image: File.open("app/assets/images/puppy34.jpg",
         bio: "Hello world!"))
-user13 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote)
-user14= User.create(username: Faker::Pokemon.unique.name,
+user13 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user14= User.create(username: Faker::Games::Pokemon.unique.name,
         password: "password",
-        bio: Faker::StarWars.unique.quote,
+        bio: Faker::Movies::StarWars.unique.quote,
         prof_image: File.open("app/assets/images/puppy51.jpg"))
-user15 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote)
-user16 = User.create(username: Faker::Pokemon.unique.name,
+user15 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user16 = User.create(username: Faker::Games::Pokemon.unique.name,
         password: "password",
-        bio: Faker::StarWars.unique.quote,
+        bio: Faker::Movies::StarWars.unique.quote,
         prof_image: File.open("app/assets/images/puppy28.jpg"))
-user17 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote,
+user17 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote,
         prof_image: File.open("app/assets/images/puppy32.jpg"))
-user18 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote,
+user18 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote,
         prof_image: File.open("app/assets/images/puppy46.jpg"))
-user19 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote,
+user19 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote,
         prof_image: File.open("app/assets/images/puppy50.jpg"))
-user20 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote,
+user20 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote,
         prof_image: File.open("app/assets/images/puppy45.jpg"))
-user21 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote,
+user21 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote,
         prof_image: File.open("app/assets/images/puppy39.jpg"))
-user22 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote)
-user23 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote)
-user24 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote)
-user25 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote)
-user26 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote)
-user27 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote)
-user28 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote)
-user29 = User.create(username: Faker::Pokemon.unique.name,
-        password: "password", bio: Faker::StarWars.unique.quote)
+user22 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user23 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user24 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user25 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user26 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user27 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user28 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote)
+user29 = User.create(username: Faker::Games::Pokemon.unique.name,
+        password: "password", bio: Faker::Movies::StarWars.unique.quote)
 
 image1 = Image.create(
                 image: File.open("app/assets/images/puppy.jpg"),
@@ -283,32 +283,32 @@ Comment.create(body: "She's adorable!",
 Comment.create(body: "Let's hangout some time!",
               author_id: user2.id,
               image_id: image2.id)
-Comment.create(body: Faker::StarWars.wookie_sentence,
+Comment.create(body: Faker::Movies::StarWars.wookie_sentence,
               author_id: user2.id,
               image_id: image6.id)
 Comment.create(body: "The puppy is soo cute!",
               author_id: user4.id,
               image_id: image18.id)
-Comment.create(body: Faker::StarWars.wookie_sentence,
+Comment.create(body: Faker::Movies::StarWars.wookie_sentence,
               author_id: user8.id,
               image_id: image20.id)
 Comment.create(body: "The puppy is soo cute!", author_id: user10.id, image_id: image17.id)
-Comment.create(body: Faker::StarWars.wookie_sentence, author_id: user8.id, image_id: image15.id)
+Comment.create(body: Faker::Movies::StarWars.wookie_sentence, author_id: user8.id, image_id: image15.id)
 Comment.create(body: "The puppy is soo cute!", author_id: user4.id, image_id: image15.id)
-Comment.create(body: Faker::StarWars.wookie_sentence, author_id: user3.id, image_id: image20.id)
+Comment.create(body: Faker::Movies::StarWars.wookie_sentence, author_id: user3.id, image_id: image20.id)
 Comment.create(body: "The puppy is soo cute!", author_id: user2.id, image_id: image24.id)
-Comment.create(body: Faker::StarWars.wookie_sentence, author_id: user6.id, image_id: image26.id)
+Comment.create(body: Faker::Movies::StarWars.wookie_sentence, author_id: user6.id, image_id: image26.id)
 Comment.create(body: "The puppy is soo cute!", author_id: user5.id, image_id: image14.id)
-Comment.create(body: Faker::StarWars.wookie_sentence, author_id: user15.id, image_id: image2.id)
+Comment.create(body: Faker::Movies::StarWars.wookie_sentence, author_id: user15.id, image_id: image2.id)
 Comment.create(body: Faker::Hacker.say_something_smart, author_id: user10.id, image_id: image3.id)
-Comment.create(body: Faker::StarWars.wookie_sentence, author_id: user19.id, image_id: image4.id)
+Comment.create(body: Faker::Movies::StarWars.wookie_sentence, author_id: user19.id, image_id: image4.id)
 Comment.create(body: Faker::Hacker.say_something_smart, author_id: user20.id, image_id: image5.id)
-Comment.create(body: Faker::StarWars.wookie_sentence, author_id: user21.id, image_id: image6.id)
+Comment.create(body: Faker::Movies::StarWars.wookie_sentence, author_id: user21.id, image_id: image6.id)
 Comment.create(body: Faker::Hacker.say_something_smart, author_id: user22.id, image_id: image2.id)
-Comment.create(body: Faker::StarWars.wookie_sentence, author_id: user13.id, image_id: image22.id)
+Comment.create(body: Faker::Movies::StarWars.wookie_sentence, author_id: user13.id, image_id: image22.id)
 Comment.create(body: Faker::Hacker.say_something_smart, author_id: user14.id, image_id: image8.id)
 Comment.create(body: Faker::Hacker.say_something_smart, author_id: user16.id, image_id: image15.id)
-Comment.create(body: Faker::StarWars.wookie_sentence, author_id: user9.id, image_id: image22.id)
+Comment.create(body: Faker::Movies::StarWars.wookie_sentence, author_id: user9.id, image_id: image22.id)
 Comment.create(body: "The puppy is soo cute!",
               author_id: user1.id,
               image_id: image2.id)
