@@ -109,11 +109,12 @@ button:active, input[type=submit]:active {
 }
 
 hr.horizontal {
+  border-top: 1px solid $gray;
   width: 100px;
-  height: 100%;
 }
 
 div.or-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
